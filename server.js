@@ -135,7 +135,7 @@ const MOCK_TOOLS = [
   {
     id: "mock_8",
     Name: "Resend",
-    Category: "12. Grow",
+    Category: "11. Grow",
     OneLiner: "Email API built for developers. Beautiful transactional emails with zero config.",
     TimeSaved: "12h",
     Pricing: "Free tier",

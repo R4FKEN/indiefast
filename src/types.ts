@@ -22,8 +22,7 @@ export type Category =
   | "8. Ship"
   | "9. Monetize"
   | "10. Measure"
-  | "11. Launch"
-  | "12. Grow"
+  | "11. Grow"
 
 export type GrowSubtopic =
   | "Retain"
