@@ -4,7 +4,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_1",
     Name: "ShipFast",
-    Category: "Starter Kits",
+    Category: "6. Build",
     OneLiner: "Next.js boilerplate with auth, payments, and SEO baked in. Ship in days, not weeks.",
     TimeSaved: "40h",
     Pricing: "One-time $199",
@@ -15,7 +15,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_2",
     Name: "v0.dev",
-    Category: "AI Code Gen",
+    Category: "6. Build",
     OneLiner: "AI-powered UI generation. Describe your component, get production-ready code.",
     TimeSaved: "15h",
     Pricing: "Free tier",
@@ -26,7 +26,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_3",
     Name: "Tailwind UI",
-    Category: "Rapid UI",
+    Category: "5. Design",
     OneLiner: "Professionally designed, pre-built components. Drop-in and ship.",
     TimeSaved: "25h",
     Pricing: "$299 lifetime",
@@ -37,7 +37,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_4",
     Name: "Supabase",
-    Category: "Plug-and-Play Backend",
+    Category: "7. Backend",
     OneLiner: "Open source Firebase alternative. Postgres, Auth, Storage, Realtime in one click.",
     TimeSaved: "60h",
     Pricing: "Free tier",
@@ -48,7 +48,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_5",
     Name: "Stripe",
-    Category: "Instant Payments",
+    Category: "9. Monetize",
     OneLiner: "The payments infrastructure for the internet. Accept payments in minutes.",
     TimeSaved: "30h",
     Pricing: "2.9% + 30c",
@@ -59,7 +59,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_6",
     Name: "Cursor",
-    Category: "AI Code Gen",
+    Category: "6. Build",
     OneLiner: "AI-first code editor. Write, edit, and debug code at the speed of thought.",
     TimeSaved: "20h",
     Pricing: "$20/mo",
@@ -70,7 +70,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_7",
     Name: "Plausible",
-    Category: "Growth Engines",
+    Category: "10. Measure",
     OneLiner: "Lightweight, privacy-first analytics. No cookies, no consent banners.",
     TimeSaved: "10h",
     Pricing: "$9/mo",
@@ -81,7 +81,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_8",
     Name: "Resend",
-    Category: "Growth Engines",
+    Category: "12. Grow",
     OneLiner: "Email API built for developers. Beautiful transactional emails with zero config.",
     TimeSaved: "12h",
     Pricing: "Free tier",
@@ -92,7 +92,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_9",
     Name: "Lemon Squeezy",
-    Category: "Instant Payments",
+    Category: "9. Monetize",
     OneLiner: "Merchant of record for SaaS. Subscriptions, taxes, and compliance handled.",
     TimeSaved: "50h",
     Pricing: "5% + 50c",
@@ -103,7 +103,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_10",
     Name: "Shadcn/UI",
-    Category: "Rapid UI",
+    Category: "5. Design",
     OneLiner: "Copy-paste component library. Own your code, customize everything.",
     TimeSaved: "20h",
     Pricing: "Free",
@@ -114,7 +114,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_11",
     Name: "Railway",
-    Category: "Plug-and-Play Backend",
+    Category: "7. Backend",
     OneLiner: "Deploy anything. Databases, APIs, cron jobs. Zero config infrastructure.",
     TimeSaved: "35h",
     Pricing: "Usage-based",
@@ -125,7 +125,7 @@ export const MOCK_TOOLS: Tool[] = [
   {
     id: "mock_12",
     Name: "Makerkit",
-    Category: "Starter Kits",
+    Category: "6. Build",
     OneLiner: "Production-ready SaaS starter with multi-tenancy, billing, and admin panel.",
     TimeSaved: "80h",
     Pricing: "$299",

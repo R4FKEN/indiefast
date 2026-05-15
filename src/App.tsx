@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
-import type { Tool, Category } from "./types"
+import type { Tool, Category, GrowSubtopic } from "./types"
 import { fetchTools } from "./api"
 import { Header } from "./components/Header"
 import { FilterBar } from "./components/FilterBar"
@@ -12,6 +12,7 @@ function App() {
   const [tools, setTools] = useState<Tool[]>([])
   const [loading, setLoading] = useState(true)
   const [activeCategory, setActiveCategory] = useState<Category>("All")
+  const [activeSubtopic, setActiveSubtopic] = useState<GrowSubtopic | null>(null)
   const [stack, setStack] = useState<Tool[]>([])
 
   useEffect(() => {
@@ -43,7 +44,12 @@ function App() {
     <Box bg="#FFFDF7" minH="100dvh">
       <Box maxW="7xl" mx="auto" px={{ base: "4", md: "6", lg: "8" }} py="10">
         <Header />
-        <FilterBar active={activeCategory} onChange={setActiveCategory} />
+        <FilterBar
+          active={activeCategory}
+          onChange={setActiveCategory}
+          activeSubtopic={activeSubtopic}
+          onSubtopicChange={setActiveSubtopic}
+        />
         <ToolGrid
           tools={sortedTools}
           loading={loading}
