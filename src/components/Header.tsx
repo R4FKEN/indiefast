@@ -7,8 +7,8 @@ export function Header() {
         <Image
           src="/indiefast-logo-nobg-500x500.png"
           alt="indiefa.st logo"
-          w="10"
-          h="10"
+          w="13"
+          h="13"
         />
         <Heading
           fontSize="3xl"
