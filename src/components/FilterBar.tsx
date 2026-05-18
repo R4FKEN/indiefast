@@ -127,7 +127,45 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
         })}
       </Flex>
       {showGrowSubtopics && (
-        <Flex gap="2" flexWrap="wrap" pt="1" pl="2" borderLeft="3px solid" borderColor="#98FB98">
+        <Flex gap="2" flexWrap="wrap" pt="1" pl="2" alignItems="center" borderLeft="3px solid" borderColor="#98FB98">
+          <Box
+            fontSize="xs"
+            fontWeight="bold"
+            color="#2d8a2d"
+            bg="#d4ffd4"
+            px="2"
+            py="0.5"
+            borderRadius="sm"
+            lineHeight="tall"
+          >
+            Grow
+          </Box>
+          <Button
+            size="xs"
+            variant="outline"
+            bg={activeSubtopic === null ? "#98FB98" : "white"}
+            color="#1a1a1a"
+            border="2px solid"
+            borderColor="#1a1a1a"
+            borderRadius="sm"
+            fontWeight="semibold"
+            fontSize="xs"
+            px="3"
+            boxShadow={activeSubtopic === null ? "2px 2px 0px #1a1a1a" : "none"}
+            _hover={{
+              bg: activeSubtopic === null ? "#98FB98" : "gray.50",
+              transform: "translate(-1px, -1px)",
+              boxShadow: "3px 3px 0px #1a1a1a",
+            }}
+            transition="all 0.1s"
+            onClick={() => {
+              if (onSubtopicChange) {
+                onSubtopicChange(null)
+              }
+            }}
+          >
+            All
+          </Button>
           {GROW_SUBTOPICS.map((sub) => {
             const isActive = activeSubtopic === sub
             return (
