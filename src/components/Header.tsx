@@ -3,12 +3,12 @@ import { Box, Flex, Text, Heading, Image } from "@chakra-ui/react"
 export function Header() {
   return (
     <Box mb="10">
-      <Flex alignItems="center" gap="3" mb="4">
+      <Flex alignItems="center" gap="1" mb="4">
         <Image
           src="/indiefast-logo-nobg-500x500.png"
           alt="indiefa.st logo"
-          w="52px"
-          h="52px"
+          w="64px"
+          h="64px"
           flexShrink="0"
           objectFit="contain"
         />
