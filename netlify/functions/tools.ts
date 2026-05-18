@@ -12,6 +12,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://shipfa.st",
     Discount: "20% off",
     Featured: true,
+    Subtopic: "",
   },
   {
     id: "mock_2",
@@ -23,6 +24,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://v0.dev",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_3",
@@ -34,6 +36,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://tailwindui.com",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_4",
@@ -45,6 +48,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://supabase.com",
     Discount: "",
     Featured: true,
+    Subtopic: "",
   },
   {
     id: "mock_5",
@@ -56,6 +60,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://stripe.com",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_6",
@@ -67,6 +72,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://cursor.com",
     Discount: "Free trial",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_7",
@@ -78,6 +84,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://plausible.io",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_8",
@@ -89,6 +96,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://resend.com",
     Discount: "",
     Featured: false,
+    Subtopic: "Distribution",
   },
   {
     id: "mock_9",
@@ -100,6 +108,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://lemonsqueezy.com",
     Discount: "10% off first year",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_10",
@@ -111,6 +120,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://ui.shadcn.com",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_11",
@@ -122,6 +132,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://railway.app",
     Discount: "$5 credit",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_12",
@@ -133,6 +144,7 @@ const MOCK_TOOLS = [
     AffiliateURL: "https://makerkit.dev",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
 ]
 
@@ -171,6 +183,7 @@ export default async function handler(_req: Request, _context: Context) {
       AffiliateURL: record.get("AffiliateURL") || "",
       Discount: record.get("Discount") || "",
       Featured: record.get("Featured") || false,
+      Subtopic: record.get("Subtopic") || "",
     }))
 
     return new Response(JSON.stringify({ tools, source: "airtable" }), { headers })

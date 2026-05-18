@@ -30,9 +30,10 @@ function App() {
     })
   }, [])
 
-  const filteredTools = activeCategory === "All"
+  const filteredTools = (activeCategory === "All"
     ? tools
     : tools.filter((t) => t.Category === activeCategory)
+  ).filter((t) => !activeSubtopic || t.Subtopic === activeSubtopic)
 
   const sortedTools = [...filteredTools].sort((a, b) => {
     if (a.Featured && !b.Featured) return -1

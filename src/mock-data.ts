@@ -11,6 +11,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://shipfa.st",
     Discount: "20% off",
     Featured: true,
+    Subtopic: "",
   },
   {
     id: "mock_2",
@@ -22,6 +23,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://v0.dev",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_3",
@@ -33,6 +35,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://tailwindui.com",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_4",
@@ -44,6 +47,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://supabase.com",
     Discount: "",
     Featured: true,
+    Subtopic: "",
   },
   {
     id: "mock_5",
@@ -55,6 +59,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://stripe.com",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_6",
@@ -66,6 +71,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://cursor.com",
     Discount: "Free trial",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_7",
@@ -77,6 +83,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://plausible.io",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_8",
@@ -88,6 +95,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://resend.com",
     Discount: "",
     Featured: false,
+    Subtopic: "Distribution",
   },
   {
     id: "mock_9",
@@ -99,6 +107,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://lemonsqueezy.com",
     Discount: "10% off first year",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_10",
@@ -110,6 +119,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://ui.shadcn.com",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_11",
@@ -121,6 +131,7 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://railway.app",
     Discount: "$5 credit",
     Featured: false,
+    Subtopic: "",
   },
   {
     id: "mock_12",
@@ -132,5 +143,6 @@ export const MOCK_TOOLS: Tool[] = [
     AffiliateURL: "https://makerkit.dev",
     Discount: "",
     Featured: false,
+    Subtopic: "",
   },
 ]

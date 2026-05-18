@@ -241,6 +241,7 @@ app.get("/api/tools", async (_req, res) => {
       AffiliateURL: record.get("AffiliateURL") || "",
       Discount: record.get("Discount") || "",
       Featured: record.get("Featured") || false,
+      Subtopic: record.get("Subtopic") || "",
     }))
 
     // Update server cache

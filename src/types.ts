@@ -8,6 +8,7 @@ export interface Tool {
   AffiliateURL: string
   Discount: string
   Featured: boolean
+  Subtopic: string
 }
 
 export type Category =
