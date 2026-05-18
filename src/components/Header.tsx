@@ -7,8 +7,10 @@ export function Header() {
         <Image
           src="/indiefast-logo-nobg-500x500.png"
           alt="indiefa.st logo"
-          w="13"
-          h="13"
+          w="52px"
+          h="52px"
+          flexShrink="0"
+          objectFit="contain"
         />
         <Heading
           fontSize="3xl"
