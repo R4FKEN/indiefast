@@ -30,7 +30,7 @@ export function Header() {
         fontWeight="medium"
       >
         The curated, hyper-efficient software toolkit for modern builders.
-        Zero bloat. Maximum velocity.
+        Zero bloat. Maximum velocity. Highest discounts.
       </Text>
     </Box>
   )
