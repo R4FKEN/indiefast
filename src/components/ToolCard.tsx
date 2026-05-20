@@ -1,15 +1,19 @@
 import { Box, Flex, Text, Badge, Button, Icon } from "@chakra-ui/react"
 import { LuClock, LuExternalLink, LuPlus, LuCheck } from "react-icons/lu"
-import type { Tool } from "../types"
-import type { Category } from "../types"
+import type { Tool, Category } from "../types"
 
 const CATEGORY_COLORS: Record<string, string> = {
-  "Starter Kits": "#FF6B6B",
-  "Rapid UI": "#4ECDC4",
-  "Plug-and-Play Backend": "#FFE66D",
-  "Instant Payments": "#FF8ED4",
-  "AI Code Gen": "#C3B1E1",
-  "Growth Engines": "#95E1D3",
+  "1. Discover": "#FF6B6B",
+  "2. Research": "#FF8C42",
+  "3. Validate": "#FFE66D",
+  "4. Plan": "#95E1D3",
+  "5. Design": "#4ECDC4",
+  "6. Build": "#45B7D1",
+  "7. Backend": "#74B9FF",
+  "8. Ship": "#A8E6CF",
+  "9. Monetize": "#FF8ED4",
+  "10. Measure": "#DDA0DD",
+  "11. Grow": "#98FB98",
 }
 
 interface ToolCardProps {
@@ -80,9 +84,27 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           <Text fontWeight="bold" fontSize="sm" color="#1a1a1a" lineClamp={1}>
             {tool.Name}
           </Text>
-          <Text fontSize="2xs" color="#888" fontWeight="medium">
-            {tool.Category}
-          </Text>
+          <Flex alignItems="center" gap="1.5" flexWrap="wrap">
+            <Text fontSize="2xs" color="#888" fontWeight="medium">
+              {tool.Category}
+            </Text>
+            {tool.SecondCategory && (
+              <Flex
+                alignItems="center"
+                bg={`${CATEGORY_COLORS[tool.SecondCategory] || "#e5e5e5"}20`}
+                border="1.5px solid"
+                borderColor={CATEGORY_COLORS[tool.SecondCategory] || "#ccc"}
+                borderRadius="sm"
+                px="1.5"
+                py="0"
+                lineHeight="1"
+              >
+                <Text fontSize="2xs" fontWeight="semibold" color="#555">
+                  {tool.SecondCategory}
+                </Text>
+              </Flex>
+            )}
+          </Flex>
         </Box>
       </Flex>
 

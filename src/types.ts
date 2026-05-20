@@ -2,6 +2,7 @@ export interface Tool {
   id: string
   Name: string
   Category: string
+  SecondCategory: string
   OneLiner: string
   TimeSaved: string
   Pricing: string

@@ -32,7 +32,7 @@ function App() {
 
   const filteredTools = (activeCategory === "All"
     ? tools
-    : tools.filter((t) => t.Category === activeCategory)
+    : tools.filter((t) => t.Category === activeCategory || t.SecondCategory === activeCategory)
   ).filter((t) => !activeSubtopic || t.Subtopic === activeSubtopic)
 
   const sortedTools = [...filteredTools].sort((a, b) => {
