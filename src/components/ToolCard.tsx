@@ -59,7 +59,7 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           py="0.5"
           letterSpacing="wider"
         >
-          SPONSORED
+          FEATURED
         </Badge>
       )}
 
