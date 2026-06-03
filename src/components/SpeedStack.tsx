@@ -1,8 +1,9 @@
 import { Box, Flex, Text, Button, Icon } from "@chakra-ui/react"
 import { Tooltip } from "@/components/ui/tooltip"
-import { LuX, LuCopy, LuCopyCheck } from "react-icons/lu"
+import { LuX, LuDownload, LuCheck } from "react-icons/lu"
 import { useState, useEffect, useRef } from "react"
 import type { Tool } from "../types"
+import { exportStackToPdf } from "../utils/exportPdf"
 
 interface SpeedStackProps {
   stack: Tool[]
@@ -11,7 +12,8 @@ interface SpeedStackProps {
 }
 
 export function SpeedStack({ stack, onRemove, onClose }: SpeedStackProps) {
-  const [copied, setCopied] = useState(false)
+  const [exported, setExported] = useState(false)
+  const [exporting, setExporting] = useState(false)
   const [closed, setClosed] = useState(false)
   const prevLengthRef = useRef(stack.length)
 
@@ -24,15 +26,18 @@ export function SpeedStack({ stack, onRemove, onClose }: SpeedStackProps) {
 
   if (stack.length === 0 || closed) return null
 
-  const exportText = stack
-    .map((t) => `${t.Name} — ${t.Category} — ${t.AffiliateURL}`)
-    .join("\n")
-
-  function handleCopy() {
-    navigator.clipboard.writeText(exportText).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    })
+  async function handleExport() {
+    if (exporting) return
+    setExporting(true)
+    try {
+      await exportStackToPdf(stack)
+      setExported(true)
+      setTimeout(() => setExported(false), 2000)
+    } catch (err) {
+      console.error("[indiefa.st] PDF export failed", err)
+    } finally {
+      setExporting(false)
+    }
   }
 
   return (
@@ -109,19 +114,20 @@ export function SpeedStack({ stack, onRemove, onClose }: SpeedStackProps) {
         <Flex alignItems="center" gap="2" flexShrink={0}>
           <Button
             size="xs"
-            bg={copied ? "#4ECDC4" : "#1a1a1a"}
+            bg={exported ? "#4ECDC4" : "#1a1a1a"}
             color="white"
             border="2px solid"
             borderColor="#1a1a1a"
             borderRadius="sm"
             fontWeight="bold"
-            _hover={{ bg: copied ? "#3dbdb5" : "#333" }}
-            onClick={handleCopy}
+            _hover={{ bg: exported ? "#3dbdb5" : "#333" }}
+            onClick={handleExport}
+            disabled={exporting}
           >
             <Icon boxSize="3.5">
-              {copied ? <LuCopyCheck /> : <LuCopy />}
+              {exported ? <LuCheck /> : <LuDownload />}
             </Icon>
-            {copied ? "Copied!" : "Export"}
+            {exported ? "Downloaded!" : exporting ? "Exporting..." : "Export"}
           </Button>
           <Tooltip content="Close" openDelay={200} closeDelay={100}>
             <Box
