@@ -84,10 +84,21 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           <Text fontWeight="bold" fontSize="sm" color="#1a1a1a" lineClamp={1}>
             {tool.Name}
           </Text>
-          <Flex alignItems="center" gap="1.5" flexWrap="wrap">
-            <Text fontSize="2xs" color="#888" fontWeight="medium">
-              {tool.Category}
-            </Text>
+          <Flex alignItems="center" gap="1.5" flexWrap="wrap" mt="0.5">
+            <Flex
+              alignItems="center"
+              bg={CATEGORY_COLORS[tool.Category] || "#e5e5e5"}
+              border="1.5px solid"
+              borderColor="#1a1a1a"
+              borderRadius="sm"
+              px="1.5"
+              py="0"
+              lineHeight="1"
+            >
+              <Text fontSize="2xs" fontWeight="bold" color="#1a1a1a">
+                {tool.Category}
+              </Text>
+            </Flex>
             {tool.SecondCategory && (
               <Flex
                 alignItems="center"
