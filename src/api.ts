@@ -1,7 +1,7 @@
 import type { Tool } from "./types"
 import { MOCK_TOOLS } from "./mock-data"
 
-const CACHE_KEY = "indiefst_tools"
+const CACHE_KEY = "indiefst_tools_v2"
 const CACHE_TTL = 5 * 60 * 1000
 
 interface CachedData {
