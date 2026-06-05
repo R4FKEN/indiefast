@@ -27,6 +27,7 @@ Deno.serve(async (req: Request) => {
 
     do {
       const url = new URL(`https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Tools`)
+      url.searchParams.set("view", "Grid view")
       if (offset) url.searchParams.set("offset", offset)
 
       const res = await fetch(url.toString(), {
@@ -47,10 +48,14 @@ Deno.serve(async (req: Request) => {
       id: record.id,
       Name: record.fields["Name"] ?? "",
       Category: record.fields["Category"] ?? "",
+      SecondCategory: record.fields["SecondCategory"] ?? "",
       OneLiner: record.fields["OneLiner"] ?? "",
       TimeSaved: record.fields["TimeSaved"] ?? "",
       Pricing: record.fields["Pricing"] ?? "",
+      AffiliateURL: record.fields["AffiliateURL"] ?? "",
       Discount: record.fields["Discount"] ?? "",
+      Featured: record.fields["Featured"] ?? false,
+      Subtopic: record.fields["Subtopic"] ?? "",
     }))
 
     return new Response(

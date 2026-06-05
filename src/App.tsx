@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
-import type { Tool, Category } from "./types"
+import type { Tool, Category, GrowSubtopic } from "./types"
 import { fetchTools } from "./api"
 import { Header } from "./components/Header"
 import { FilterBar } from "./components/FilterBar"
@@ -12,6 +12,7 @@ function App() {
   const [tools, setTools] = useState<Tool[]>([])
   const [loading, setLoading] = useState(true)
   const [activeCategory, setActiveCategory] = useState<Category>("All")
+  const [activeSubtopic, setActiveSubtopic] = useState<GrowSubtopic | null>(null)
   const [stack, setStack] = useState<Tool[]>([])
 
   useEffect(() => {
@@ -29,9 +30,16 @@ function App() {
     })
   }, [])
 
-  const filteredTools = activeCategory === "All"
+  const filteredTools = (activeCategory === "All"
     ? tools
-    : tools.filter((t) => t.Category === activeCategory)
+    : tools.filter((t) => t.Category === activeCategory || t.SecondCategory === activeCategory)
+  ).filter((t) => !activeSubtopic || t.Subtopic === activeSubtopic)
+
+  const sortedTools = [...filteredTools].sort((a, b) => {
+    if (a.Featured && !b.Featured) return -1
+    if (!a.Featured && b.Featured) return 1
+    return 0
+  })
 
   return (
     <Box bg="#FFFDF7" minH="100dvh">
@@ -40,9 +48,11 @@ function App() {
         <FilterBar
           active={activeCategory}
           onChange={setActiveCategory}
+          activeSubtopic={activeSubtopic}
+          onSubtopicChange={setActiveSubtopic}
         />
         <ToolGrid
-          tools={filteredTools}
+          tools={sortedTools}
           loading={loading}
           stack={stack}
           onToggleStack={toggleStack}
