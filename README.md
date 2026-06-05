@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# indiefa.st
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The curated, hyper-efficient software toolkit for modern builders. Zero bloat. Maximum velocity. Highest discounts.
 
-Currently, two official plugins are available:
+## Architecture
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend**: React + Vite + Chakra UI v3
+- **Data source**: Airtable (Tools table)
+- **Hosting**: Netlify (static build + serverless functions)
+- **Analytics**: Ahrefs Web Analytics
 
-## React Compiler
+## Local Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Copy `.env.example` to `.env` and add your Airtable credentials:
+   ```
+   AIRTABLE_PAT=your_personal_access_token
+   AIRTABLE_BASE_ID=your_base_id
+   ```
 
-## Expanding the ESLint configuration
+2. Start the API server (proxies Airtable):
+   ```
+   npm run server
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. Start the dev server (in a separate terminal):
+   ```
+   npm run dev
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The Vite dev server proxies `/api` requests to the Express server on port 3001.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Production (Netlify)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+On deploy, Netlify runs `npm run build` and publishes the `dist/` folder. API routes are handled by Netlify Functions:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- `/api/tools` -> `netlify/functions/tools.ts` (fetches from Airtable)
+- `/api/subscribe` -> `netlify/functions/subscribe.ts` (newsletter signup)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Set `AIRTABLE_PAT` and `AIRTABLE_BASE_ID` as environment variables in the Netlify dashboard.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features
+
+- Filterable tool grid by implementation stage (Discover -> Grow)
+- "Speed Stack" builder: add tools to a personal stack and export as PDF
+- Featured tool badges and discount highlights
+- Newsletter subscription
+- Responsive, neo-brutalist design
+
+## Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `AIRTABLE_PAT` | Airtable Personal Access Token |
+| `AIRTABLE_BASE_ID` | Airtable Base ID |
