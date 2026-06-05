@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     tsconfigPaths: true,
-    dedupe: ["react", "react-dom"],
   },
   server: {
     proxy: {

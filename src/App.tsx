@@ -2,7 +2,6 @@ import { Box } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
 import type { Tool, Category, GrowSubtopic } from "./types"
 import { fetchTools } from "./api"
-import { IndieFast } from "@/components/indie-fast-badge"
 import { Header } from "./components/Header"
 import { FilterBar } from "./components/FilterBar"
 import { ToolGrid } from "./components/ToolGrid"
@@ -59,9 +58,6 @@ function App() {
           onToggleStack={toggleStack}
         />
         <Newsletter />
-        <Box mt="10" display="flex" justifyContent="center">
-          <IndieFast />
-        </Box>
       </Box>
       <SpeedStack stack={stack} onRemove={toggleStack} />
     </Box>
