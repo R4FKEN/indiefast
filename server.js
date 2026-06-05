@@ -63,9 +63,7 @@ const MOCK_TOOLS = [
     OneLiner: "Next.js boilerplate with auth, payments, and SEO baked in. Ship in days, not weeks.",
     TimeSaved: "40h",
     Pricing: "One-time $199",
-    AffiliateURL: "https://shipfa.st",
     Discount: "20% off",
-    Featured: true,
   },
   {
     id: "mock_2",
@@ -74,9 +72,7 @@ const MOCK_TOOLS = [
     OneLiner: "AI-powered UI generation. Describe your component, get production-ready code.",
     TimeSaved: "15h",
     Pricing: "Free tier",
-    AffiliateURL: "https://v0.dev",
     Discount: "",
-    Featured: false,
   },
   {
     id: "mock_3",
@@ -85,9 +81,7 @@ const MOCK_TOOLS = [
     OneLiner: "Professionally designed, pre-built components. Drop-in and ship.",
     TimeSaved: "25h",
     Pricing: "$299 lifetime",
-    AffiliateURL: "https://tailwindui.com",
     Discount: "",
-    Featured: false,
   },
   {
     id: "mock_4",
@@ -96,9 +90,7 @@ const MOCK_TOOLS = [
     OneLiner: "Open source Firebase alternative. Postgres, Auth, Storage, Realtime in one click.",
     TimeSaved: "60h",
     Pricing: "Free tier",
-    AffiliateURL: "https://supabase.com",
     Discount: "",
-    Featured: true,
   },
   {
     id: "mock_5",
@@ -107,9 +99,7 @@ const MOCK_TOOLS = [
     OneLiner: "The payments infrastructure for the internet. Accept payments in minutes.",
     TimeSaved: "30h",
     Pricing: "2.9% + 30c",
-    AffiliateURL: "https://stripe.com",
     Discount: "",
-    Featured: false,
   },
   {
     id: "mock_6",
@@ -118,9 +108,7 @@ const MOCK_TOOLS = [
     OneLiner: "AI-first code editor. Write, edit, and debug code at the speed of thought.",
     TimeSaved: "20h",
     Pricing: "$20/mo",
-    AffiliateURL: "https://cursor.com",
     Discount: "Free trial",
-    Featured: false,
   },
   {
     id: "mock_7",
@@ -129,9 +117,7 @@ const MOCK_TOOLS = [
     OneLiner: "Lightweight, privacy-first analytics. No cookies, no consent banners.",
     TimeSaved: "10h",
     Pricing: "$9/mo",
-    AffiliateURL: "https://plausible.io",
     Discount: "",
-    Featured: false,
   },
   {
     id: "mock_8",
@@ -140,9 +126,7 @@ const MOCK_TOOLS = [
     OneLiner: "Email API built for developers. Beautiful transactional emails with zero config.",
     TimeSaved: "12h",
     Pricing: "Free tier",
-    AffiliateURL: "https://resend.com",
     Discount: "",
-    Featured: false,
   },
   {
     id: "mock_9",
@@ -151,9 +135,7 @@ const MOCK_TOOLS = [
     OneLiner: "Merchant of record for SaaS. Subscriptions, taxes, and compliance handled.",
     TimeSaved: "50h",
     Pricing: "5% + 50c",
-    AffiliateURL: "https://lemonsqueezy.com",
     Discount: "10% off first year",
-    Featured: false,
   },
   {
     id: "mock_10",
@@ -162,9 +144,7 @@ const MOCK_TOOLS = [
     OneLiner: "Copy-paste component library. Own your code, customize everything.",
     TimeSaved: "20h",
     Pricing: "Free",
-    AffiliateURL: "https://ui.shadcn.com",
     Discount: "",
-    Featured: false,
   },
   {
     id: "mock_11",
@@ -173,9 +153,7 @@ const MOCK_TOOLS = [
     OneLiner: "Deploy anything. Databases, APIs, cron jobs. Zero config infrastructure.",
     TimeSaved: "35h",
     Pricing: "Usage-based",
-    AffiliateURL: "https://railway.app",
     Discount: "$5 credit",
-    Featured: false,
   },
   {
     id: "mock_12",
@@ -184,9 +162,7 @@ const MOCK_TOOLS = [
     OneLiner: "Production-ready SaaS starter with multi-tenancy, billing, and admin panel.",
     TimeSaved: "80h",
     Pricing: "$299",
-    AffiliateURL: "https://makerkit.dev",
     Discount: "",
-    Featured: false,
   },
 ]
 
@@ -226,9 +202,7 @@ app.get("/api/tools", async (_req, res) => {
 
   try {
     const records = await base("Tools")
-      .select({
-        view: "Grid view",
-      })
+      .select({})
       .all()
 
     const tools = records.map((record) => ({
@@ -238,10 +212,7 @@ app.get("/api/tools", async (_req, res) => {
       OneLiner: record.get("OneLiner") || "",
       TimeSaved: record.get("TimeSaved") || "",
       Pricing: record.get("Pricing") || "",
-      AffiliateURL: record.get("AffiliateURL") || "",
       Discount: record.get("Discount") || "",
-      Featured: record.get("Featured") || false,
-      Subtopic: record.get("Subtopic") || "",
     }))
 
     // Update server cache

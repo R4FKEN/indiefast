@@ -1,6 +1,6 @@
 import { Flex, Button, Box } from "@chakra-ui/react"
 import { Tooltip } from "@/components/ui/tooltip"
-import type { Category, GrowSubtopic } from "../types"
+import type { Category } from "../types"
 
 const CATEGORIES: Category[] = [
   "All",
@@ -19,28 +19,18 @@ const CATEGORIES: Category[] = [
 
 const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
   "All": "Browse all tools across every stage of the indie hacker journey.",
-  "1. Discover": "Spot fresh problems, hot niches, and fast-moving ideas worth chasing. This is where you find the opportunities before everyone else does.",
-  "2. Research": "Check the market, size up competitors, and move quickly from guesswork to signal. The goal is to get sharp fast, not stay in research forever.",
-  "3. Validate": "Test the idea with real people before you waste weeks building the wrong thing. Fast validation beats expensive guessing every time.",
-  "4. Plan": "Turn the idea into a lean roadmap and decide what makes the cut. Keep it tight, simple, and ready to move.",
-  "5. Design": "Sketch the UI, shape the experience, and make it feel fast from the first click. Good design should make the product feel obvious, not complicated.",
-  "6. Build": "Code the thing, wire it up, and get to a working version as fast as possible. This is where vibe coding, frameworks, and shortcuts earn their keep.",
-  "7. Backend": "Handle the plumbing: databases, auth, APIs, and serverless logic. Quiet tools, fast foundations.",
-  "8. Ship": "Deploy, launch, and get the thing in front of users without overthinking it. This is the sprint from \"almost done\" to \"live now.\"",
-  "9. Monetize": "Add payments, subscriptions, billing, and ways to actually make money. Fast growth is great, but paid is better.",
-  "10. Measure": "Track what users do, what breaks, and what converts. Fast feedback helps you improve before momentum slips.",
-  "11. Grow": "Push the product further with SEO, automation, integrations, and repeatable systems. This is where speed turns into scale.",
+  "1. Discover": "Spot fresh problems, hot niches, and fast-moving ideas worth chasing.",
+  "2. Research": "Check the market, size up competitors, and move quickly from guesswork to signal.",
+  "3. Validate": "Test the idea with real people before you waste weeks building the wrong thing.",
+  "4. Plan": "Turn the idea into a lean roadmap and decide what makes the cut.",
+  "5. Design": "Sketch the UI, shape the experience, and make it feel fast from the first click.",
+  "6. Build": "Code the thing, wire it up, and get to a working version as fast as possible.",
+  "7. Backend": "Handle the plumbing: databases, auth, APIs, and serverless logic.",
+  "8. Ship": "Deploy, launch, and get the thing in front of users without overthinking it.",
+  "9. Monetize": "Add payments, subscriptions, billing, and ways to actually make money.",
+  "10. Measure": "Track what users do, what breaks, and what converts.",
+  "11. Grow": "Push the product further with SEO, automation, integrations, and repeatable systems.",
 }
-
-const GROW_SUBTOPICS: GrowSubtopic[] = [
-  "Retain",
-  "Automate",
-  "Scale",
-  "Community",
-  "Support",
-  "SEO",
-  "Distribution",
-]
 
 const CATEGORY_COLORS: Record<Category, string> = {
   "All": "#1a1a1a",
@@ -68,13 +58,9 @@ const LIGHT_CATEGORIES = new Set<Category>([
 interface FilterBarProps {
   active: Category
   onChange: (cat: Category) => void
-  activeSubtopic?: GrowSubtopic | null
-  onSubtopicChange?: (sub: GrowSubtopic | null) => void
 }
 
-export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }: FilterBarProps) {
-  const showGrowSubtopics = active === "11. Grow"
-
+export function FilterBar({ active, onChange }: FilterBarProps) {
   return (
     <Box mb="8">
       <Flex gap="2" pb="4" flexWrap="wrap">
@@ -113,12 +99,7 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
                   boxShadow: "3px 3px 0px #1a1a1a",
                 }}
                 transition="all 0.1s"
-                onClick={() => {
-                  onChange(cat)
-                  if (cat !== "11. Grow" && onSubtopicChange) {
-                    onSubtopicChange(null)
-                  }
-                }}
+                onClick={() => onChange(cat)}
               >
                 {cat}
               </Button>
@@ -126,80 +107,6 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
           )
         })}
       </Flex>
-      {showGrowSubtopics && (
-        <Flex gap="2" flexWrap="wrap" pt="1" pl="2" alignItems="center" borderLeft="3px solid" borderColor="#98FB98">
-          <Box
-            fontSize="xs"
-            fontWeight="bold"
-            color="#2d8a2d"
-            bg="#d4ffd4"
-            px="2"
-            py="0.5"
-            borderRadius="sm"
-            lineHeight="tall"
-          >
-            Grow
-          </Box>
-          <Button
-            size="xs"
-            variant="outline"
-            bg={activeSubtopic === null ? "#98FB98" : "white"}
-            color="#1a1a1a"
-            border="2px solid"
-            borderColor="#1a1a1a"
-            borderRadius="sm"
-            fontWeight="semibold"
-            fontSize="xs"
-            px="3"
-            boxShadow={activeSubtopic === null ? "2px 2px 0px #1a1a1a" : "none"}
-            _hover={{
-              bg: activeSubtopic === null ? "#98FB98" : "gray.50",
-              transform: "translate(-1px, -1px)",
-              boxShadow: "3px 3px 0px #1a1a1a",
-            }}
-            transition="all 0.1s"
-            onClick={() => {
-              if (onSubtopicChange) {
-                onSubtopicChange(null)
-              }
-            }}
-          >
-            All
-          </Button>
-          {GROW_SUBTOPICS.map((sub) => {
-            const isActive = activeSubtopic === sub
-            return (
-              <Button
-                key={sub}
-                size="xs"
-                variant="outline"
-                bg={isActive ? "#98FB98" : "white"}
-                color="#1a1a1a"
-                border="2px solid"
-                borderColor="#1a1a1a"
-                borderRadius="sm"
-                fontWeight="semibold"
-                fontSize="xs"
-                px="3"
-                boxShadow={isActive ? "2px 2px 0px #1a1a1a" : "none"}
-                _hover={{
-                  bg: isActive ? "#98FB98" : "gray.50",
-                  transform: "translate(-1px, -1px)",
-                  boxShadow: "3px 3px 0px #1a1a1a",
-                }}
-                transition="all 0.1s"
-                onClick={() => {
-                  if (onSubtopicChange) {
-                    onSubtopicChange(isActive ? null : sub)
-                  }
-                }}
-              >
-                {sub}
-              </Button>
-            )
-          })}
-        </Flex>
-      )}
     </Box>
   )
 }

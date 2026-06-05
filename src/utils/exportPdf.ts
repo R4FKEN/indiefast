@@ -88,16 +88,12 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
     for (const tool of tools) {
       doc.setFont("helvetica", "bold")
       doc.setFontSize(13)
-      doc.setTextColor(30, 110, 220)
+      doc.setTextColor(26, 26, 26)
       const titleLines = doc.splitTextToSize(tool.Name, contentWidth) as string[]
       ensureSpace(titleLines.length * 6 + 10)
 
       titleLines.forEach((line, idx) => {
-        const textWidth = doc.getTextWidth(line)
-        doc.textWithLink(line, marginX, y, { url: tool.AffiliateURL })
-        doc.setDrawColor(30, 110, 220)
-        doc.setLineWidth(0.3)
-        doc.line(marginX, y + 0.8, marginX + textWidth, y + 0.8)
+        doc.text(line, marginX, y)
         if (idx < titleLines.length - 1) y += 6
       })
       y += 6

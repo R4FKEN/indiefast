@@ -1,5 +1,5 @@
 import { Box, Flex, Text, Badge, Button, Icon } from "@chakra-ui/react"
-import { LuClock, LuExternalLink, LuPlus, LuCheck } from "react-icons/lu"
+import { LuClock, LuPlus, LuCheck } from "react-icons/lu"
 import type { Tool, Category } from "../types"
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -43,26 +43,6 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
       flexDirection="column"
       gap="3"
     >
-      {tool.Featured && (
-        <Badge
-          position="absolute"
-          top="-1px"
-          right="-1px"
-          bg="#FF6B6B"
-          color="white"
-          fontSize="2xs"
-          fontWeight="black"
-          borderRadius="none"
-          border="2px solid"
-          borderColor="#1a1a1a"
-          px="2"
-          py="0.5"
-          letterSpacing="wider"
-        >
-          FEATURED
-        </Badge>
-      )}
-
       <Flex alignItems="center" gap="3">
         <Box
           w="9"
@@ -99,22 +79,6 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
                 {tool.Category}
               </Text>
             </Flex>
-            {tool.SecondCategory && (
-              <Flex
-                alignItems="center"
-                bg={`${CATEGORY_COLORS[tool.SecondCategory] || "#e5e5e5"}20`}
-                border="1.5px solid"
-                borderColor={CATEGORY_COLORS[tool.SecondCategory] || "#ccc"}
-                borderRadius="sm"
-                px="1.5"
-                py="0"
-                lineHeight="1"
-              >
-                <Text fontSize="2xs" fontWeight="semibold" color="#555">
-                  {tool.SecondCategory}
-                </Text>
-              </Flex>
-            )}
           </Flex>
         </Box>
       </Flex>
@@ -124,63 +88,48 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
       </Text>
 
       <Flex alignItems="center" gap="2" flexWrap="wrap">
-        <Flex
-          alignItems="center"
-          gap="1"
-          bg="#f0fdf4"
-          border="1.5px solid"
-          borderColor="#16a34a"
-          borderRadius="sm"
-          px="2"
-          py="0.5"
-        >
-          <Icon color="#16a34a" boxSize="3">
-            <LuClock />
-          </Icon>
-          <Text fontSize="2xs" fontWeight="bold" color="#16a34a">
-            Saves {tool.TimeSaved}
-          </Text>
-        </Flex>
-        <Text fontSize="xs" color="#888" fontWeight="medium">
-          {tool.Pricing}
-        </Text>
-        {tool.Discount && (
+        {tool.TimeSaved && (
           <Flex
             alignItems="center"
+            gap="1"
+            bg="#f0fdf4"
+            border="1.5px solid"
+            borderColor="#16a34a"
+            borderRadius="sm"
+            px="2"
+            py="0.5"
+          >
+            <Icon color="#16a34a" boxSize="3">
+              <LuClock />
+            </Icon>
+            <Text fontSize="2xs" fontWeight="bold" color="#16a34a">
+              Saves {tool.TimeSaved}
+            </Text>
+          </Flex>
+        )}
+        {tool.Pricing && (
+          <Text fontSize="xs" color="#888" fontWeight="medium">
+            {tool.Pricing}
+          </Text>
+        )}
+        {tool.Discount && (
+          <Badge
             bg="#FF6B6B"
+            color="white"
+            fontSize="2xs"
+            fontWeight="bold"
             border="1.5px solid"
             borderColor="#1a1a1a"
             borderRadius="sm"
             px="2"
             py="0.5"
           >
-            <Text fontSize="2xs" fontWeight="bold" color="white">
-              {tool.Discount}
-            </Text>
-          </Flex>
+            {tool.Discount}
+          </Badge>
         )}
       </Flex>
 
       <Flex gap="2" mt="1">
-        <Button
-          asChild
-          size="xs"
-          bg="#1a1a1a"
-          color="white"
-          border="2px solid"
-          borderColor="#1a1a1a"
-          borderRadius="sm"
-          flex="1"
-          fontWeight="bold"
-          _hover={{ bg: "#333" }}
-        >
-          <a href={tool.AffiliateURL} target="_blank" rel="noopener noreferrer">
-            Get Tool
-            <Icon boxSize="3" ml="1">
-              <LuExternalLink />
-            </Icon>
-          </a>
-        </Button>
         <Button
           size="xs"
           variant="outline"
@@ -189,15 +138,17 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           borderColor="#1a1a1a"
           color="#1a1a1a"
           borderRadius="sm"
-          px="2"
+          flex="1"
+          fontWeight="bold"
           _hover={{
             bg: inStack ? "#3dbdb5" : "#f5f5f5",
           }}
           onClick={() => onToggleStack(tool)}
         >
-          <Icon boxSize="3.5">
+          <Icon boxSize="3.5" mr="1">
             {inStack ? <LuCheck /> : <LuPlus />}
           </Icon>
+          {inStack ? "In Stack" : "Add to Stack"}
         </Button>
       </Flex>
     </Box>
