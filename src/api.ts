@@ -37,21 +37,15 @@ export async function fetchTools(): Promise<Tool[]> {
   const cached = getCachedTools()
   if (cached) return cached
 
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-  const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-  const edgeFunctionUrl = `${supabaseUrl}/functions/v1/tools`
-
   try {
-    const res = await fetch(edgeFunctionUrl, {
-      headers: { Authorization: `Bearer ${anonKey}` },
-    })
+    const res = await fetch("/api/tools")
     if (!res.ok) throw new Error(`API error ${res.status}`)
     const data = await res.json()
     const tools: Tool[] = data.tools
     setCachedTools(tools)
     return tools
   } catch {
-    console.log("[indiefa.st] Edge function not reachable. Using local mock data.")
+    console.log("[indiefa.st] API not reachable. Using local mock data.")
     return MOCK_TOOLS
   }
 }
