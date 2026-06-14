@@ -1,4 +1,4 @@
-import type { Category } from "./types"
+import type { Category, GrowSubtopic } from "./types"
 
 export const CATEGORY_COLORS: Record<Category, string> = {
   "All": "#1a1a1a",
@@ -22,3 +22,18 @@ export const LIGHT_CATEGORIES = new Set<Category>([
   "10. Measure",
   "11. Grow",
 ])
+
+export const GROW_SUBTOPICS: GrowSubtopic[] = [
+  "Automate",
+  "Scale",
+  "Community",
+  "Support",
+  "SEO",
+  "Distribution",
+]
+
+export const TOOL_CARD_HEIGHT = {
+  base: "292px",
+  md: "252px",
+  lg: "260px",
+} as const

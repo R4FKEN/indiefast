@@ -33,20 +33,28 @@ function setCachedTools(tools: Tool[]): void {
   }
 }
 
+async function fetchToolsFrom(url: string): Promise<Tool[]> {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`API error ${res.status}`)
+  const data = await res.json()
+  const tools: Tool[] = data.tools
+  setCachedTools(tools)
+  return tools
+}
+
 export async function fetchTools(): Promise<Tool[]> {
   const cached = getCachedTools()
   if (cached) return cached
 
   try {
-    const res = await fetch("/api/tools")
-    if (!res.ok) throw new Error(`API error ${res.status}`)
-    const data = await res.json()
-    const tools: Tool[] = data.tools
-    setCachedTools(tools)
-    return tools
+    return await fetchToolsFrom(import.meta.env.DEV ? "/api/tools" : "/tools.json")
   } catch {
-    console.log("[indiefa.st] API not reachable. Using local mock data.")
-    return MOCK_TOOLS
+    try {
+      return await fetchToolsFrom("/api/tools")
+    } catch {
+      console.log("[indiefa.st] Data source not reachable. Using local mock data.")
+      return MOCK_TOOLS
+    }
   }
 }
 

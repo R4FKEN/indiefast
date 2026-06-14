@@ -239,7 +239,7 @@ app.get("/api/tools", async (_req, res) => {
       Reasoning: record.get("Reasoning") || "",
       TimeSaved: record.get("TimeSaved") || "",
       Pricing: record.get("Pricing") || "",
-      AffiliateURL: record.get("AffiliateURL") || "",
+      AffiliateURL: record.get("URL") || "",
       Discount: record.get("Discount") || "",
       Featured: record.get("Featured") || false,
       Subtopic: record.get("Subtopic") || "",

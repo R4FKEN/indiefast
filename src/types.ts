@@ -29,7 +29,6 @@ export type Category =
   | "11. Grow"
 
 export type GrowSubtopic =
-  | "Retain"
   | "Automate"
   | "Scale"
   | "Community"

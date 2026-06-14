@@ -1,7 +1,7 @@
-import { Box, Flex, Text, Badge, Button, Icon } from "@chakra-ui/react"
+import { Box, Flex, Text, Badge, Button, Icon, Image } from "@chakra-ui/react"
 import { LuClock, LuExternalLink, LuPlus, LuCheck } from "react-icons/lu"
 import type { Tool, Category } from "../types"
-import { CATEGORY_COLORS } from "../constants"
+import { CATEGORY_COLORS, TOOL_CARD_HEIGHT } from "../constants"
 
 interface ToolCardProps {
   tool: Tool
@@ -19,6 +19,7 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
       borderRadius="sm"
       bg="white"
       p="5"
+      h={TOOL_CARD_HEIGHT}
       position="relative"
       transition="all 0.1s"
       boxShadow="4px 4px 0px #1a1a1a"
@@ -45,8 +46,12 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           px="2"
           py="0.5"
           letterSpacing="wider"
+          display="flex"
+          alignItems="center"
+          gap="1"
         >
-          FEATURED
+          POPULAR
+          <Image src="/fire.gif" alt="" boxSize="3.5" objectFit="contain" />
         </Badge>
       )}
 
@@ -115,87 +120,92 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
         </Box>
       </Flex>
 
-      <Text fontSize="xs" color="#555" lineHeight="tall" lineClamp={2} flex="1">
-        {tool.OneLiner}
+      <Text
+        fontSize="xs"
+        color="#555"
+        lineHeight="tall"
+        lineClamp={4}
+        minH={{ base: "72px", md: "64px" }}
+      >
+        {tool.Reasoning || tool.OneLiner}
       </Text>
 
-      <Flex alignItems="center" gap="2" flexWrap="wrap">
-        <Flex
-          alignItems="center"
-          gap="1"
-          bg="#f0fdf4"
-          border="1.5px solid"
-          borderColor="#16a34a"
-          borderRadius="sm"
-          px="2"
-          py="0.5"
-        >
-          <Icon color="#16a34a" boxSize="3">
-            <LuClock />
-          </Icon>
-          <Text fontSize="2xs" fontWeight="bold" color="#16a34a">
-            Saves {tool.TimeSaved}
-          </Text>
-        </Flex>
-        <Text fontSize="xs" color="#888" fontWeight="medium">
-          {tool.Pricing}
-        </Text>
-        {tool.Discount && (
+      <Box mt="auto">
+        <Flex alignItems="center" justifyContent="space-between" gap="2" minH="28px" mb="3">
           <Flex
             alignItems="center"
-            bg="#FF6B6B"
+            gap="1"
+            bg="#f0fdf4"
             border="1.5px solid"
-            borderColor="#1a1a1a"
+            borderColor="#16a34a"
             borderRadius="sm"
             px="2"
             py="0.5"
           >
-            <Text fontSize="2xs" fontWeight="bold" color="white">
-              {tool.Discount}
+            <Icon color="#16a34a" boxSize="3">
+              <LuClock />
+            </Icon>
+            <Text fontSize="2xs" fontWeight="bold" color="#16a34a">
+              Saves {tool.TimeSaved}
             </Text>
           </Flex>
-        )}
-      </Flex>
+          {tool.Discount && (
+            <Flex
+              alignItems="center"
+              bg="#FF6B6B"
+              border="1.5px solid"
+              borderColor="#1a1a1a"
+              borderRadius="sm"
+              px="2"
+              py="0.5"
+            >
+              <Text fontSize="2xs" fontWeight="bold" color="white">
+                {tool.Discount}
+              </Text>
+            </Flex>
+          )}
+        </Flex>
 
-      <Flex gap="2" mt="1">
-        <Button
-          asChild
-          size="xs"
-          bg="#1a1a1a"
-          color="white"
-          border="2px solid"
-          borderColor="#1a1a1a"
-          borderRadius="sm"
-          flex="1"
-          fontWeight="bold"
-          _hover={{ bg: "#333" }}
-        >
-          <a href={tool.AffiliateURL} target="_blank" rel="noopener noreferrer">
-            Get Tool
-            <Icon boxSize="3" ml="1">
-              <LuExternalLink />
+        <Flex gap="2">
+          <Button
+            asChild
+            size="xs"
+            bg="#1a1a1a"
+            color="white"
+            border="2px solid"
+            borderColor="#1a1a1a"
+            borderRadius="sm"
+            flex="1"
+            fontWeight="bold"
+            _hover={{ bg: "#333" }}
+          >
+            <a href={tool.AffiliateURL} target="_blank" rel="noopener noreferrer">
+              Get Tool
+              <Icon boxSize="3" ml="1">
+                <LuExternalLink />
+              </Icon>
+            </a>
+          </Button>
+          <Button
+            size="xs"
+            variant="outline"
+            bg={inStack ? "#4ECDC4" : "white"}
+            border="2px solid"
+            borderColor="#1a1a1a"
+            color="#1a1a1a"
+            borderRadius="sm"
+            px="2"
+            _hover={{
+              bg: inStack ? "#3dbdb5" : "#f5f5f5",
+            }}
+            onClick={() => onToggleStack(tool)}
+          >
+            <Icon boxSize="3.5">
+              {inStack ? <LuCheck /> : <LuPlus />}
             </Icon>
-          </a>
-        </Button>
-        <Button
-          size="xs"
-          variant="outline"
-          bg={inStack ? "#4ECDC4" : "white"}
-          border="2px solid"
-          borderColor="#1a1a1a"
-          color="#1a1a1a"
-          borderRadius="sm"
-          px="2"
-          _hover={{
-            bg: inStack ? "#3dbdb5" : "#f5f5f5",
-          }}
-          onClick={() => onToggleStack(tool)}
-        >
-          <Icon boxSize="3.5">
-            {inStack ? <LuCheck /> : <LuPlus />}
-          </Icon>
-        </Button>
-      </Flex>
+          </Button>
+        </Flex>
+      </Box>
     </Box>
   )
 }

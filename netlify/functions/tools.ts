@@ -194,7 +194,7 @@ export default async function handler(_req: Request, _context: Context) {
       Reasoning: record.get("Reasoning") || "",
       TimeSaved: record.get("TimeSaved") || "",
       Pricing: record.get("Pricing") || "",
-      AffiliateURL: record.get("AffiliateURL") || "",
+      AffiliateURL: record.get("URL") || "",
       Discount: record.get("Discount") || "",
       Featured: record.get("Featured") || false,
       Subtopic: record.get("Subtopic") || "",
