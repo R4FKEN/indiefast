@@ -13,12 +13,10 @@ graph LR
     subgraph Backend Options
         Express[Express Server]
         Netlify[Netlify Functions]
-        Supabase[Supabase Edge]
     end
     
     Backend --- Express
     Backend --- Netlify
-    Backend --- Supabase
 ```
 
 ## Frontend architecture
@@ -37,13 +35,12 @@ The React application is organized around a single-page tool directory:
 
 ## Backend options
 
-IndieFast supports three backend configurations:
+IndieFast supports two backend configurations:
 
 1. **Express server** (`server.js`): Local development with rate limiting and caching
 2. **Netlify Functions** (`netlify/functions/`): Serverless deployment on Netlify
-3. **Supabase Edge Functions** (`supabase/functions/`): Alternative serverless option
 
-All backends connect to Airtable for tool data and subscriber storage.
+Both backends connect to Airtable for tool data and subscriber storage.
 
 ## Data flow
 

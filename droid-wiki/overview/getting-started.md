@@ -21,8 +21,6 @@ Create a `.env` file in the project root:
 ```
 AIRTABLE_PAT=your_personal_access_token
 AIRTABLE_BASE_ID=your_base_id
-VITE_SUPABASE_URL=your_supabase_url (optional)
-VITE_SUPABASE_ANON_KEY=your_anon_key (optional)
 ```
 
 Without Airtable credentials, the app serves mock data.

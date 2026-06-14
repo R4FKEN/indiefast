@@ -19,7 +19,6 @@ The application displays a filterable grid of tools organized by development lif
 - **Frontend**: React 19 + TypeScript + Vite + Chakra UI
 - **Backend**: Express.js server with Airtable as the database
 - **Deployment**: Netlify with serverless functions
-- **Alternative backend**: Supabase Edge Functions
 
 ## Quick links
 

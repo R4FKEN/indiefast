@@ -53,9 +53,10 @@ interface Tool {
 | react | UI framework |
 | @chakra-ui/react | Component library |
 | vite | Build tool |
-| express | Local API server |
-| airtable | Database client |
+| express | API server |
+| airtable | Airtable client |
 | @netlify/functions | Serverless functions |
+| concurrently | Run multiple scripts |
 
 ## Environment variables
 
@@ -63,5 +64,3 @@ interface Tool {
 |----------|----------|-------------|
 | AIRTABLE_PAT | No | Airtable personal access token |
 | AIRTABLE_BASE_ID | No | Airtable base identifier |
-| VITE_SUPABASE_URL | No | Supabase project URL |
-| VITE_SUPABASE_ANON_KEY | No | Supabase anonymous key |
