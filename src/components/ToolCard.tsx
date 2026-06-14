@@ -71,14 +71,28 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           borderRadius="sm"
           border="2px solid"
           borderColor="#1a1a1a"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
+          overflow="hidden"
           flexShrink={0}
         >
-          <Text fontSize="sm" fontWeight="black" color="#1a1a1a">
-            {tool.Name.charAt(0).toUpperCase()}
-          </Text>
+          {tool.LogoUrl ? (
+            <img
+              src={tool.LogoUrl}
+              alt={tool.Name}
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            />
+          ) : (
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              w="100%"
+              h="100%"
+            >
+              <Text fontSize="sm" fontWeight="black" color="#1a1a1a">
+                {tool.Name.charAt(0).toUpperCase()}
+              </Text>
+            </Box>
+          )}
         </Box>
         <Box>
           <Text fontWeight="bold" fontSize="sm" color="#1a1a1a" lineClamp={1}>

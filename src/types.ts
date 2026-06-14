@@ -10,6 +10,7 @@ export interface Tool {
   Discount: string
   Featured: boolean
   Subtopic: string
+  LogoUrl?: string
 }
 
 export type Category =

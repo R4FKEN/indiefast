@@ -242,6 +242,11 @@ app.get("/api/tools", async (_req, res) => {
       Discount: record.get("Discount") || "",
       Featured: record.get("Featured") || false,
       Subtopic: record.get("Subtopic") || "",
+      LogoUrl: (() => {
+        const logoAttachments = record.get("Logo")
+        if (!Array.isArray(logoAttachments) || logoAttachments.length === 0) return ""
+        return logoAttachments[0].thumbnails?.small?.url || logoAttachments[0].url || ""
+      })(),
     }))
 
     // Update server cache
