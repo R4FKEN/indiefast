@@ -4,6 +4,7 @@ export interface Tool {
   Category: string
   SecondCategory: string
   OneLiner: string
+  Reasoning?: string
   TimeSaved: string
   Pricing: string
   AffiliateURL: string

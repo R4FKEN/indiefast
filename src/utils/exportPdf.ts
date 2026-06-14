@@ -77,6 +77,20 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
     }
   }
 
+  const renderParagraph = (text: string) => {
+    if (!text) return
+    doc.setFont("helvetica", "normal")
+    doc.setFontSize(10)
+    doc.setTextColor(60, 60, 60)
+    const lines = doc.splitTextToSize(text, contentWidth) as string[]
+    ensureSpace(lines.length * 5 + 4)
+    for (const line of lines) {
+      doc.text(line, marginX, y)
+      y += 5
+    }
+    y += 2
+  }
+
   for (const [category, tools] of grouped) {
     ensureSpace(14)
     doc.setFont("helvetica", "bold")
@@ -102,17 +116,8 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
       })
       y += 6
 
-      if (tool.OneLiner) {
-        doc.setFont("helvetica", "normal")
-        doc.setFontSize(10)
-        doc.setTextColor(60, 60, 60)
-        const descLines = doc.splitTextToSize(tool.OneLiner, contentWidth) as string[]
-        ensureSpace(descLines.length * 5 + 4)
-        for (const line of descLines) {
-          doc.text(line, marginX, y)
-          y += 5
-        }
-      }
+      renderParagraph(tool.OneLiner)
+      renderParagraph(tool.Reasoning || "")
 
       y += 4
     }
