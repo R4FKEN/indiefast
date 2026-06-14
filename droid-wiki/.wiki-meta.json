@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-06-14T12:39:00Z",
+  "commitHash": "be1be17463dab36634348ec7c7bd9c49ced40942",
+  "branch": "pc-living",
+  "pageCount": 7,
+  "topLevelSections": [
+    "overview",
+    "how-to-contribute",
+    "features",
+    "reference"
+  ],
+  "pageOrder": [
+    "overview/index.md",
+    "overview/architecture.md",
+    "overview/getting-started.md",
+    "overview/glossary.md",
+    "how-to-contribute/index.md",
+    "features.md",
+    "reference.md"
+  ]
+}
