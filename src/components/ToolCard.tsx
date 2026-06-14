@@ -1,20 +1,7 @@
 import { Box, Flex, Text, Badge, Button, Icon } from "@chakra-ui/react"
 import { LuClock, LuExternalLink, LuPlus, LuCheck } from "react-icons/lu"
 import type { Tool, Category } from "../types"
-
-const CATEGORY_COLORS: Record<string, string> = {
-  "1. Discover": "#FF6B6B",
-  "2. Research": "#FF8C42",
-  "3. Validate": "#FFE66D",
-  "4. Plan": "#95E1D3",
-  "5. Design": "#4ECDC4",
-  "6. Build": "#45B7D1",
-  "7. Backend": "#74B9FF",
-  "8. Ship": "#A8E6CF",
-  "9. Monetize": "#FF8ED4",
-  "10. Measure": "#DDA0DD",
-  "11. Grow": "#98FB98",
-}
+import { CATEGORY_COLORS } from "../constants"
 
 interface ToolCardProps {
   tool: Tool
@@ -48,8 +35,8 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           position="absolute"
           top="-1px"
           right="-1px"
-          bg="#FF6B6B"
-          color="white"
+          bg="#FFE66D"
+          color="#1a1a1a"
           fontSize="2xs"
           fontWeight="black"
           borderRadius="none"
@@ -64,16 +51,7 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
       )}
 
       <Flex alignItems="center" gap="3">
-        <Box
-          w="9"
-          h="9"
-          bg={catColor}
-          borderRadius="sm"
-          border="2px solid"
-          borderColor="#1a1a1a"
-          overflow="hidden"
-          flexShrink={0}
-        >
+        <Box w="9" h="9" flexShrink={0}>
           {tool.LogoUrl ? (
             <img
               src={tool.LogoUrl}
@@ -87,6 +65,10 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
               justifyContent="center"
               w="100%"
               h="100%"
+              bg={catColor}
+              borderRadius="sm"
+              border="2px solid"
+              borderColor="#1a1a1a"
             >
               <Text fontSize="sm" fontWeight="black" color="#1a1a1a">
                 {tool.Name.charAt(0).toUpperCase()}
@@ -101,7 +83,7 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           <Flex alignItems="center" gap="1.5" flexWrap="wrap" mt="0.5">
             <Flex
               alignItems="center"
-              bg={CATEGORY_COLORS[tool.Category] || "#e5e5e5"}
+              bg={catColor}
               border="1.5px solid"
               borderColor="#1a1a1a"
               borderRadius="sm"
@@ -116,9 +98,9 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
             {tool.SecondCategory && (
               <Flex
                 alignItems="center"
-                bg={`${CATEGORY_COLORS[tool.SecondCategory] || "#e5e5e5"}20`}
+                bg={`${CATEGORY_COLORS[tool.SecondCategory as Category] || "#e5e5e5"}20`}
                 border="1.5px solid"
-                borderColor={CATEGORY_COLORS[tool.SecondCategory] || "#ccc"}
+                borderColor={CATEGORY_COLORS[tool.SecondCategory as Category] || "#ccc"}
                 borderRadius="sm"
                 px="1.5"
                 py="0"

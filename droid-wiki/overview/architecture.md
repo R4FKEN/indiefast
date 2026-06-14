@@ -44,7 +44,7 @@ Both backends connect to Airtable for tool data and subscriber storage.
 
 ## Data flow
 
-1. Frontend calls `/api/tools` (or Supabase edge function)
+1. Frontend calls `/api/tools`
 2. Backend checks cache (1-minute TTL)
 3. If cache miss, fetches from Airtable "Tools" table
 4. Returns JSON array of tools

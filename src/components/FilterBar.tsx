@@ -1,6 +1,7 @@
 import { Flex, Button, Box } from "@chakra-ui/react"
 import { Tooltip } from "@/components/ui/tooltip"
 import type { Category, GrowSubtopic } from "../types"
+import { CATEGORY_COLORS, LIGHT_CATEGORIES } from "../constants"
 
 const CATEGORIES: Category[] = [
   "All",
@@ -41,29 +42,6 @@ const GROW_SUBTOPICS: GrowSubtopic[] = [
   "SEO",
   "Distribution",
 ]
-
-const CATEGORY_COLORS: Record<Category, string> = {
-  "All": "#1a1a1a",
-  "1. Discover": "#FF6B6B",
-  "2. Research": "#FF8C42",
-  "3. Validate": "#FFE66D",
-  "4. Plan": "#95E1D3",
-  "5. Design": "#4ECDC4",
-  "6. Build": "#45B7D1",
-  "7. Backend": "#74B9FF",
-  "8. Ship": "#A8E6CF",
-  "9. Monetize": "#FF8ED4",
-  "10. Measure": "#DDA0DD",
-  "11. Grow": "#98FB98",
-}
-
-const LIGHT_CATEGORIES = new Set<Category>([
-  "3. Validate",
-  "4. Plan",
-  "8. Ship",
-  "10. Measure",
-  "11. Grow",
-])
 
 interface FilterBarProps {
   active: Category
