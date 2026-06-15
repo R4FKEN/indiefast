@@ -1,5 +1,6 @@
 import { Grid, Box, Text } from "@chakra-ui/react"
 import type { Tool } from "../types"
+import { TOOL_CARD_HEIGHT } from "../constants"
 import { ToolCard } from "./ToolCard"
 
 interface ToolGridProps {
@@ -19,7 +20,7 @@ export function ToolGrid({ tools, loading, stack, onToggleStack }: ToolGridProps
         {Array.from({ length: 6 }).map((_, i) => (
           <Box
             key={i}
-            h="220px"
+            h={TOOL_CARD_HEIGHT}
             border="2px solid"
             borderColor="#1a1a1a"
             borderRadius="sm"

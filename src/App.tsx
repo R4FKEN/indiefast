@@ -7,6 +7,7 @@ import { FilterBar } from "./components/FilterBar"
 import { ToolGrid } from "./components/ToolGrid"
 import { SpeedStack } from "./components/SpeedStack"
 import { Newsletter } from "./components/Newsletter"
+import { Footer } from "./components/Footer"
 
 function App() {
   const [tools, setTools] = useState<Tool[]>([])
@@ -36,6 +37,9 @@ function App() {
   ).filter((t) => !activeSubtopic || t.Subtopic === activeSubtopic)
 
   const sortedTools = [...filteredTools].sort((a, b) => {
+    if (activeCategory === "All") {
+      return a.Name.localeCompare(b.Name)
+    }
     if (a.Featured && !b.Featured) return -1
     if (!a.Featured && b.Featured) return 1
     return 0
@@ -58,6 +62,7 @@ function App() {
           onToggleStack={toggleStack}
         />
         <Newsletter />
+        <Footer />
       </Box>
       <SpeedStack stack={stack} onRemove={toggleStack} />
     </Box>

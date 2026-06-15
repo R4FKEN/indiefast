@@ -1,7 +1,7 @@
 import type { Tool } from "./types"
 import { MOCK_TOOLS } from "./mock-data"
 
-const CACHE_KEY = "indiefst_tools_v2"
+const CACHE_KEY = "*****************"
 const CACHE_TTL = 5 * 60 * 1000
 
 interface CachedData {
@@ -33,26 +33,28 @@ function setCachedTools(tools: Tool[]): void {
   }
 }
 
+async function fetchToolsFrom(url: string): Promise<Tool[]> {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`API error ${res.status}`)
+  const data = await res.json()
+  const tools: Tool[] = data.tools
+  setCachedTools(tools)
+  return tools
+}
+
 export async function fetchTools(): Promise<Tool[]> {
   const cached = getCachedTools()
   if (cached) return cached
 
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-  const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-  const edgeFunctionUrl = `${supabaseUrl}/functions/v1/tools`
-
   try {
-    const res = await fetch(edgeFunctionUrl, {
-      headers: { Authorization: `Bearer ${anonKey}` },
-    })
-    if (!res.ok) throw new Error(`API error ${res.status}`)
-    const data = await res.json()
-    const tools: Tool[] = data.tools
-    setCachedTools(tools)
-    return tools
+    return await fetchToolsFrom(import.meta.env.DEV ? "/api/tools" : "/tools.json")
   } catch {
-    console.log("[indiefa.st] Edge function not reachable. Using local mock data.")
-    return MOCK_TOOLS
+    try {
+      return await fetchToolsFrom("/api/tools")
+    } catch {
+      console.log("[indiefa.st] Data source not reachable. Using local mock data.")
+      return MOCK_TOOLS
+    }
   }
 }
 

@@ -194,14 +194,13 @@ function getAirtableBase() {
   if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
     return null
   }
-  const airtable = new Airtable({ apiKey: AIRTABLE_PAT })
-  return airtable.base(AIRTABLE_BASE_ID)
+  return new Airtable({ apiKey: AIRTABLE_PAT }).base(AIRTABLE_BASE_ID)
 }
 
-app.get("/api/tools", async (_req, res) => {
-  const base = getAirtableBase()
+const airtableBase = getAirtableBase()
 
-  if (!base) {
+app.get("/api/tools", async (_req, res) => {
+  if (!airtableBase) {
     console.log(
       "[indiefa.st] Airtable not configured. Serving mock data.\n" +
       "To connect Airtable, set these environment variables:\n" +
@@ -225,7 +224,7 @@ app.get("/api/tools", async (_req, res) => {
   }
 
   try {
-    const records = await base("Tools")
+    const records = await airtableBase("Tools")
       .select({
         view: "Grid view",
       })
@@ -235,13 +234,20 @@ app.get("/api/tools", async (_req, res) => {
       id: record.id,
       Name: record.get("Name") || "",
       Category: record.get("Category") || "",
+      SecondCategory: record.get("SecondCategory") || "",
       OneLiner: record.get("OneLiner") || "",
+      Reasoning: record.get("Reasoning") || "",
       TimeSaved: record.get("TimeSaved") || "",
       Pricing: record.get("Pricing") || "",
-      AffiliateURL: record.get("AffiliateURL") || "",
+      AffiliateURL: record.get("URL") || "",
       Discount: record.get("Discount") || "",
       Featured: record.get("Featured") || false,
       Subtopic: record.get("Subtopic") || "",
+      LogoUrl: (() => {
+        const logoAttachments = record.get("Logo")
+        if (!Array.isArray(logoAttachments) || logoAttachments.length === 0) return ""
+        return logoAttachments[0].thumbnails?.small?.url || logoAttachments[0].url || ""
+      })(),
     }))
 
     // Update server cache
@@ -262,6 +268,7 @@ app.get("/api/tools", async (_req, res) => {
 })
 
 app.post("/api/subscribe", async (req, res) => {
+  const base = airtableBase
   const { email } = req.body
 
   // Defensive input validation
@@ -279,8 +286,6 @@ app.post("/api/subscribe", async (req, res) => {
   if (!emailRegex.test(trimmed)) {
     return res.status(400).json({ error: "Valid email required" })
   }
-
-  const base = getAirtableBase()
 
   if (!base) {
     console.log(`[indiefa.st] Newsletter signup (mock): ${trimmed}`)

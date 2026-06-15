@@ -191,12 +191,18 @@ export default async function handler(_req: Request, _context: Context) {
       Category: record.get("Category") || "",
       SecondCategory: record.get("SecondCategory") || "",
       OneLiner: record.get("OneLiner") || "",
+      Reasoning: record.get("Reasoning") || "",
       TimeSaved: record.get("TimeSaved") || "",
       Pricing: record.get("Pricing") || "",
-      AffiliateURL: record.get("AffiliateURL") || "",
+      AffiliateURL: record.get("URL") || "",
       Discount: record.get("Discount") || "",
       Featured: record.get("Featured") || false,
       Subtopic: record.get("Subtopic") || "",
+      LogoUrl: (() => {
+        const logoAttachments = record.get("Logo")
+        if (!Array.isArray(logoAttachments) || logoAttachments.length === 0) return ""
+        return logoAttachments[0].thumbnails?.small?.url || logoAttachments[0].url || ""
+      })(),
     }))
 
     return new Response(JSON.stringify({ tools, source: "airtable" }), { headers })

@@ -1,6 +1,8 @@
-import { Flex, Button, Box } from "@chakra-ui/react"
+import { Flex, Button, Box, Icon, Grid } from "@chakra-ui/react"
+import { LuArrowRight } from "react-icons/lu"
 import { Tooltip } from "@/components/ui/tooltip"
 import type { Category, GrowSubtopic } from "../types"
+import { CATEGORY_COLORS, GROW_SUBTOPICS, LIGHT_CATEGORIES } from "../constants"
 
 const CATEGORIES: Category[] = [
   "All",
@@ -32,39 +34,6 @@ const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
   "11. Grow": "Push the product further with SEO, automation, integrations, and repeatable systems. This is where speed turns into scale.",
 }
 
-const GROW_SUBTOPICS: GrowSubtopic[] = [
-  "Retain",
-  "Automate",
-  "Scale",
-  "Community",
-  "Support",
-  "SEO",
-  "Distribution",
-]
-
-const CATEGORY_COLORS: Record<Category, string> = {
-  "All": "#1a1a1a",
-  "1. Discover": "#FF6B6B",
-  "2. Research": "#FF8C42",
-  "3. Validate": "#FFE66D",
-  "4. Plan": "#95E1D3",
-  "5. Design": "#4ECDC4",
-  "6. Build": "#45B7D1",
-  "7. Backend": "#74B9FF",
-  "8. Ship": "#A8E6CF",
-  "9. Monetize": "#FF8ED4",
-  "10. Measure": "#DDA0DD",
-  "11. Grow": "#98FB98",
-}
-
-const LIGHT_CATEGORIES = new Set<Category>([
-  "3. Validate",
-  "4. Plan",
-  "8. Ship",
-  "10. Measure",
-  "11. Grow",
-])
-
 interface FilterBarProps {
   active: Category
   onChange: (cat: Category) => void
@@ -77,7 +46,16 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
 
   return (
     <Box mb="8">
-      <Flex gap="2" pb="4" flexWrap="wrap">
+      <Grid
+        templateColumns={{
+          base: "repeat(2, minmax(0, 1fr))",
+          md: "repeat(3, minmax(0, 1fr))",
+          lg: "repeat(6, minmax(0, 1fr))",
+          xl: "repeat(12, minmax(0, 1fr))",
+        }}
+        gap="2"
+        pb="4"
+      >
         {CATEGORIES.map((cat) => {
           const isActive = cat === active
           const color = CATEGORY_COLORS[cat]
@@ -98,6 +76,7 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
               <Button
                 size="sm"
                 variant="outline"
+                width="100%"
                 bg={isActive ? color : "white"}
                 color={isActive ? (isLight ? "#1a1a1a" : cat === "All" ? "white" : "#1a1a1a") : "#1a1a1a"}
                 border="2px solid"
@@ -120,12 +99,22 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
                   }
                 }}
               >
-                {cat}
+                {cat === "All" ? (
+                  <Flex as="span" alignItems="center" gap="1">
+                    <Box as="span">All: A</Box>
+                    <Icon boxSize="3">
+                      <LuArrowRight />
+                    </Icon>
+                    <Box as="span">Z</Box>
+                  </Flex>
+                ) : (
+                  cat
+                )}
               </Button>
             </Tooltip>
           )
         })}
-      </Flex>
+      </Grid>
       {showGrowSubtopics && (
         <Flex gap="2" flexWrap="wrap" pt="1" pl="2" alignItems="center" borderLeft="3px solid" borderColor="#98FB98">
           <Box

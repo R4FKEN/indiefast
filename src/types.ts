@@ -4,12 +4,14 @@ export interface Tool {
   Category: string
   SecondCategory: string
   OneLiner: string
+  Reasoning?: string
   TimeSaved: string
   Pricing: string
   AffiliateURL: string
   Discount: string
   Featured: boolean
   Subtopic: string
+  LogoUrl?: string
 }
 
 export type Category =
@@ -27,7 +29,6 @@ export type Category =
   | "11. Grow"
 
 export type GrowSubtopic =
-  | "Retain"
   | "Automate"
   | "Scale"
   | "Community"
