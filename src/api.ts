@@ -1,5 +1,5 @@
 import type { Tool } from "./types"
-import { MOCK_TOOLS } from "./mock-data"
+import { FALLBACK_TOOLS } from "./mock-data"
 
 const CACHE_KEY = "*****************"
 const CACHE_TTL = 5 * 60 * 1000
@@ -47,38 +47,39 @@ export async function fetchTools(): Promise<Tool[]> {
   if (cached) return cached
 
   try {
-    return await fetchToolsFrom(import.meta.env.DEV ? "/api/tools" : "/tools.json")
+    return await fetchToolsFrom("/tools.json")
   } catch {
     try {
       return await fetchToolsFrom("/api/tools")
     } catch {
-      console.log("[indiefa.st] Data source not reachable. Using local mock data.")
-      return MOCK_TOOLS
+      console.log("[indiefa.st] Data source not reachable. Using tools snapshot.")
+      return FALLBACK_TOOLS
     }
   }
 }
 
 export async function submitEmail(email: string): Promise<{ success: boolean }> {
-  const trimmed = email.trim()
+  const trimmed = email.trim().toLowerCase()
   if (!trimmed || !trimmed.includes("@") || !trimmed.includes(".")) {
     throw new Error("Invalid email address")
   }
 
+  const res = await fetch("/api/subscribe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: trimmed }),
+  })
+
+  let data: { success?: boolean; error?: string } = {}
   try {
-    const res = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: trimmed }),
-    })
-
-    if (!res.ok) {
-      const data = await res.json()
-      throw new Error(data.error || "Subscription failed")
-    }
-
-    return res.json()
+    data = await res.json()
   } catch {
-    console.log(`[indiefa.st] Newsletter signup (local): ${trimmed}`)
-    return { success: true }
+    // ignore non-JSON error bodies
   }
+
+  if (!res.ok) {
+    throw new Error(data.error || "Subscription failed")
+  }
+
+  return { success: data.success ?? true }
 }

@@ -58,7 +58,11 @@ export default async function handler(req: Request, _context: Context) {
 
     return new Response(JSON.stringify({ success: true }), { headers })
   } catch (error) {
-    console.error("[indiefa.st] Subscribe error:", error)
-    return new Response(JSON.stringify({ error: "Failed to subscribe" }), { status: 500, headers })
+    const err = error as { message?: string; statusCode?: number }
+    console.error("[indiefa.st] Subscribe error:", err.message ?? error)
+    const status = err.statusCode === 422 ? 409 : 500
+    const message =
+      status === 409 ? "This email is already subscribed" : "Failed to subscribe"
+    return new Response(JSON.stringify({ error: message }), { status, headers })
   }
 }

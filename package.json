@@ -4,13 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "dev": "concurrently -k -n api,web \"npm run server\" \"npm run dev:web\"",
+    "dev:web": "vite",
+    "dev:full": "npm run dev",
     "server": "nodemon server.js",
     "sync:tools": "node scripts/export-tools.mjs",
     "build": "npm run sync:tools && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:prod": "npm run build && vite preview"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.35.0",

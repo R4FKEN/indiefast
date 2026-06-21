@@ -1,4 +1,5 @@
 import { Box, Flex, Text, Heading, Image } from "@chakra-ui/react"
+import { SITE_COPY } from "@/constants/site-copy"
 
 export function Header() {
   return (
@@ -19,18 +20,32 @@ export function Header() {
           letterSpacing="tight"
           color="#1a1a1a"
         >
-          indiefa.st
+          {SITE_COPY.name}
         </Heading>
       </Flex>
+      <Heading
+        as="p"
+        fontSize={{ base: "xl", md: "2xl" }}
+        fontWeight="black"
+        color="#1a1a1a"
+        maxW="3xl"
+        lineHeight="shorter"
+        mb="3"
+      >
+        {SITE_COPY.tagline}
+      </Heading>
       <Text
         fontSize="md"
-        color="#555"
-        maxW="xl"
+        color="#444"
+        maxW="2xl"
         lineHeight="tall"
         fontWeight="medium"
+        mb="4"
       >
-        The curated, hyper-efficient software toolkit for modern builders.
-        Zero bloat. Maximum velocity. Highest discounts.
+        {SITE_COPY.supporting}
+      </Text>
+      <Text fontSize="sm" color="#666" maxW="3xl" lineHeight="tall">
+        {SITE_COPY.description}
       </Text>
     </Box>
   )
