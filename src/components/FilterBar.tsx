@@ -1,8 +1,9 @@
-import { Flex, Button, Box, Icon, Grid } from "@chakra-ui/react"
+import { Flex, Button, Box, Icon, Grid, Text } from "@chakra-ui/react"
 import { LuArrowRight } from "react-icons/lu"
 import { Tooltip } from "@/components/ui/tooltip"
 import type { Category, GrowSubtopic } from "../types"
-import { CATEGORY_COLORS, GROW_SUBTOPICS, LIGHT_CATEGORIES } from "../constants"
+import { CATEGORY_COLORS, GROW_SUBTOPICS } from "../constants"
+import { SITE_COPY } from "@/constants/site-copy"
 
 const CATEGORIES: Category[] = [
   "All",
@@ -31,7 +32,15 @@ const CATEGORY_DESCRIPTIONS: Record<Category, string> = {
   "8. Ship": "Deploy, launch, and get the thing in front of users without overthinking it. This is the sprint from \"almost done\" to \"live now.\"",
   "9. Monetize": "Add payments, subscriptions, billing, and ways to actually make money. Fast growth is great, but paid is better.",
   "10. Measure": "Track what users do, what breaks, and what converts. Fast feedback helps you improve before momentum slips.",
-  "11. Grow": "Push the product further with SEO, automation, integrations, and repeatable systems. This is where speed turns into scale.",
+  "11. Grow": "Run parallel growth functions — automate, scale, build community, support users, improve SEO, and expand distribution. No fixed order; pick what you need now.",
+}
+
+const GROW_COLOR = CATEGORY_COLORS["11. Grow"]
+
+function categoryButtonTextColor(cat: Category, onCategoryColor: boolean): string {
+  if (!onCategoryColor) return "#1a1a1a"
+  if (cat === "All") return "white"
+  return "#1a1a1a"
 }
 
 interface FilterBarProps {
@@ -59,7 +68,6 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
         {CATEGORIES.map((cat) => {
           const isActive = cat === active
           const color = CATEGORY_COLORS[cat]
-          const isLight = LIGHT_CATEGORIES.has(cat)
           return (
             <Tooltip
               key={cat}
@@ -78,7 +86,7 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
                 variant="outline"
                 width="100%"
                 bg={isActive ? color : "white"}
-                color={isActive ? (isLight ? "#1a1a1a" : cat === "All" ? "white" : "#1a1a1a") : "#1a1a1a"}
+                color={categoryButtonTextColor(cat, isActive)}
                 border="2px solid"
                 borderColor="#1a1a1a"
                 borderRadius="sm"
@@ -87,7 +95,8 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
                 px="4"
                 boxShadow={isActive ? "2px 2px 0px #1a1a1a" : "none"}
                 _hover={{
-                  bg: isActive ? color : "gray.50",
+                  bg: color,
+                  color: categoryButtonTextColor(cat, true),
                   transform: "translate(-1px, -1px)",
                   boxShadow: "3px 3px 0px #1a1a1a",
                 }}
@@ -116,7 +125,11 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
         })}
       </Grid>
       {showGrowSubtopics && (
-        <Flex gap="2" flexWrap="wrap" pt="1" pl="2" alignItems="center" borderLeft="3px solid" borderColor="#98FB98">
+        <Box pt="2" pl="2" borderLeft="3px solid" borderColor="#98FB98">
+          <Text fontSize="xs" color="#555" mb="2" fontWeight="medium">
+            {SITE_COPY.growSubtopicsHint}
+          </Text>
+          <Flex gap="2" flexWrap="wrap" alignItems="center">
           <Box
             fontSize="xs"
             fontWeight="bold"
@@ -132,7 +145,7 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
           <Button
             size="xs"
             variant="outline"
-            bg={activeSubtopic === null ? "#98FB98" : "white"}
+            bg={activeSubtopic === null ? GROW_COLOR : "white"}
             color="#1a1a1a"
             border="2px solid"
             borderColor="#1a1a1a"
@@ -142,7 +155,7 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
             px="3"
             boxShadow={activeSubtopic === null ? "2px 2px 0px #1a1a1a" : "none"}
             _hover={{
-              bg: activeSubtopic === null ? "#98FB98" : "gray.50",
+              bg: GROW_COLOR,
               transform: "translate(-1px, -1px)",
               boxShadow: "3px 3px 0px #1a1a1a",
             }}
@@ -162,7 +175,7 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
                 key={sub}
                 size="xs"
                 variant="outline"
-                bg={isActive ? "#98FB98" : "white"}
+                bg={isActive ? GROW_COLOR : "white"}
                 color="#1a1a1a"
                 border="2px solid"
                 borderColor="#1a1a1a"
@@ -172,7 +185,7 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
                 px="3"
                 boxShadow={isActive ? "2px 2px 0px #1a1a1a" : "none"}
                 _hover={{
-                  bg: isActive ? "#98FB98" : "gray.50",
+                  bg: GROW_COLOR,
                   transform: "translate(-1px, -1px)",
                   boxShadow: "3px 3px 0px #1a1a1a",
                 }}
@@ -187,7 +200,8 @@ export function FilterBar({ active, onChange, activeSubtopic, onSubtopicChange }
               </Button>
             )
           })}
-        </Flex>
+          </Flex>
+        </Box>
       )}
     </Box>
   )

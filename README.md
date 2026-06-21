@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# IndieFast (indiefa.st)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A curated toolkit for indie makers — **one vetted tool per stage** of the full founder journey, from idea to scale.
 
-Currently, two official plugins are available:
+## Positioning
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Differentiator
 
-## React Compiler
+Competitors like Indie Hackers' directory and vibecoding.app are scoped to **coding tools only** (IDEs, AI agents). IndieFast covers the **entire founder journey** — Discover through Grow — not just build. That is a categorically different product, not a better-curated version of the same thing. **Lead with the journey, not speed or discounts alone.**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Copy (canonical)
 
-## Expanding the ESLint configuration
+| Use | Text |
+|-----|------|
+| **Hero tagline** | Every step from idea to scale. One tool each. |
+| **Supporting line** | Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads. |
+| **Meta / about** | IndieFast maps the full indie maker journey with one vetted tool per stage. Refreshed weekly, with the best live discount on every pick. Skip the research, follow the path. |
+| **Page title** | indiefa.st — Every step from idea to scale. One tool each. |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Source of truth in code: `src/constants/site-copy.ts`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Category structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The first 10 categories (Discover → Measure) plus **Grow** read as a **sequence** — one stage leads to the next.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Grow's subcategories** (Automate, Scale, Community, Support, SEO, Distribution) are **not sequential**. They are parallel functions you run simultaneously once you're growing. The UI should show:
+
+- Main 11 categories as a horizontal path / timeline
+- Grow expands into a **separate cluster** of 6 sub-filters (not a continuation of the same line)
+
+Rendering them as one flat sequence implies an order (e.g. Community after SEO) that does not exist.
+
+### SEO content plan
+
+Each of the 11 categories (and the 6 Grow subcategories) can become its own landing page — e.g. "Best tool to validate your MVP idea," "Best tool to monetize your indie SaaS" — each targeting its own keyword cluster, all linking back to the main toolkit. Stronger than one homepage trying to rank for "indie maker tools."
+
+## Development
+
+```bash
+npm install
+npm run dev          # API (port 3002) + hot-reload preview (port 5173)
+npm run sync:tools   # Re-import Airtable → public/tools.json + logos
+npm run build        # Sync + production build
+npm run preview:prod # Build + serve dist on port 4173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Requires `.env` with `AIRTABLE_PAT` and `AIRTABLE_BASE_ID` for live sync and newsletter signup.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+React + TypeScript + Vite, Chakra UI, Express API (local dev), Netlify Functions (production).

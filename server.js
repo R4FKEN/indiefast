@@ -1,10 +1,27 @@
 import express from "express"
 import cors from "cors"
 import Airtable from "airtable"
-import 'dotenv/config'
+import fs from "node:fs"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
+import "dotenv/config"
+
+const repoRoot = path.dirname(fileURLToPath(import.meta.url))
+
+function loadFallbackTools() {
+  try {
+    const snapshot = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, "public", "tools.json"), "utf8")
+    )
+    return snapshot.tools ?? []
+  } catch (error) {
+    console.warn("[indiefa.st] Failed to load tools snapshot:", error.message)
+    return []
+  }
+}
 
 const app = express()
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3002
 
 app.use(cors())
 app.use(express.json({ limit: "10kb" }))
@@ -55,140 +72,7 @@ setInterval(() => {
   }
 }, 5 * 60 * 1000)
 
-const MOCK_TOOLS = [
-  {
-    id: "mock_1",
-    Name: "ShipFast",
-    Category: "6. Build",
-    OneLiner: "Next.js boilerplate with auth, payments, and SEO baked in. Ship in days, not weeks.",
-    TimeSaved: "40h",
-    Pricing: "One-time $199",
-    AffiliateURL: "https://shipfa.st",
-    Discount: "20% off",
-    Featured: true,
-  },
-  {
-    id: "mock_2",
-    Name: "v0.dev",
-    Category: "6. Build",
-    OneLiner: "AI-powered UI generation. Describe your component, get production-ready code.",
-    TimeSaved: "15h",
-    Pricing: "Free tier",
-    AffiliateURL: "https://v0.dev",
-    Discount: "",
-    Featured: false,
-  },
-  {
-    id: "mock_3",
-    Name: "Tailwind UI",
-    Category: "5. Design",
-    OneLiner: "Professionally designed, pre-built components. Drop-in and ship.",
-    TimeSaved: "25h",
-    Pricing: "$299 lifetime",
-    AffiliateURL: "https://tailwindui.com",
-    Discount: "",
-    Featured: false,
-  },
-  {
-    id: "mock_4",
-    Name: "Supabase",
-    Category: "7. Backend",
-    OneLiner: "Open source Firebase alternative. Postgres, Auth, Storage, Realtime in one click.",
-    TimeSaved: "60h",
-    Pricing: "Free tier",
-    AffiliateURL: "https://supabase.com",
-    Discount: "",
-    Featured: true,
-  },
-  {
-    id: "mock_5",
-    Name: "Stripe",
-    Category: "9. Monetize",
-    OneLiner: "The payments infrastructure for the internet. Accept payments in minutes.",
-    TimeSaved: "30h",
-    Pricing: "2.9% + 30c",
-    AffiliateURL: "https://stripe.com",
-    Discount: "",
-    Featured: false,
-  },
-  {
-    id: "mock_6",
-    Name: "Cursor",
-    Category: "6. Build",
-    OneLiner: "AI-first code editor. Write, edit, and debug code at the speed of thought.",
-    TimeSaved: "20h",
-    Pricing: "$20/mo",
-    AffiliateURL: "https://cursor.com",
-    Discount: "Free trial",
-    Featured: false,
-  },
-  {
-    id: "mock_7",
-    Name: "Plausible",
-    Category: "10. Measure",
-    OneLiner: "Lightweight, privacy-first analytics. No cookies, no consent banners.",
-    TimeSaved: "10h",
-    Pricing: "$9/mo",
-    AffiliateURL: "https://plausible.io",
-    Discount: "",
-    Featured: false,
-  },
-  {
-    id: "mock_8",
-    Name: "Resend",
-    Category: "11. Grow",
-    OneLiner: "Email API built for developers. Beautiful transactional emails with zero config.",
-    TimeSaved: "12h",
-    Pricing: "Free tier",
-    AffiliateURL: "https://resend.com",
-    Discount: "",
-    Featured: false,
-  },
-  {
-    id: "mock_9",
-    Name: "Lemon Squeezy",
-    Category: "9. Monetize",
-    OneLiner: "Merchant of record for SaaS. Subscriptions, taxes, and compliance handled.",
-    TimeSaved: "50h",
-    Pricing: "5% + 50c",
-    AffiliateURL: "https://lemonsqueezy.com",
-    Discount: "10% off first year",
-    Featured: false,
-  },
-  {
-    id: "mock_10",
-    Name: "Shadcn/UI",
-    Category: "5. Design",
-    OneLiner: "Copy-paste component library. Own your code, customize everything.",
-    TimeSaved: "20h",
-    Pricing: "Free",
-    AffiliateURL: "https://ui.shadcn.com",
-    Discount: "",
-    Featured: false,
-  },
-  {
-    id: "mock_11",
-    Name: "Railway",
-    Category: "7. Backend",
-    OneLiner: "Deploy anything. Databases, APIs, cron jobs. Zero config infrastructure.",
-    TimeSaved: "35h",
-    Pricing: "Usage-based",
-    AffiliateURL: "https://railway.app",
-    Discount: "$5 credit",
-    Featured: false,
-  },
-  {
-    id: "mock_12",
-    Name: "Makerkit",
-    Category: "6. Build",
-    OneLiner: "Production-ready SaaS starter with multi-tenancy, billing, and admin panel.",
-    TimeSaved: "80h",
-    Pricing: "$299",
-    AffiliateURL: "https://makerkit.dev",
-    Discount: "",
-    Featured: false,
-  },
-]
+const FALLBACK_TOOLS = loadFallbackTools()
 
 function getAirtableBase() {
   if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
@@ -202,12 +86,12 @@ const airtableBase = getAirtableBase()
 app.get("/api/tools", async (_req, res) => {
   if (!airtableBase) {
     console.log(
-      "[indiefa.st] Airtable not configured. Serving mock data.\n" +
+      "[indiefa.st] Airtable not configured. Serving tools snapshot.\n" +
       "To connect Airtable, set these environment variables:\n" +
       "  AIRTABLE_PAT=your_personal_access_token\n" +
       "  AIRTABLE_BASE_ID=your_base_id\n"
     )
-    return res.json({ tools: MOCK_TOOLS, source: "mock" })
+    return res.json({ tools: FALLBACK_TOOLS, source: "snapshot" })
   }
 
   // Return cached response if fresh
@@ -220,7 +104,7 @@ app.get("/api/tools", async (_req, res) => {
     if (toolsCache) {
       return res.json({ tools: toolsCache, source: "cache" })
     }
-    return res.json({ tools: MOCK_TOOLS, source: "mock" })
+    return res.json({ tools: FALLBACK_TOOLS, source: "snapshot" })
   }
 
   try {
@@ -299,7 +183,10 @@ app.post("/api/subscribe", async (req, res) => {
     res.json({ success: true })
   } catch (error) {
     console.error("[indiefa.st] Subscribe error:", error.message)
-    res.status(500).json({ error: "Failed to subscribe" })
+    const status = error.statusCode === 422 ? 409 : 500
+    const message =
+      status === 409 ? "This email is already subscribed" : "Failed to subscribe"
+    res.status(status).json({ error: message })
   }
 })
 

@@ -1,1 +1,12 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+  "name": "indiefa.st — Every step from idea to scale",
+  "short_name": "indiefa.st",
+  "description": "One vetted tool per stage of the indie maker journey — from idea to scale.",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#FFFDF7",
+  "background_color": "#FFFDF7",
+  "display": "standalone"
+}

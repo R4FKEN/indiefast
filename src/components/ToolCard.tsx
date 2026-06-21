@@ -189,14 +189,14 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           <Button
             size="xs"
             variant="outline"
-            bg={inStack ? "#4ECDC4" : "white"}
+            bg={inStack ? catColor : "white"}
             border="2px solid"
             borderColor="#1a1a1a"
             color="#1a1a1a"
             borderRadius="sm"
             px="2"
             _hover={{
-              bg: inStack ? "#3dbdb5" : "#f5f5f5",
+              bg: catColor,
             }}
             onClick={() => onToggleStack(tool)}
           >
