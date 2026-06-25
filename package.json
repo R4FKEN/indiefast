@@ -9,7 +9,7 @@
     "dev:full": "npm run dev",
     "server": "nodemon server.js",
     "sync:tools": "node scripts/export-tools.mjs",
-    "build": "npm run sync:tools && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "preview:prod": "npm run build && vite preview"
