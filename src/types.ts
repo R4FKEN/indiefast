@@ -7,6 +7,7 @@ export interface Tool {
   Reasoning?: string
   TimeSaved: string
   Pricing: string
+  /** Outbound link — synced from Airtable column "URL" (not "AffiliateURL") */
   AffiliateURL: string
   Discount: string
   Featured: boolean

@@ -1,6 +1,6 @@
 {
   "source": "airtable-snapshot",
-  "generatedAt": "2026-06-21T17:55:42.695Z",
+  "generatedAt": "2026-06-25T18:39:02.211Z",
   "tools": [
     {
       "id": "reclEpfLktCo2toWM",
@@ -341,7 +341,7 @@
       "Reasoning": "Builds full-stack apps and landing pages from plain text prompts, replacing manual front-end coding and prototyping and saving solo makers 40+ hr/month.",
       "TimeSaved": "40hr / month",
       "Pricing": "Free tier / $20/mo",
-      "AffiliateURL": "https://lovable.dev/?via=raf&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
+      "AffiliateURL": "https://lovablelabs.pxf.io/3kmMqy&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
       "Discount": "14% OFF annual plan!",
       "Featured": false,
       "Subtopic": "",
@@ -718,7 +718,7 @@
       "Pricing": "Free tier / $25/mo",
       "AffiliateURL": "https://refer.testimonial.to/raf-vantongerloo?utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
       "Discount": "Generous free tier, 15% discount for 2 months!",
-      "Featured": true,
+      "Featured": false,
       "Subtopic": "",
       "LogoUrl": "/tool-logos/recs6ED9fWQiR96EV.png"
     },

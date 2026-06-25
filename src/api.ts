@@ -1,60 +1,21 @@
 import type { Tool } from "./types"
 import { FALLBACK_TOOLS } from "./mock-data"
 
-const CACHE_KEY = "*****************"
-const CACHE_TTL = 5 * 60 * 1000
-
-interface CachedData {
-  tools: Tool[]
-  timestamp: number
-}
-
-function getCachedTools(): Tool[] | null {
-  try {
-    const raw = sessionStorage.getItem(CACHE_KEY)
-    if (!raw) return null
-    const cached: CachedData = JSON.parse(raw)
-    if (Date.now() - cached.timestamp > CACHE_TTL) {
-      sessionStorage.removeItem(CACHE_KEY)
-      return null
-    }
-    return cached.tools
-  } catch {
-    return null
-  }
-}
-
-function setCachedTools(tools: Tool[]): void {
-  try {
-    const data: CachedData = { tools, timestamp: Date.now() }
-    sessionStorage.setItem(CACHE_KEY, JSON.stringify(data))
-  } catch {
-    // storage full or unavailable
-  }
-}
-
-async function fetchToolsFrom(url: string): Promise<Tool[]> {
-  const res = await fetch(url)
-  if (!res.ok) throw new Error(`API error ${res.status}`)
-  const data = await res.json()
-  const tools: Tool[] = data.tools
-  setCachedTools(tools)
-  return tools
-}
-
 export async function fetchTools(): Promise<Tool[]> {
-  const cached = getCachedTools()
-  if (cached) return cached
+  // Production: bundled snapshot from last manual sync + deploy (no network wait)
+  if (import.meta.env.PROD) {
+    return FALLBACK_TOOLS
+  }
 
+  // Dev: read public/tools.json from disk (refresh via `npm run sync:tools`)
   try {
-    return await fetchToolsFrom("/tools.json")
+    const res = await fetch("/tools.json", { cache: "no-store" })
+    if (!res.ok) throw new Error(`Snapshot error ${res.status}`)
+    const data = await res.json()
+    return data.tools as Tool[]
   } catch {
-    try {
-      return await fetchToolsFrom("/api/tools")
-    } catch {
-      console.log("[indiefa.st] Data source not reachable. Using tools snapshot.")
-      return FALLBACK_TOOLS
-    }
+    console.log("[indiefa.st] tools.json unavailable. Using bundled fallback.")
+    return FALLBACK_TOOLS
   }
 }
 

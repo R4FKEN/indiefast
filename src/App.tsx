@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
 import type { Tool, Category, GrowSubtopic } from "./types"
 import { fetchTools } from "./api"
+import { FALLBACK_TOOLS } from "./mock-data"
 import { Header } from "./components/Header"
 import { FilterBar } from "./components/FilterBar"
 import { ToolGrid } from "./components/ToolGrid"
@@ -10,8 +11,10 @@ import { Newsletter } from "./components/Newsletter"
 import { Footer } from "./components/Footer"
 
 function App() {
-  const [tools, setTools] = useState<Tool[]>([])
-  const [loading, setLoading] = useState(true)
+  const [tools, setTools] = useState<Tool[]>(() =>
+    import.meta.env.PROD ? FALLBACK_TOOLS : []
+  )
+  const [loading, setLoading] = useState(!import.meta.env.PROD)
   const [activeCategory, setActiveCategory] = useState<Category>("All")
   const [activeSubtopic, setActiveSubtopic] = useState<GrowSubtopic | null>(null)
   const [stack, setStack] = useState<Tool[]>([])
