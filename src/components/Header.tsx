@@ -3,7 +3,7 @@ import { SITE_COPY } from "@/constants/site-copy"
 
 export function Header() {
   return (
-    <Box mb="10">
+    <Box>
       <Flex alignItems="center" gap="1" mb="4">
         <Image
           src="/indiefast-logo-nobg-500x500.png"
@@ -40,12 +40,8 @@ export function Header() {
         maxW="2xl"
         lineHeight="tall"
         fontWeight="medium"
-        mb="4"
       >
         {SITE_COPY.supporting}
-      </Text>
-      <Text fontSize="sm" color="#666" maxW="3xl" lineHeight="tall">
-        {SITE_COPY.description}
       </Text>
     </Box>
   )
