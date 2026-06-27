@@ -1,9 +1,10 @@
-import { Box } from "@chakra-ui/react"
+import { Box, Grid } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
 import type { Tool, Category, GrowSubtopic } from "./types"
 import { fetchTools } from "./api"
 import { FALLBACK_TOOLS } from "./mock-data"
 import { Header } from "./components/Header"
+import { ToolCardGuide } from "./components/ToolCardGuide"
 import { FilterBar } from "./components/FilterBar"
 import { ToolGrid } from "./components/ToolGrid"
 import { SpeedStack } from "./components/SpeedStack"
@@ -51,7 +52,17 @@ function App() {
   return (
     <Box bg="#FFFDF7" minH="100dvh">
       <Box maxW="7xl" mx="auto" px={{ base: "4", md: "6", lg: "8" }} py="10">
-        <Header />
+        <Grid
+          templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }}
+          gap="5"
+          mb="10"
+          alignItems="start"
+        >
+          <Box gridColumn={{ lg: "span 2" }}>
+            <Header />
+          </Box>
+          <ToolCardGuide />
+        </Grid>
         <FilterBar
           active={activeCategory}
           onChange={setActiveCategory}
