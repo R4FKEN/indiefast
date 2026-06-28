@@ -36,3 +36,10 @@ export type GrowSubtopic =
   | "Support"
   | "SEO"
   | "Distribution"
+
+export interface BlogPost {
+  slug: string
+  title: string
+  excerpt: string
+  publishedAt: string
+}

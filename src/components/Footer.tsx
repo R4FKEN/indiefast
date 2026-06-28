@@ -1,4 +1,5 @@
 import { Box, Flex, Text } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 
 export function Footer() {
   return (
@@ -21,9 +22,21 @@ export function Footer() {
           commission at no extra cost to you. I only recommend tools and products I
           genuinely find useful.
         </Text>
-        <Text fontSize="xs" color="#666" whiteSpace="nowrap">
-          IndieFast © 2026 All rights reserved.
-        </Text>
+        <Flex align="center" gap="4" flexShrink={0}>
+          <Link to="/blog">
+            <Text
+              fontSize="xs"
+              color="#666"
+              fontWeight="bold"
+              _hover={{ color: "#1a1a1a", textDecoration: "underline" }}
+            >
+              Blog
+            </Text>
+          </Link>
+          <Text fontSize="xs" color="#666" whiteSpace="nowrap">
+            IndieFast © 2026 All rights reserved.
+          </Text>
+        </Flex>
       </Flex>
     </Box>
   )

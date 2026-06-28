@@ -116,7 +116,6 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
       })
       y += 6
 
-      renderParagraph(tool.OneLiner)
       renderParagraph(tool.Reasoning || "")
 
       y += 4
