@@ -37,9 +37,21 @@ export type GrowSubtopic =
   | "SEO"
   | "Distribution"
 
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
 export interface BlogPost {
   slug: string
   title: string
+  description: string
   excerpt: string
   publishedAt: string
+  canonical: string
+  ogTitle: string
+  ogDescription: string
+  ogUrl: string
+  content: string
+  faqSchema?: Record<string, unknown>
 }

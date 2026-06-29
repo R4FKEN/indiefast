@@ -1,0 +1,94 @@
+# indiefa.st
+
+> Curated indie maker tool directory — one hand-picked tool per journey stage from idea to scale, plus Grow sub-tracks for automate, scale, community, support, SEO, and distribution.
+
+indiefa.st helps solo founders and indie hackers discover, validate, build, ship, monetize, measure, and grow products without tool-list paralysis. Each stage has editorial blog guidance and affiliate-backed tool picks with discounts where available.
+
+## Full documentation
+
+- [Complete LLM reference (text)](https://indiefa.st/llms-full.txt): All 58 tools with pricing, reasoning, affiliate URLs, blog posts, navigation, and site metadata
+- [Complete LLM reference (markdown)](https://indiefa.st/llms-full.md): Identical content to llms-full.txt
+
+## Key pages
+
+- [Homepage](https://indiefa.st/): Tool directory and newsletter
+- [Blog](https://indiefa.st/blog): Stage-by-stage guides for indie makers
+- [Tools section](https://indiefa.st/#tools): Browse all curated picks
+- [Sitemap](https://indiefa.st/sitemap.xml): All public URLs
+
+## Journey stages
+
+- [Discover](https://indiefa.st/blog/discover): Discover stage guide and tools
+- [Research](https://indiefa.st/blog/research): Research stage guide and tools
+- [Validate](https://indiefa.st/blog/validate): Validate stage guide and tools
+- [Plan](https://indiefa.st/blog/plan): Plan stage guide and tools
+- [Design](https://indiefa.st/blog/design): Design stage guide and tools
+- [Build](https://indiefa.st/blog/build): Build stage guide and tools
+- [Backend](https://indiefa.st/blog/backend): Backend stage guide and tools
+- [Ship](https://indiefa.st/blog/ship): Ship stage guide and tools
+- [Monetize](https://indiefa.st/blog/monetize): Monetize stage guide and tools
+- [Measure](https://indiefa.st/blog/measure): Measure stage guide and tools
+- [Grow](https://indiefa.st/blog/grow): Grow stage guide and tools
+
+## Grow subtopics
+
+- [Automate](https://indiefa.st/blog/grow/automate): Grow — Automate tools and guide
+- [Scale](https://indiefa.st/blog/grow/scale): Grow — Scale tools and guide
+- [Community](https://indiefa.st/blog/grow/community): Grow — Community tools and guide
+- [Support](https://indiefa.st/blog/grow/support): Grow — Support tools and guide
+- [SEO](https://indiefa.st/blog/grow/seo): Grow — SEO tools and guide
+- [Distribution](https://indiefa.st/blog/grow/distribution): Grow — Distribution tools and guide
+
+## Featured tool picks
+
+- Apify (2. Research): Full-stack web scraping and data extraction platform with ecosystem for building deploying and publishing web scrapers AI agents and automation tools.
+- ClickFunnels (3. Validate): Sales funnel builder platform to convert online visitors into paying customers with optimized landing pages checkout flows and marketing automation.
+- DirStarter (6. Build): Next.js directory website template boilerplate for quickly building and launching online directory listing websites with modern tech stack.
+- FaceUp (10. Measure): EU anonymous whistleblowing & ethics compliance platform. Lets employees report misconduct, fraud & HR issues safely. Used by 3,600+ orgs in 70+ countries.
+- Feather-so (11. Grow): Platform to publish SEO-friendly blogs from Notion collect emails and send high-deliverability newsletters with no coding or design skills required.
+- Guideflow (4. Plan): AI demo automation suite for creating interactive product demos and step-by-step guides in seconds to showcase software features effectively.
+- MailerLite (9. Monetize): Email marketing platform with transactional emails automation newsletters landing pages websites and forms for growing audience engagement.
+- Mangools (1. Discover): Affordable all-in-one SEO tool suite for keyword research SERP analysis rank tracking backlink checking and competitor analysis across LLMs.
+- Outrank-so (11. Grow): Programmatic SEO automation that generates blog posts backlinks and optimization recommendations on autopilot to grow organic traffic while you sleep.
+- Outseta (9. Monetize): All-in-one membership and SaaS platform combining CRM email marketing payments authentication and customer management for scaling businesses.
+- PostSyncer (11. Grow): Social media scheduling tool managing Instagram Facebook LinkedIn TikTok Pinterest YouTube Telegram BlueSky Threads, X and now Mastodon with AI video creation.
+- Revid-ai (11. Grow): Create viral videos in Minutes! Turn your creative ideas into attention-grabbing TikTok, Instagram, and YouTube stories with just a few clicks. All you need is a story to tell - revid.ai handles the rest.
+- ShipAhead (6. Build): Nuxt boilerplate for shipping AI SaaS products in hours with authentication payments and all features needed to launch and stay ahead.
+- Supastarter (6. Build): Scalable production-ready Next.js, Nuxt and TanStack Start SaaS starter kit with authentication payments API and features trusted by 1350+ developers.
+- Super-so (11. Grow): Tool for turning Notion documents into fully customized professional websites with SEO optimization high performance and instant page loads.
+- Synthesia (11. Grow): AI video platform for business creating studio-quality videos with AI avatars and voiceovers in 160+ languages saving 90% time and cost.
+- Turbo0 (8. Ship): Launch Site (high potential!)
+- Uneed-best (8. Ship): Launch Site (high potential!)
+- Wispr Flow (4. Plan): Voice-to-text AI turning speech into clear polished writing 4x faster than typing in every app on Mac Windows and iPhone with auto-edits.
+- Linkto (8. Ship): Unlock Explosive Growth with this FREE List of 800+ SaaS Directories and 75+ Launch Sites
+- Chrome Goldmine (1. Discover): A complete database of 9,656 expired Chrome extensions - each with revenue estimates, rebuild difficulty, competitor gaps, and a step-by-step launch plan.
+
+## Blog posts
+
+- [Best Backend Tools for Indie Hackers (2026) | IndieFast](https://indiefa.st/blog/backend): Best backend tools for indie hackers 2026. Choose a scalable backend stack that helps you launch faster and avoid costly rebuilds.
+- [Best Vibe Coding Tools for Indie Makers (2026) | IndieFast](https://indiefa.st/blog/build): Best vibe coding tools for indie makers 2026. Pick the right AI builder faster and ship a production-ready MVP with confidence.
+- [UI Design Tools for Indie Makers | IndieFast](https://indiefa.st/blog/design): The best UI design tools for indie makers in 2026. Skip design paralysis — get to a credible, shippable product fast without a design background.
+- [Product Discovery Tools for Indie Hackers | IndieFast](https://indiefa.st/blog/discover): The best product discovery tools for indie hackers in 2026. Stop browsing for inspiration — find real demand gaps and ship an idea worth building.
+- [Growth Tools for Indie Makers (2026) | IndieFast](https://indiefa.st/blog/grow): Growth tools for indie makers 2026. Discover the six systems that help solo founders grow faster without unnecessary complexity.
+- [Automation Tools for Indie Hackers 2026 | IndieFast](https://indiefa.st/blog/grow/automate): The best automation tools for indie hackers in 2026. Stop doing manually what a workflow can handle — automate onboarding, alerts, and syncs fast.
+- [Community Building Tools for Indie Makers | IndieFast](https://indiefa.st/blog/grow/community): Community building tools for indie makers. Build an engaged audience that fuels referrals, feedback, and long-term product growth.
+- [Distribution Tools for Indie Makers (2026) | IndieFast](https://indiefa.st/blog/grow/distribution): Distribution tools for indie makers 2026. Find the right channels, submit your product everywhere that matters, and grow beyond launch day.
+- [Scaling Tools for Indie SaaS Founders | IndieFast](https://indiefa.st/blog/grow/scale): The right scaling tools for indie SaaS founders — what to fix first, when infrastructure actually matters, and IndieFast's one recommended pick.
+- [SEO Tools for Indie SaaS Founders | IndieFast](https://indiefa.st/blog/grow/seo): SEO tools for indie SaaS founders. Grow organic traffic with practical tools that help solo founders rank faster without wasting money.
+- [Customer Support Tools for Indie Hackers | IndieFast](https://indiefa.st/blog/grow/support): Customer support tools for indie hackers. Reduce support workload, prevent churn, and help customers faster with the right AI support tool.
+- [Analytics Tools for Indie Makers (2026) | IndieFast](https://indiefa.st/blog/measure): Analytics tools for indie makers 2026. Track user behavior, improve retention, and make better product decisions with less guesswork.
+- [Monetization Tools for Indie SaaS Founders | IndieFast](https://indiefa.st/blog/monetize): Monetization tools for indie SaaS founders. Choose the right payment platform, test pricing, and start earning revenue faster.
+- [Product Planning Tools for Solo Founders | IndieFast](https://indiefa.st/blog/plan): The best product planning tools for solo founders in 2026. Define your MVP scope, cut scope creep, and ship a brief your AI tools can actually use.
+- [Market Research Tools for Indie Makers | IndieFast](https://indiefa.st/blog/research): The best market research tools for indie makers in 2026. Stop studying feature lists — find how customers describe their problems before you build.
+- [Best Tools to Ship an MVP Fast | IndieFast](https://indiefa.st/blog/ship): Best tools to ship an MVP fast. Deploy your app in minutes, launch with confidence, and get real user feedback sooner.
+- [MVP Validation Tools for Indie Hackers | IndieFast](https://indiefa.st/blog/validate): The best MVP validation tools for indie hackers in 2026. Run a real test before you build — smoke tests, landing pages, and pre-sales in hours.
+
+## Contact
+
+- Email: support@indiefa.st
+- Maker portfolio: https://rafvantongerloo.com/
+
+## Optional
+
+- [Robots.txt](https://indiefa.st/robots.txt)
+- [Tools JSON data](https://indiefa.st/tools.json)

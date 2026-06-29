@@ -61,19 +61,23 @@ export function HomePage() {
         </Box>
         <ToolCardGuide />
       </Grid>
-      <FilterBar
-        active={activeCategory}
-        onChange={setActiveCategory}
-        activeSubtopic={activeSubtopic}
-        onSubtopicChange={setActiveSubtopic}
-      />
+      <Box id="tools">
+        <FilterBar
+          active={activeCategory}
+          onChange={setActiveCategory}
+          activeSubtopic={activeSubtopic}
+          onSubtopicChange={setActiveSubtopic}
+        />
+      </Box>
       <ToolGrid
         tools={sortedTools}
         loading={loading}
         stack={stack}
         onToggleStack={toggleStack}
       />
-      <Newsletter />
+      <Box id="newsletter">
+        <Newsletter />
+      </Box>
       <SpeedStack stack={stack} onRemove={toggleStack} />
     </>
   )

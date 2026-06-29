@@ -37,3 +37,9 @@ export const TOOL_CARD_HEIGHT = {
   md: "252px",
   lg: "260px",
 } as const
+
+export const BLOG_CARD_HEIGHT = {
+  base: "200px",
+  md: "210px",
+  lg: "210px",
+} as const

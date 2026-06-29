@@ -16,10 +16,17 @@ interface GuideHintProps {
   interactive?: boolean
 }
 
+const hintCursor = { cursor: "help" }
+
 const hintHoverOutline = {
+  ...hintCursor,
   outline: "2px dashed",
   outlineColor: "#FFE66D",
   outlineOffset: "2px",
+}
+
+const hintDescendantCursor = {
+  "&, & *, & *:hover": hintCursor,
 }
 
 function GuideHint({
@@ -52,7 +59,9 @@ function GuideHint({
       >
         {cloneElement(children, {
           ...wrapperProps,
+          ...hintCursor,
           transition: "outline 0.1s",
+          css: hintDescendantCursor,
           _hover: {
             ...(children.props as { _hover?: Record<string, unknown> })._hover,
             ...hintHoverOutline,
@@ -71,10 +80,11 @@ function GuideHint({
       contentProps={{ maxW: "xs", fontSize: "xs", lineHeight: "moderate" }}
     >
       <Box
-        cursor="help"
         borderRadius="sm"
         transition="outline 0.1s"
+        css={hintDescendantCursor}
         _hover={hintHoverOutline}
+        {...hintCursor}
         {...wrapperProps}
       >
         {children}
@@ -120,7 +130,10 @@ export function ToolCardGuide() {
         position="relative"
         transition="all 0.1s"
         boxShadow="4px 4px 0px #1a1a1a"
+        css={hintDescendantCursor}
+        {...hintCursor}
         _hover={{
+          ...hintCursor,
           transform: "translate(-2px, -2px)",
           boxShadow: "6px 6px 0px #1a1a1a",
         }}
@@ -132,11 +145,9 @@ export function ToolCardGuide() {
           title="Featured Badge"
           description="Shown on featured tools when you filter by a specific journey step (hidden on “All”). Marks community favorites — we surface these first in category views."
           placement="left"
+          wrapperProps={{ position: "absolute", top: "-1px", right: "-1px", zIndex: 1 }}
         >
           <Badge
-            position="absolute"
-            top="-1px"
-            right="-1px"
             bg="#FFE66D"
             color="#1a1a1a"
             fontSize="2xs"
@@ -313,7 +324,8 @@ export function ToolCardGuide() {
                 flex="1"
                 fontWeight="bold"
                 w="full"
-                _hover={{ bg: "#333" }}
+                {...hintCursor}
+                _hover={{ bg: "#333", ...hintCursor }}
               >
                 Get Tool
                 <Icon boxSize="3" ml="1">
@@ -335,7 +347,8 @@ export function ToolCardGuide() {
                 color="#1a1a1a"
                 borderRadius="sm"
                 px="2"
-                _hover={{ bg: catColor }}
+                {...hintCursor}
+                _hover={{ bg: catColor, ...hintCursor }}
                 onClick={() => setDemoInStack((prev) => !prev)}
                 aria-pressed={demoInStack}
                 aria-label={demoInStack ? "Remove from stack (demo)" : "Add to stack (demo)"}

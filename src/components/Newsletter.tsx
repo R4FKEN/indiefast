@@ -39,7 +39,7 @@ export function Newsletter() {
         Follow the path
       </Text>
       <Text fontSize="sm" color="#555" mb="4">
-        Weekly refreshes across every stage — one vetted pick at a time, with the best live discount on each.
+        Weekly refreshes across every stage - one vetted pick at a time, with the best live discount on each.
       </Text>
       <form onSubmit={handleSubmit} autoComplete="on">
         <Flex gap="2" maxW="lg">
