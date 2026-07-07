@@ -1,6 +1,6 @@
 {
   "source": "airtable-snapshot",
-  "generatedAt": "2026-06-25T19:18:30.060Z",
+  "generatedAt": "2026-07-06T08:57:23.757Z",
   "tools": [
     {
       "id": "reclEpfLktCo2toWM",
@@ -253,7 +253,7 @@
       "Pricing": "Free tier / $40/mo",
       "AffiliateURL": "https://guideflow.com/?red=couponcode&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
       "Discount": "Free plan, 15% OFF annual plan!",
-      "Featured": true,
+      "Featured": false,
       "Subtopic": "",
       "LogoUrl": "/tool-logos/reciKqIoKztsyE0jh.png"
     },
@@ -871,6 +871,21 @@
       "Featured": true,
       "Subtopic": "",
       "LogoUrl": "/tool-logos/recqHSAlBDRwm9MOw.png"
+    },
+    {
+      "id": "recMiwmln08EbYeik",
+      "Name": "MiroMiro",
+      "Category": "4. Plan",
+      "SecondCategory": "",
+      "OneLiner": "A Chrome extension for designers, developers, and no-code builders that turns any website into copy-paste code, colors, fonts, and assets - so you can ship faster and save hours.",
+      "Reasoning": "A Chrome extension for designers, developers, and no-code builders that turns any website into copy-paste code, colors, fonts, and assets - so you can ship faster and save hours.",
+      "TimeSaved": "30hr / month",
+      "Pricing": "$9/mo / $69 one-time",
+      "AffiliateURL": "https://miromiro.app/?via=promo&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
+      "Discount": "",
+      "Featured": true,
+      "Subtopic": "",
+      "LogoUrl": "/tool-logos/recMiwmln08EbYeik.png"
     }
   ]
 }

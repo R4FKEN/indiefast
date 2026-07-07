@@ -1,6 +1,6 @@
 # indiefa.st — Full LLM Reference
 
-> Machine-readable corpus for AI agents and LLMs. Generated 2026-06-30.
+> Machine-readable corpus for AI agents and LLMs. Generated 2026-07-06.
 > Canonical site: https://indiefa.st
 
 ## Site overview
@@ -16,7 +16,7 @@ Supporting copy: Discover, validate, build, ship, and grow — a hand-picked too
 - 1. Discover — 2 tools — blog: https://indiefa.st/blog/discover
 - 2. Research — 2 tools — blog: https://indiefa.st/blog/research
 - 3. Validate — 4 tools — blog: https://indiefa.st/blog/validate
-- 4. Plan — 3 tools — blog: https://indiefa.st/blog/plan
+- 4. Plan — 4 tools — blog: https://indiefa.st/blog/plan
 - 5. Design — 5 tools — blog: https://indiefa.st/blog/design
 - 6. Build — 9 tools — blog: https://indiefa.st/blog/build
 - 7. Backend — 3 tools — blog: https://indiefa.st/blog/backend
@@ -68,92 +68,92 @@ Affiliate disclaimer: Some links on this site may be affiliate links. The site o
 
 ## Blog posts (17)
 
-### Best Backend Tools for Indie Hackers (2026) | IndieFast
-- URL: https://indiefa.st/blog/backend
+### 
+- URL: 
 - Published: 2026-07-04
-- Description: Best backend tools for indie hackers 2026. Choose a scalable backend stack that helps you launch faster and avoid costly rebuilds.
+- Description: 
 
-### Best Vibe Coding Tools for Indie Makers (2026) | IndieFast
-- URL: https://indiefa.st/blog/build
+### 
+- URL: 
 - Published: 2026-07-03
-- Description: Best vibe coding tools for indie makers 2026. Pick the right AI builder faster and ship a production-ready MVP with confidence.
+- Description: 
 
-### UI Design Tools for Indie Makers | IndieFast
-- URL: https://indiefa.st/blog/design
+### 
+- URL: 
 - Published: 2026-07-02
-- Description: The best UI design tools for indie makers in 2026. Skip design paralysis — get to a credible, shippable product fast without a design background.
+- Description: 
 
-### Product Discovery Tools for Indie Hackers | IndieFast
-- URL: https://indiefa.st/blog/discover
+### 
+- URL: 
 - Published: 2026-06-28
-- Description: The best product discovery tools for indie hackers in 2026. Stop browsing for inspiration — find real demand gaps and ship an idea worth building.
+- Description: 
 
-### Growth Tools for Indie Makers (2026) | IndieFast
-- URL: https://indiefa.st/blog/grow
-- Published: 2026-07-08
-- Description: Growth tools for indie makers 2026. Discover the six systems that help solo founders grow faster without unnecessary complexity.
-
-### Automation Tools for Indie Hackers 2026 | IndieFast
-- URL: https://indiefa.st/blog/grow/automate
+### 
+- URL: 
 - Published: 2026-07-09
-- Description: The best automation tools for indie hackers in 2026. Stop doing manually what a workflow can handle — automate onboarding, alerts, and syncs fast.
+- Description: 
 
-### Community Building Tools for Indie Makers | IndieFast
-- URL: https://indiefa.st/blog/grow/community
+### 
+- URL: 
 - Published: 2026-07-11
-- Description: Community building tools for indie makers. Build an engaged audience that fuels referrals, feedback, and long-term product growth.
+- Description: 
 
-### Distribution Tools for Indie Makers (2026) | IndieFast
-- URL: https://indiefa.st/blog/grow/distribution
+### 
+- URL: 
 - Published: 2026-07-14
-- Description: Distribution tools for indie makers 2026. Find the right channels, submit your product everywhere that matters, and grow beyond launch day.
+- Description: 
 
-### Scaling Tools for Indie SaaS Founders | IndieFast
-- URL: https://indiefa.st/blog/grow/scale
+### 
+- URL: 
 - Published: 2026-07-10
-- Description: The right scaling tools for indie SaaS founders — what to fix first, when infrastructure actually matters, and IndieFast's one recommended pick.
+- Description: 
 
-### SEO Tools for Indie SaaS Founders | IndieFast
-- URL: https://indiefa.st/blog/grow/seo
+### 
+- URL: 
 - Published: 2026-07-13
-- Description: SEO tools for indie SaaS founders. Grow organic traffic with practical tools that help solo founders rank faster without wasting money.
+- Description: 
 
-### Customer Support Tools for Indie Hackers | IndieFast
-- URL: https://indiefa.st/blog/grow/support
+### 
+- URL: 
 - Published: 2026-07-12
-- Description: Customer support tools for indie hackers. Reduce support workload, prevent churn, and help customers faster with the right AI support tool.
+- Description: 
 
-### Analytics Tools for Indie Makers (2026) | IndieFast
-- URL: https://indiefa.st/blog/measure
+### 
+- URL: 
+- Published: 2026-07-08
+- Description: 
+
+### 
+- URL: 
 - Published: 2026-07-07
-- Description: Analytics tools for indie makers 2026. Track user behavior, improve retention, and make better product decisions with less guesswork.
+- Description: 
 
-### Monetization Tools for Indie SaaS Founders | IndieFast
-- URL: https://indiefa.st/blog/monetize
+### 
+- URL: 
 - Published: 2026-07-06
-- Description: Monetization tools for indie SaaS founders. Choose the right payment platform, test pricing, and start earning revenue faster.
+- Description: 
 
-### Product Planning Tools for Solo Founders | IndieFast
-- URL: https://indiefa.st/blog/plan
+### 
+- URL: 
 - Published: 2026-07-01
-- Description: The best product planning tools for solo founders in 2026. Define your MVP scope, cut scope creep, and ship a brief your AI tools can actually use.
+- Description: 
 
-### Market Research Tools for Indie Makers | IndieFast
-- URL: https://indiefa.st/blog/research
+### 
+- URL: 
 - Published: 2026-06-29
-- Description: The best market research tools for indie makers in 2026. Stop studying feature lists — find how customers describe their problems before you build.
+- Description: 
 
-### Best Tools to Ship an MVP Fast | IndieFast
-- URL: https://indiefa.st/blog/ship
+### 
+- URL: 
 - Published: 2026-07-05
-- Description: Best tools to ship an MVP fast. Deploy your app in minutes, launch with confidence, and get real user feedback sooner.
+- Description: 
 
-### MVP Validation Tools for Indie Hackers | IndieFast
-- URL: https://indiefa.st/blog/validate
+### 
+- URL: 
 - Published: 2026-06-30
-- Description: The best MVP validation tools for indie hackers in 2026. Run a real test before you build — smoke tests, landing pages, and pre-sales in hours.
+- Description: 
 
-## Tools directory (58 tools, 21 featured)
+## Tools directory (59 tools, 21 featured)
 
 Tools are grouped by journey category. Grow tools may also list a subtopic.
 
@@ -256,7 +256,7 @@ Tools are grouped by journey category. Grow tools may also list a subtopic.
 - Time saved: 10hr / month
 - Pricing: Free tier / $40/mo
 - Discount: Free plan, 15% OFF annual plan!
-- Featured: yes
+- Featured: no
 - Affiliate URL: https://guideflow.com/?red=couponcode&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
 
 ### Miro
@@ -279,6 +279,15 @@ Tools are grouped by journey category. Grow tools may also list a subtopic.
 - Discount: 2 week free tier!
 - Featured: yes
 - Affiliate URL: https://ref.wisprflow.ai/raf-vantongerloo?utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
+
+### MiroMiro
+- Category: 4. Plan
+- One-liner: A Chrome extension for designers, developers, and no-code builders that turns any website into copy-paste code, colors, fonts, and assets - so you can ship faster and save hours.
+- Reasoning: A Chrome extension for designers, developers, and no-code builders that turns any website into copy-paste code, colors, fonts, and assets - so you can ship faster and save hours.
+- Time saved: 30hr / month
+- Pricing: $9/mo / $69 one-time
+- Featured: yes
+- Affiliate URL: https://miromiro.app/?via=promo&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
 
 ## 5. Design
 
