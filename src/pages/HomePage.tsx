@@ -11,9 +11,7 @@ import { SpeedStack } from "@/components/SpeedStack"
 import { Newsletter } from "@/components/Newsletter"
 
 export function HomePage() {
-  const [tools, setTools] = useState<Tool[]>(() =>
-    import.meta.env.PROD ? FALLBACK_TOOLS : []
-  )
+  const [tools, setTools] = useState<Tool[]>(FALLBACK_TOOLS)
   const [loading, setLoading] = useState(!import.meta.env.PROD)
   const [activeCategory, setActiveCategory] = useState<Category>("All")
   const [activeSubtopic, setActiveSubtopic] = useState<GrowSubtopic | null>(null)

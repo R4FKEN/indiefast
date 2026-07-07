@@ -27,6 +27,51 @@ function todayString(): string {
   return `${yyyy}-${mm}-${dd}`
 }
 
+function parseHoursSaved(timeSaved: string): number {
+  if (!timeSaved) return 0
+  const match = timeSaved.match(/(\d+(?:\.\d+)?)\s*h/i)
+  return match ? parseFloat(match[1]) : 0
+}
+
+function sumMonthlyHoursSaved(stack: Tool[]): number {
+  return stack.reduce((sum, tool) => sum + parseHoursSaved(tool.TimeSaved), 0)
+}
+
+function formatStackHoursLabel(totalHours: number): string {
+  const rounded = Math.round(totalHours)
+  const unit = rounded === 1 ? "hour" : "hours"
+  return `${rounded} ${unit} per month saved using this stack.`
+}
+
+const PILL_FILL: [number, number, number] = [240, 253, 244]
+const PILL_BORDER: [number, number, number] = [22, 163, 74]
+const PILL_TEXT: [number, number, number] = [22, 163, 74]
+
+function renderMonthlySavingsPill(
+  doc: jsPDF,
+  centerX: number,
+  y: number,
+  label: string,
+): number {
+  doc.setFont("helvetica", "bold")
+  doc.setFontSize(8)
+  const textWidth = doc.getTextWidth(label)
+  const padX = 3
+  const pillWidth = textWidth + padX * 2
+  const pillHeight = 6
+  const pillX = centerX - pillWidth / 2
+
+  doc.setFillColor(...PILL_FILL)
+  doc.setDrawColor(...PILL_BORDER)
+  doc.setLineWidth(0.5)
+  doc.roundedRect(pillX, y - pillHeight + 2, pillWidth, pillHeight, 1.2, 1.2, "FD")
+
+  doc.setTextColor(...PILL_TEXT)
+  doc.text(label, centerX, y, { align: "center" })
+
+  return pillHeight + 6
+}
+
 export async function exportStackToPdf(stack: Tool[]): Promise<void> {
   const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" })
 
@@ -124,7 +169,16 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
     y += 2
   }
 
+  const monthlyHours = sumMonthlyHoursSaved(stack)
+  const pillLabel = formatStackHoursLabel(monthlyHours)
+  const pillBlockHeight = 14
   const footerHeight = 18
+
+  ensureSpace(pillBlockHeight + footerHeight)
+  y += 4
+  y += renderMonthlySavingsPill(doc, pageWidth / 2, y, pillLabel)
+  y += 6
+
   if (y + footerHeight > pageHeight - marginBottom) {
     doc.addPage()
     y = marginTop

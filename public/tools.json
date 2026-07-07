@@ -1,22 +1,7 @@
 {
   "source": "airtable-snapshot",
-  "generatedAt": "2026-07-06T08:57:23.757Z",
+  "generatedAt": "2026-07-07T15:08:24.383Z",
   "tools": [
-    {
-      "id": "reclEpfLktCo2toWM",
-      "Name": "AITopTools",
-      "Category": "8. Ship",
-      "SecondCategory": "",
-      "OneLiner": "Launch Site (high potential!)",
-      "Reasoning": "Provides guaranteed homepage visibility and a high-DA backlink on submission, replacing hours of manual outreach and community posting a solo maker would otherwise do for a product launch.",
-      "TimeSaved": "4hr",
-      "Pricing": "Free",
-      "AffiliateURL": "https://aitoptools.com?ref=linkto&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
-      "Discount": "Free!",
-      "Featured": false,
-      "Subtopic": "",
-      "LogoUrl": "/tool-logos/reclEpfLktCo2toWM.png"
-    },
     {
       "id": "recxMBaG5U24QrN9f",
       "Name": "Alli AI",

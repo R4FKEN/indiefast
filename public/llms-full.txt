@@ -1,6 +1,6 @@
 # indiefa.st — Full LLM Reference
 
-> Machine-readable corpus for AI agents and LLMs. Generated 2026-07-06.
+> Machine-readable corpus for AI agents and LLMs. Generated 2026-07-07.
 > Canonical site: https://indiefa.st
 
 ## Site overview
@@ -20,7 +20,7 @@ Supporting copy: Discover, validate, build, ship, and grow — a hand-picked too
 - 5. Design — 5 tools — blog: https://indiefa.st/blog/design
 - 6. Build — 9 tools — blog: https://indiefa.st/blog/build
 - 7. Backend — 3 tools — blog: https://indiefa.st/blog/backend
-- 8. Ship — 7 tools — blog: https://indiefa.st/blog/ship
+- 8. Ship — 6 tools — blog: https://indiefa.st/blog/ship
 - 9. Monetize — 6 tools — blog: https://indiefa.st/blog/monetize
 - 10. Measure — 2 tools — blog: https://indiefa.st/blog/measure
 - 11. Grow — 15 tools — blog: https://indiefa.st/blog/grow
@@ -463,16 +463,6 @@ Tools are grouped by journey category. Grow tools may also list a subtopic.
 - Affiliate URL: https://n8n.partnerlinks.io/couponcode?utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
 
 ## 8. Ship
-
-### AITopTools
-- Category: 8. Ship
-- One-liner: Launch Site (high potential!)
-- Reasoning: Provides guaranteed homepage visibility and a high-DA backlink on submission, replacing hours of manual outreach and community posting a solo maker would otherwise do for a product launch.
-- Time saved: 4hr
-- Pricing: Free
-- Discount: Free!
-- Featured: no
-- Affiliate URL: https://aitoptools.com?ref=linkto&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
 
 ### Peerlist-io
 - Category: 8. Ship

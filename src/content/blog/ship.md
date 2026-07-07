@@ -105,9 +105,7 @@ Improve continuously.
 
 On indiefa.st, the Ship stage is about **launch visibility** — getting your product in front of the right audiences and earning backlinks — not just pushing code to a server. Deployment platforms handle going live; these tools handle being found.
 
-**AITopTools** provides guaranteed homepage visibility and a high-DA backlink on submission — replacing hours of manual outreach during a product launch.
-
-**Peerlist-io** offers the same launch-site model: homepage exposure and a quality backlink when you submit your product.
+**Peerlist-io** offers homepage exposure and a quality backlink when you submit your product.
 
 **PeerPush** is another launch platform built for indie makers who want directory-style visibility without cold outreach to every site individually.
 
@@ -119,7 +117,7 @@ On indiefa.st, the Ship stage is about **launch visibility** — getting your pr
 
 **Linkto** centralizes 800+ SaaS directories and 75+ launch sites in one place — so you're not hunting submission targets manually for sixteen hours a month.
 
-Those seven tools are the full Ship category on indiefa.st. Pair them with your deployment platform of choice, then move to [Monetize](https://indiefa.st/blog/monetize) once users start converting.
+Those six tools are the full Ship category on indiefa.st. Pair them with your deployment platform of choice, then move to [Monetize](https://indiefa.st/blog/monetize) once users start converting.
 
 ---
 
@@ -167,7 +165,7 @@ One stage. One tool. One direction.
       "name": "What are the best tools to ship an MVP fast?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Ship stage focuses on launch visibility — not just going live. The category lists AITopTools, Peerlist-io, PeerPush, There's An AI For That, Turbo0, and Uneed-best for homepage exposure and quality backlinks on submission, plus Linkto for 800+ SaaS directories and 75+ launch sites in one place. Pair these with your deployment platform of choice."
+        "text": "On indiefa.st, the Ship stage focuses on launch visibility — not just going live. The category lists Peerlist-io, PeerPush, There's An AI For That, Turbo0, and Uneed-best for homepage exposure and quality backlinks on submission, plus Linkto for 800+ SaaS directories and 75+ launch sites in one place. Pair these with your deployment platform of choice."
       }
     },
     {
@@ -175,7 +173,7 @@ One stage. One tool. One direction.
       "name": "What's the difference between deploying and launching an MVP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Deploying means making your application available at a live URL. Launching is getting discovered — submitting to launch sites like Turbo0, Uneed-best, or AITopTools for backlinks and visibility, or using Linkto to hit dozens of directories without manual outreach. The Ship tools on indiefa.st handle the second problem."
+        "text": "Deploying means making your application available at a live URL. Launching is getting discovered — submitting to launch sites like Turbo0, Uneed-best, or Peerlist-io for backlinks and visibility, or using Linkto to hit dozens of directories without manual outreach. The Ship tools on indiefa.st handle the second problem."
       }
     },
     {
