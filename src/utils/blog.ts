@@ -6,8 +6,8 @@ const FAQ_SECTION_RE = /\r?\n## FAQ Schema(?: \(JSON-LD\))?[\s\S]*$/
 function parseFrontmatterBlock(block: string): Record<string, string> {
   const meta: Record<string, string> = {}
 
-  for (const line of block.split("\n")) {
-    const match = line.match(/^([\w_]+):\s*(.+)$/)
+  for (const line of block.split(/\r?\n/)) {
+    const match = line.trim().match(/^([\w_]+):\s*(.+)$/)
     if (!match) continue
 
     const [, key, rawValue] = match
