@@ -1,6 +1,6 @@
 # indiefa.st — Full LLM Reference
 
-> Machine-readable corpus for AI agents and LLMs. Generated 2026-07-07.
+> Machine-readable corpus for AI agents and LLMs. Generated 2026-07-11.
 > Canonical site: https://indiefa.st
 
 ## Site overview
@@ -13,7 +13,7 @@ Supporting copy: Discover, validate, build, ship, and grow — a hand-picked too
 
 ## Journey categories (in order)
 
-- 1. Discover — 2 tools — blog: https://indiefa.st/blog/discover
+- 1. Discover — 3 tools — blog: https://indiefa.st/blog/discover
 - 2. Research — 2 tools — blog: https://indiefa.st/blog/research
 - 3. Validate — 4 tools — blog: https://indiefa.st/blog/validate
 - 4. Plan — 4 tools — blog: https://indiefa.st/blog/plan
@@ -181,6 +181,16 @@ Tools are grouped by journey category. Grow tools may also list a subtopic.
 - Featured: yes
 - Affiliate URL: https://chromegoldmine.com/?utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
 
+### BigIdeasDB
+- Category: 1. Discover
+- One-liner: An AI-powered research platform that analyzes millions of user complaints across multiple platforms to show you exactly what products people actually want.
+- Reasoning: Scrapes 1M+ complaints from Reddit/G2/Capterra/app stores into pre-validated product ideas with revenue estimates - skips weeks of manual research.
+- Time saved: 40hr
+- Pricing: one-time (different tiers)
+- Discount: 20% OFF Pro via this link!
+- Featured: no
+- Affiliate URL: https://www.bigideasdb.com/?via=raf&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
+
 ## 2. Research
 
 ### Apify
@@ -299,7 +309,7 @@ Tools are grouped by journey category. Grow tools may also list a subtopic.
 - Pricing: Free tier / $20/mo
 - Discount: 200k tokens for free!
 - Featured: no
-- Affiliate URL: https://bolt.new/?rid=odw2np&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
+- Affiliate URL: https://bolt.cello.so/qyOS8G57LjR?utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
 
 ### getimg-ai
 - Category: 5. Design

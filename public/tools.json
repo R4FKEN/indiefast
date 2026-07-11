@@ -1,6 +1,6 @@
 {
   "source": "airtable-snapshot",
-  "generatedAt": "2026-07-07T15:08:24.383Z",
+  "generatedAt": "2026-07-11T18:20:52.330Z",
   "tools": [
     {
       "id": "recxMBaG5U24QrN9f",
@@ -56,7 +56,7 @@
       "Reasoning": "Transforms weeks of full-stack coding into hours - an indie maker can go from idea to deployed app in a day instead of days/weeks of boilerplate writing, debugging, and infrastructure setup.",
       "TimeSaved": "80hr",
       "Pricing": "Free tier / $20/mo",
-      "AffiliateURL": "https://bolt.new/?rid=odw2np&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
+      "AffiliateURL": "https://bolt.cello.so/qyOS8G57LjR?utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
       "Discount": "200k tokens for free!",
       "Featured": false,
       "Subtopic": "",
@@ -871,6 +871,21 @@
       "Featured": true,
       "Subtopic": "",
       "LogoUrl": "/tool-logos/recMiwmln08EbYeik.png"
+    },
+    {
+      "id": "recbvineNgTdtrj4v",
+      "Name": "BigIdeasDB",
+      "Category": "1. Discover",
+      "SecondCategory": "",
+      "OneLiner": "An AI-powered research platform that analyzes millions of user complaints across multiple platforms to show you exactly what products people actually want.",
+      "Reasoning": "Scrapes 1M+ complaints from Reddit/G2/Capterra/app stores into pre-validated product ideas with revenue estimates - skips weeks of manual research.",
+      "TimeSaved": "40hr",
+      "Pricing": "one-time (different tiers)",
+      "AffiliateURL": "https://www.bigideasdb.com/?via=raf&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
+      "Discount": "20% OFF Pro via this link!",
+      "Featured": false,
+      "Subtopic": "",
+      "LogoUrl": "/tool-logos/recbvineNgTdtrj4v.png"
     }
   ]
 }
