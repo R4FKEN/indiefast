@@ -39,7 +39,7 @@ export function Newsletter() {
         Follow the path
       </Text>
       <Text fontSize="sm" color="#555" mb="4">
-        Weekly refreshes across every stage - one vetted pick at a time, with the best live discount on each.
+        Get the weekly $0 MVP stack. 3 tools to build fast. 0 bloat.
       </Text>
       <form onSubmit={handleSubmit} autoComplete="on">
         <Flex gap="2" maxW="lg">
