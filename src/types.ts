@@ -52,6 +52,7 @@ export interface BlogPost {
   ogTitle: string
   ogDescription: string
   ogUrl: string
+  ogType?: string
   content: string
   faqSchema?: Record<string, unknown>
 }

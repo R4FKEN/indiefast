@@ -1,39 +1,45 @@
 import { Box, Flex, Grid, Heading, Icon, Image, Text } from "@chakra-ui/react"
-import { useEffect } from "react"
-import { LuArrowLeft } from "react-icons/lu"
 import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet-async"
+import { LuArrowLeft } from "react-icons/lu"
 import { BLOG_POSTS } from "@/data/blog-posts"
 import { BlogPostCard } from "@/components/BlogPostCard"
 import { BreadcrumbLink, BreadcrumbRoot } from "@/components/ui/breadcrumb"
 import { SITE_COPY } from "@/constants/site-copy"
 
 export function BlogPage() {
-  useEffect(() => {
-    document.title = `Blog — ${SITE_COPY.name}`
-  }, [])
-
   return (
-    <Box>
-      <BreadcrumbRoot mb="6" aria-label="Breadcrumb">
-        <BreadcrumbLink asChild>
-          <Link to="/">
-            <Flex
-              as="span"
-              align="center"
-              gap="1.5"
-              fontSize="sm"
-              color="#666"
-              fontWeight="bold"
-              _hover={{ color: "#1a1a1a", textDecoration: "underline" }}
-            >
-              <Icon boxSize="3.5" aria-hidden>
-                <LuArrowLeft />
-              </Icon>
-              Back to homepage
-            </Flex>
-          </Link>
-        </BreadcrumbLink>
-      </BreadcrumbRoot>
+    <>
+      <Helmet>
+        <title>Blog — {SITE_COPY.name}</title>
+        <meta name="description" content="Stories, guides, and lessons from the indie maker path." />
+        <meta property="og:title" content={`Blog — ${SITE_COPY.name}`} />
+        <meta property="og:description" content="Stories, guides, and lessons from the indie maker path." />
+        <meta property="og:url" content="https://indiefa.st/blog" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://indiefa.st/blog" />
+      </Helmet>
+      <Box>
+        <BreadcrumbRoot mb="6" aria-label="Breadcrumb">
+          <BreadcrumbLink asChild>
+            <Link to="/">
+              <Flex
+                as="span"
+                align="center"
+                gap="1.5"
+                fontSize="sm"
+                color="#666"
+                fontWeight="bold"
+                _hover={{ color: "#1a1a1a", textDecoration: "underline" }}
+              >
+                <Icon boxSize="3.5" aria-hidden>
+                  <LuArrowLeft />
+                </Icon>
+                Back to homepage
+              </Flex>
+            </Link>
+          </BreadcrumbLink>
+        </BreadcrumbRoot>
 
       <Box mb="10">
         <Flex alignItems="center" gap="1" mb="4">
@@ -127,5 +133,6 @@ export function BlogPage() {
         </Grid>
       )}
     </Box>
+    </>
   )
 }

@@ -1,6 +1,6 @@
 # indiefa.st — Full LLM Reference
 
-> Machine-readable corpus for AI agents and LLMs. Generated 2026-07-11.
+> Machine-readable corpus for AI agents and LLMs. Generated 2026-07-21.
 > Canonical site: https://indiefa.st
 
 ## Site overview

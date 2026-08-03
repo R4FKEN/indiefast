@@ -1,70 +1,15 @@
 import { Box, Heading, Text } from "@chakra-ui/react"
-import { useEffect } from "react"
 import { Link, Navigate, useParams } from "react-router-dom"
+import { Helmet } from "react-helmet-async"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { BlogPostFaq } from "@/components/BlogPostFaq"
 import { BLOG_POSTS } from "@/data/blog-posts"
 import { getBlogPostBySlug } from "@/utils/blog"
 
-function setMetaTag(attribute: "name" | "property", key: string, content: string) {
-  const selector = `meta[${attribute}="${key}"]`
-  let tag = document.head.querySelector(selector)
-
-  if (!tag) {
-    tag = document.createElement("meta")
-    tag.setAttribute(attribute, key)
-    document.head.appendChild(tag)
-  }
-
-  tag.setAttribute("content", content)
-}
-
-function setCanonicalLink(href: string) {
-  let tag = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
-
-  if (!tag) {
-    tag = document.createElement("link")
-    tag.rel = "canonical"
-    document.head.appendChild(tag)
-  }
-
-  tag.href = href
-}
-
-function setFaqSchema(schema?: Record<string, unknown>) {
-  const existing = document.head.querySelector('script[data-blog-faq="true"]')
-  existing?.remove()
-
-  if (!schema) return
-
-  const script = document.createElement("script")
-  script.type = "application/ld+json"
-  script.dataset.blogFaq = "true"
-  script.textContent = JSON.stringify(schema)
-  document.head.appendChild(script)
-}
-
 export function BlogPostPage() {
   const { "*": slugPath } = useParams()
   const post = slugPath ? getBlogPostBySlug(slugPath, BLOG_POSTS) : undefined
-
-  useEffect(() => {
-    if (!post) return
-
-    document.title = post.title
-    setMetaTag("name", "description", post.description)
-    setMetaTag("property", "og:title", post.ogTitle)
-    setMetaTag("property", "og:description", post.ogDescription)
-    setMetaTag("property", "og:url", post.ogUrl)
-    setMetaTag("property", "og:type", "article")
-    setCanonicalLink(post.canonical)
-    setFaqSchema(post.faqSchema)
-
-    return () => {
-      document.head.querySelector('script[data-blog-faq="true"]')?.remove()
-    }
-  }, [post])
 
   if (!post) {
     return <Navigate to="/blog" replace />
@@ -73,7 +18,24 @@ export function BlogPostPage() {
   const displayTitle = post.title.split(" | ")[0]
 
   return (
-    <Box maxW="3xl">
+    <>
+      <Helmet>
+        <title>{post.title}</title>
+        <meta name="description" content={post.description} />
+        <meta property="og:title" content={post.ogTitle} />
+        <meta property="og:description" content={post.ogDescription} />
+        <meta property="og:url" content={post.ogUrl} />
+        <meta property="og:type" content={post.ogType ?? "article"} />
+        <meta name="twitter:title" content={post.ogTitle} />
+        <meta name="twitter:description" content={post.ogDescription} />
+        <link rel="canonical" href={post.canonical} />
+        {post.faqSchema ? (
+          <script type="application/ld+json">
+            {JSON.stringify(post.faqSchema)}
+          </script>
+        ) : null}
+      </Helmet>
+      <Box maxW="3xl">
       <Link to="/blog">
         <Text
           fontSize="sm"
@@ -166,5 +128,6 @@ export function BlogPostPage() {
         </Box>
       </Box>
     </Box>
+    </>
   )
 }

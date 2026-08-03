@@ -74,6 +74,7 @@ export function parseBlogPost(raw: string, options?: { publishedAt?: string }): 
     ogTitle: meta.og_title ?? title,
     ogDescription: meta.og_description ?? description,
     ogUrl: meta.og_url ?? `https://indiefa.st/blog/${slug}`,
+    ogType: meta.og_type ?? "article",
     content,
     faqSchema,
   }
