@@ -1,4 +1,4 @@
-﻿# SEO Deployment Guide for IndieFast
+# SEO Deployment Guide for IndieFast
 
 ## Overview
 This repo is now configured for SEO-friendly static deployment:
