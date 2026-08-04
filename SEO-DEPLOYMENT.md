@@ -1,12 +1,12 @@
-# SEO Deployment Guide for IndieFast
+﻿# SEO Deployment Guide for IndieFast
 
 ## Overview
 This repo is now configured for SEO-friendly static deployment:
 - Base page metadata is defined in `index.html`
 - Blog routes use `react-helmet-async` for route-specific metadata
 - `scripts/generate-sitemap.mjs` creates `public/sitemap.xml`
-- `scripts/prerender.mjs` prerenders routes from the sitemap into `dist`
-- `package.json` build pipeline includes build + prerender
+- `scripts/prerender.mjs` prerenders routes from the sitemap into `dist` (optional SEO step)
+- Default `npm run build` is bolt.new / CI safe (no Puppeteer). Use `npm run build:seo` when Chromium is available.
 - Netlify functions remain available for `/api/subscribe` and `/api/tools`
 
 ---
@@ -16,12 +16,12 @@ This repo is now configured for SEO-friendly static deployment:
 ### New scripts
 - `npm run generate:sitemap`
 - `npm run generate:llms`
-- `npm run prerender`
-- `npm run build` now runs:
+- `npm run prerender` (requires `npm i -D puppeteer` first — not in default deps so bolt.new/CI stay light)
+- `npm run build` runs:
   1. `npm run generate:sitemap`
   2. `npm run generate:llms`
   3. `vite build`
-  4. `npm run prerender`
+- `npm run build:seo` runs `build` then `prerender`
 
 ### What prerendering does
 - Launches a local server serving `dist`
@@ -66,8 +66,8 @@ If you want live Airtable newsletter signup support, add the following:
 ### 4. Confirm functions
 Netlify will deploy functions from `netlify/functions` automatically.
 The site already has redirects in `netlify.toml` for:
-- `/api/tools` → `/.netlify/functions/tools`
-- `/api/subscribe` → `/.netlify/functions/subscribe`
+- `/api/tools` ΓåÆ `/.netlify/functions/tools`
+- `/api/subscribe` ΓåÆ `/.netlify/functions/subscribe`
 
 ### 5. Enforce HTTPS
 Use Netlify-managed HTTPS for the site.
@@ -83,9 +83,9 @@ Use Netlify-managed HTTPS for the site.
 ### 2. Configure DNS records
 Use DNS-only mode for the Netlify records:
 
-- `CNAME www` → `<your-site>.netlify.app`
+- `CNAME www` ΓåÆ `<your-site>.netlify.app`
 - Root record:
-  - If Cloudflare supports CNAME flattening: `CNAME @` → `<your-site>.netlify.app`
+  - If Cloudflare supports CNAME flattening: `CNAME @` ΓåÆ `<your-site>.netlify.app`
   - Otherwise, use Netlify-provided A records.
 
 ### 3. Set SSL/TLS mode
