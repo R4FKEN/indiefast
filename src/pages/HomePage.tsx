@@ -1,4 +1,4 @@
-import { Box, Grid } from "@chakra-ui/react"
+import { Box, Flex, Grid } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
 import type { Tool, Category, GrowSubtopic } from "@/types"
 import { fetchTools } from "@/api"
@@ -50,13 +50,35 @@ export function HomePage() {
     <>
       <Grid
         templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }}
-        gap="5"
-        mb="10"
-        alignItems="start"
+        gap={{ base: "6", lg: "5" }}
+        mb="4"
+        alignItems="stretch"
       >
-        <Box gridColumn={{ lg: "span 2" }}>
+        {/* Intro + phase arrows sit in the left 2/3, beside the tool-card guide */}
+        <Flex
+          gridColumn={{ lg: "span 2" }}
+          direction="column"
+          justify="space-between"
+          gap={{ base: "5", lg: "6" }}
+          minW="0"
+        >
           <Header />
-        </Box>
+          <Box w="full" flexShrink={0} maxW="100%">
+            <img
+              src="/arrows.png?v=3"
+              alt="Click the different phases"
+              width={2494}
+              height={432}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                objectFit: "contain",
+                objectPosition: "left bottom",
+              }}
+            />
+          </Box>
+        </Flex>
         <ToolCardGuide />
       </Grid>
       <Box id="tools">

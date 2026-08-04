@@ -6,7 +6,7 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 
 ## Full documentation
 
-- [Complete LLM reference (text)](https://indiefa.st/llms-full.txt): All 59 tools with pricing, reasoning, affiliate URLs, blog posts, navigation, and site metadata
+- [Complete LLM reference (text)](https://indiefa.st/llms-full.txt): All 58 tools with pricing, reasoning, affiliate URLs, blog posts, navigation, and site metadata
 - [Complete LLM reference (markdown)](https://indiefa.st/llms-full.md): Identical content to llms-full.txt
 
 ## Key pages

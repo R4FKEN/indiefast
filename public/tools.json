@@ -783,21 +783,6 @@
       "LogoUrl": "/tool-logos/recDlYTzNq1LuYPiO.png"
     },
     {
-      "id": "recywWpsTXpwPpIH0",
-      "Name": "v0-app",
-      "Category": "5. Design",
-      "SecondCategory": "",
-      "OneLiner": "AI tool by Vercel to build agents apps and websites generating React NextJS components and full applications from text prompts.",
-      "Reasoning": "Generates production-ready React/Tailwind UI components from text prompts in seconds - replacing ~2–4hr of hand-coding per component, saving an indie maker building 6–8 components/month roughly 20hr.",
-      "TimeSaved": "20hr / month",
-      "Pricing": "Free tier / $20/mo",
-      "AffiliateURL": "https://v0.app/ref/ZMTVCA",
-      "Discount": "Free tier!",
-      "Featured": false,
-      "Subtopic": "",
-      "LogoUrl": "/tool-logos/recywWpsTXpwPpIH0.png"
-    },
-    {
       "id": "recru2TJDo1MQ8Yhi",
       "Name": "Wispr Flow",
       "Category": "4. Plan",

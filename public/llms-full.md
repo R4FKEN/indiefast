@@ -17,7 +17,7 @@ Supporting copy: Discover, validate, build, ship, and grow — a hand-picked too
 - 2. Research — 2 tools — blog: https://indiefa.st/blog/research
 - 3. Validate — 4 tools — blog: https://indiefa.st/blog/validate
 - 4. Plan — 4 tools — blog: https://indiefa.st/blog/plan
-- 5. Design — 5 tools — blog: https://indiefa.st/blog/design
+- 5. Design — 4 tools — blog: https://indiefa.st/blog/design
 - 6. Build — 9 tools — blog: https://indiefa.st/blog/build
 - 7. Backend — 3 tools — blog: https://indiefa.st/blog/backend
 - 8. Ship — 6 tools — blog: https://indiefa.st/blog/ship
@@ -153,7 +153,7 @@ Affiliate disclaimer: Some links on this site may be affiliate links. The site o
 - Published: 2026-06-30
 - Description: 
 
-## Tools directory (59 tools, 21 featured)
+## Tools directory (58 tools, 21 featured)
 
 Tools are grouped by journey category. Grow tools may also list a subtopic.
 
@@ -340,16 +340,6 @@ Tools are grouped by journey category. Grow tools may also list a subtopic.
 - Discount: Generous free tier, 15% discount for 2 months!
 - Featured: no
 - Affiliate URL: https://refer.testimonial.to/raf-vantongerloo?utm_source=indiefast&utm_medium=website&utm_campaign=frontpage
-
-### v0-app
-- Category: 5. Design
-- One-liner: AI tool by Vercel to build agents apps and websites generating React NextJS components and full applications from text prompts.
-- Reasoning: Generates production-ready React/Tailwind UI components from text prompts in seconds - replacing ~2–4hr of hand-coding per component, saving an indie maker building 6–8 components/month roughly 20hr.
-- Time saved: 20hr / month
-- Pricing: Free tier / $20/mo
-- Discount: Free tier!
-- Featured: no
-- Affiliate URL: https://v0.app/ref/ZMTVCA
 
 ## 6. Build
 
