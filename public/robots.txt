@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Social share image (Open Graph / Twitter)
+# https://indiefa.st/og-image.webp
+
 Sitemap: https://indiefa.st/sitemap.xml

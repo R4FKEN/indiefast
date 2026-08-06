@@ -3,8 +3,10 @@
 ## Overview
 This repo is now configured for SEO-friendly static deployment:
 - Base page metadata is defined in `index.html`
-- Blog routes use `react-helmet-async` for route-specific metadata
-- `scripts/generate-sitemap.mjs` creates `public/sitemap.xml`
+- Open Graph / Twitter share image: absolute URL `https://indiefa.st/og-image.webp` (`public/og-image.webp`)
+- Blog routes use `react-helmet-async` for route-specific metadata (including the same OG image)
+- `scripts/generate-sitemap.mjs` creates `public/sitemap.xml` (includes image sitemap entries for the OG image)
+- `scripts/generate-llms.mjs` creates `public/llms.txt`, `llms-full.txt`, and `llms-full.md`
 - `scripts/prerender.mjs` prerenders routes from the sitemap into `dist` (optional SEO step)
 - Default `npm run build` is bolt.new / CI safe (no Puppeteer). Use `npm run build:seo` when Chromium is available.
 - Netlify functions remain available for `/api/subscribe` and `/api/tools`

@@ -17,6 +17,9 @@ export function BlogPage() {
         <meta property="og:description" content="Stories, guides, and lessons from the indie maker path." />
         <meta property="og:url" content="https://indiefa.st/blog" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={SITE_COPY.ogImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={SITE_COPY.ogImage} />
         <link rel="canonical" href="https://indiefa.st/blog" />
       </Helmet>
       <Box>

@@ -2,6 +2,7 @@ import fs from "node:fs"
 import path from "node:path"
 
 const SITE_ORIGIN = "https://indiefa.st"
+const OG_IMAGE = `${SITE_ORIGIN}/og-image.webp`
 const PUBLIC_DIR = path.resolve("public")
 const BLOG_DIR = path.resolve("src/content/blog")
 const TOOLS_PATH = path.resolve("public/tools.json")
@@ -54,11 +55,10 @@ function parseFrontmatter(markdown) {
   if (!match) return {}
 
   const fields = {}
-  for (const line of match[1].split("\n")) {
-    const field = line.match(/^([a-z_]+):\s*(.+)$/i)
-    if (field) {
-      fields[field[1]] = field[2].replace(/^["']|["']$/g, "").trim()
-    }
+  for (const line of match[1].split(/\r?\n/)) {
+    const field = line.trim().match(/^([\w_]+):\s*(.+)$/)
+    if (!field) continue
+    fields[field[1]] = field[2].trim().replace(/^"(.*)"$/, "$1")
   }
   return fields
 }
@@ -164,6 +164,7 @@ function buildFullDoc(tools, blogPosts) {
   sections.push("")
   sections.push(`- Sitemap: ${SITE_ORIGIN}/sitemap.xml`)
   sections.push(`- Robots: ${SITE_ORIGIN}/robots.txt`)
+  sections.push(`- Open Graph / social share image: ${OG_IMAGE}`)
   sections.push(`- LLM index (summary): ${SITE_ORIGIN}/llms.txt`)
   sections.push(`- LLM full reference (text): ${SITE_ORIGIN}/llms-full.txt`)
   sections.push(`- LLM full reference (markdown): ${SITE_ORIGIN}/llms-full.md`)
@@ -259,6 +260,7 @@ function buildIndexDoc(tools, blogPosts) {
   lines.push(`- [Blog](${SITE_ORIGIN}/blog): Stage-by-stage guides for indie makers`)
   lines.push(`- [Tools section](${SITE_ORIGIN}/#tools): Browse all curated picks`)
   lines.push(`- [Sitemap](${SITE_ORIGIN}/sitemap.xml): All public URLs`)
+  lines.push(`- [Open Graph image](${OG_IMAGE}): Social share preview image`)
   lines.push("")
   lines.push("## Journey stages")
   lines.push("")
@@ -299,6 +301,7 @@ function buildIndexDoc(tools, blogPosts) {
   lines.push("## Optional")
   lines.push("")
   lines.push(`- [Robots.txt](${SITE_ORIGIN}/robots.txt)`)
+  lines.push(`- [Open Graph image](${OG_IMAGE})`)
   lines.push(`- [Tools JSON data](${SITE_ORIGIN}/tools.json)`)
   lines.push("")
 

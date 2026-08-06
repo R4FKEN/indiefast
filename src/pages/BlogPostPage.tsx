@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { BlogPostFaq } from "@/components/BlogPostFaq"
+import { SITE_COPY } from "@/constants/site-copy"
 import { BLOG_POSTS } from "@/data/blog-posts"
 import { getBlogPostBySlug } from "@/utils/blog"
 
@@ -26,8 +27,11 @@ export function BlogPostPage() {
         <meta property="og:description" content={post.ogDescription} />
         <meta property="og:url" content={post.ogUrl} />
         <meta property="og:type" content={post.ogType ?? "article"} />
+        <meta property="og:image" content={SITE_COPY.ogImage} />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.ogTitle} />
         <meta name="twitter:description" content={post.ogDescription} />
+        <meta name="twitter:image" content={SITE_COPY.ogImage} />
         <link rel="canonical" href={post.canonical} />
         {post.faqSchema ? (
           <script type="application/ld+json">

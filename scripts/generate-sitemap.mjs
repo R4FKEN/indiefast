@@ -2,6 +2,7 @@ import fs from "node:fs"
 import path from "node:path"
 
 const SITE_ORIGIN = "https://indiefa.st"
+const OG_IMAGE = `${SITE_ORIGIN}/og-image.webp`
 const BLOG_DIR = path.resolve("src/content/blog")
 const OUTPUT = path.resolve("public/sitemap.xml")
 
@@ -34,15 +35,21 @@ function toSitemapDate(isoDate) {
   return isoDate.slice(0, 10)
 }
 
-function urlEntry({ loc, lastmod, changefreq, priority }) {
-  return [
+function urlEntry({ loc, lastmod, changefreq, priority, image }) {
+  const lines = [
     "  <url>",
     `    <loc>${loc}</loc>`,
     `    <lastmod>${lastmod}</lastmod>`,
     `    <changefreq>${changefreq}</changefreq>`,
     `    <priority>${priority}</priority>`,
-    "  </url>",
-  ].join("\n")
+  ]
+  if (image) {
+    lines.push("    <image:image>")
+    lines.push(`      <image:loc>${image}</image:loc>`)
+    lines.push("    </image:image>")
+  }
+  lines.push("  </url>")
+  return lines.join("\n")
 }
 
 const blogEntries = fs
@@ -75,19 +82,22 @@ const entries = [
     lastmod: latestBlogDate,
     changefreq: "weekly",
     priority: "1.0",
+    image: OG_IMAGE,
   },
   {
     loc: `${SITE_ORIGIN}/blog`,
     lastmod: latestBlogDate,
     changefreq: "weekly",
     priority: "0.8",
+    image: OG_IMAGE,
   },
-  ...blogEntries,
+  ...blogEntries.map((entry) => ({ ...entry, image: OG_IMAGE })),
 ]
 
 const xml = [
   '<?xml version="1.0" encoding="UTF-8"?>',
-  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+  '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
   ...entries.map(urlEntry),
   "</urlset>",
   "",
