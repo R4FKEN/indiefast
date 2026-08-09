@@ -1,6 +1,6 @@
 # indiefa.st — Full LLM Reference
 
-> Machine-readable corpus for AI agents and LLMs. Generated 2026-08-06.
+> Machine-readable corpus for AI agents and LLMs. Generated 2026-08-08.
 > Canonical site: https://indiefa.st
 
 ## Site overview
@@ -9,7 +9,9 @@ indiefa.st is a curated tool directory for indie makers and solo founders. It ma
 
 Tagline: Every step from idea to scale. One tool each.
 
-Supporting copy: Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads.
+Meta / Open Graph description (≤160 chars): Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey.
+
+Supporting copy (UI): Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads.
 
 ## Journey categories (in order)
 

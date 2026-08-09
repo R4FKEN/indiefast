@@ -129,7 +129,11 @@ function buildFullDoc(tools, blogPosts) {
   sections.push("Tagline: Every step from idea to scale. One tool each.")
   sections.push("")
   sections.push(
-    "Supporting copy: Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads.",
+    "Meta / Open Graph description (≤160 chars): Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey.",
+  )
+  sections.push("")
+  sections.push(
+    "Supporting copy (UI): Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads.",
   )
   sections.push("")
   sections.push("## Journey categories (in order)")

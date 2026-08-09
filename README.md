@@ -14,7 +14,7 @@ Competitors like Indie Hackers' directory and vibecoding.app are scoped to **cod
 |-----|------|
 | **Hero tagline** | Every step from idea to scale. One tool each. |
 | **Supporting line** | Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads. |
-| **Meta / about** | IndieFast maps the full indie maker journey with one vetted tool per stage. Refreshed weekly, with the best live discount on every pick. Skip the research, follow the path. |
+| **Meta / OG / Twitter description (≤160)** | Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. |
 | **Page title** | indiefa.st — Every step from idea to scale. One tool each. |
 
 Source of truth in code: `src/constants/site-copy.ts`
@@ -44,7 +44,9 @@ npm run build        # Sync + production build
 npm run preview:prod # Build + serve dist on port 4173
 ```
 
-Requires `.env` with `AIRTABLE_PAT` and `AIRTABLE_BASE_ID` for live sync and newsletter signup.
+Requires `.env` (see `.env.example`):
+- `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` for newsletter signup
+- `AIRTABLE_PAT` + `AIRTABLE_BASE_ID` for tools sync (`npm run sync:tools`)
 
 ## Stack
 

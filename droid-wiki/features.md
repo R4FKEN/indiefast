@@ -26,10 +26,10 @@ Users can build a collection of tools for comparison:
 
 ## Newsletter
 
-Email capture form connected to Airtable "Subscribers" table:
+Email capture form connected to Supabase `subscribers` table:
 - Client-side validation in `Newsletter.tsx`
-- Server-side validation in `server.js` and Netlify function
-- Graceful fallback logs to console when Airtable unavailable
+- Server-side validation in `server.js` and Netlify function (`shared/subscribe-store.mjs`)
+- Graceful fallback logs to console when Supabase env is unavailable
 
 ## Data caching
 

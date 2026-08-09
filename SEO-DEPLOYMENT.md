@@ -61,9 +61,13 @@ This repo is now configured for SEO-friendly static deployment:
 - Publish directory: `dist`
 
 ### 3. Add environment variables (optional)
-If you want live Airtable newsletter signup support, add the following:
-- `AIRTABLE_PAT`
-- `AIRTABLE_BASE_ID`
+If you want live newsletter signup support, add Supabase credentials (server-only):
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+Apply `supabase/migrations/20260808_subscribers.sql` in the Supabase SQL editor first.
+
+Airtable (`AIRTABLE_PAT`, `AIRTABLE_BASE_ID`) is only needed for local tools sync, not for the live site newsletter.
 
 ### 4. Confirm functions
 Netlify will deploy functions from `netlify/functions` automatically.

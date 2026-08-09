@@ -1,5 +1,5 @@
 import type { Context } from "@netlify/functions"
-import Airtable from "airtable"
+import { insertSubscriber } from "../../shared/subscribe-store.mjs"
 
 export default async function handler(req: Request, _context: Context) {
   const headers = {
@@ -40,29 +40,18 @@ export default async function handler(req: Request, _context: Context) {
     return new Response(JSON.stringify({ error: "Valid email required" }), { status: 400, headers })
   }
 
-  const AIRTABLE_PAT = process.env.AIRTABLE_PAT
-  const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID
+  const result = await insertSubscriber(trimmed)
 
-  if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
-    console.log(`[indiefa.st] Newsletter signup (mock): ${trimmed}`)
+  if (!result.ok) {
+    return new Response(JSON.stringify({ error: result.message }), {
+      status: result.status,
+      headers,
+    })
+  }
+
+  if (result.source === "mock") {
     return new Response(JSON.stringify({ success: true, source: "mock" }), { headers })
   }
 
-  try {
-    const airtable = new Airtable({ apiKey: AIRTABLE_PAT })
-    const base = airtable.base(AIRTABLE_BASE_ID)
-
-    await base("Subscribers").create([
-      { fields: { Email: trimmed, SubscribedAt: new Date().toISOString() } },
-    ])
-
-    return new Response(JSON.stringify({ success: true }), { headers })
-  } catch (error) {
-    const err = error as { message?: string; statusCode?: number }
-    console.error("[indiefa.st] Subscribe error:", err.message ?? error)
-    const status = err.statusCode === 422 ? 409 : 500
-    const message =
-      status === 409 ? "This email is already subscribed" : "Failed to subscribe"
-    return new Response(JSON.stringify({ error: message }), { status, headers })
-  }
+  return new Response(JSON.stringify({ success: true }), { headers })
 }

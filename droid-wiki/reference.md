@@ -54,7 +54,8 @@ interface Tool {
 | @chakra-ui/react | Component library |
 | vite | Build tool |
 | express | API server |
-| airtable | Airtable client |
+| @supabase/supabase-js | Newsletter subscriber storage |
+| airtable | Airtable client (tools sync) |
 | @netlify/functions | Serverless functions |
 | concurrently | Run multiple scripts |
 
@@ -62,5 +63,7 @@ interface Tool {
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| AIRTABLE_PAT | No | Airtable personal access token |
-| AIRTABLE_BASE_ID | No | Airtable base identifier |
+| SUPABASE_URL | No | Supabase project URL (newsletter) |
+| SUPABASE_SERVICE_ROLE_KEY | No | Supabase service role key (newsletter inserts) |
+| AIRTABLE_PAT | No | Airtable personal access token (tools sync) |
+| AIRTABLE_BASE_ID | No | Airtable base identifier (tools sync) |

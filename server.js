@@ -1,10 +1,10 @@
 import express from "express"
 import cors from "cors"
-import Airtable from "airtable"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import "dotenv/config"
 import { loadToolsSnapshot } from "./shared/sync-tools-snapshot.mjs"
+import { insertSubscriber } from "./shared/subscribe-store.mjs"
 
 const repoRoot = path.dirname(fileURLToPath(import.meta.url))
 
@@ -13,9 +13,6 @@ const PORT = process.env.PORT || 3002
 
 app.use(cors())
 app.use(express.json({ limit: "10kb" }))
-
-const AIRTABLE_PAT = process.env.AIRTABLE_PAT
-const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID
 
 const rateLimitMap = new Map()
 const RATE_LIMIT_WINDOW = 60 * 1000
@@ -49,22 +46,12 @@ setInterval(() => {
   }
 }, 5 * 60 * 1000)
 
-function getAirtableBase() {
-  if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
-    return null
-  }
-  return new Airtable({ apiKey: AIRTABLE_PAT }).base(AIRTABLE_BASE_ID)
-}
-
-const airtableBase = getAirtableBase()
-
 app.get("/api/tools", async (_req, res) => {
   const tools = await loadToolsSnapshot(repoRoot)
   res.json({ tools, source: "snapshot" })
 })
 
 app.post("/api/subscribe", async (req, res) => {
-  const base = airtableBase
   const { email } = req.body
 
   if (!email || typeof email !== "string") {
@@ -82,32 +69,26 @@ app.post("/api/subscribe", async (req, res) => {
     return res.status(400).json({ error: "Valid email required" })
   }
 
-  if (!base) {
-    console.log(`[indiefa.st] Newsletter signup (mock): ${trimmed}`)
+  const result = await insertSubscriber(trimmed)
+
+  if (!result.ok) {
+    return res.status(result.status).json({ error: result.message })
+  }
+
+  if (result.source === "mock") {
     return res.json({ success: true, source: "mock" })
   }
 
-  try {
-    await base("Subscribers").create([
-      { fields: { Email: trimmed, SubscribedAt: new Date().toISOString() } },
-    ])
-    res.json({ success: true })
-  } catch (error) {
-    console.error("[indiefa.st] Subscribe error:", error.message)
-    const status = error.statusCode === 422 ? 409 : 500
-    const message =
-      status === 409 ? "This email is already subscribed" : "Failed to subscribe"
-    res.status(status).json({ error: message })
-  }
+  return res.json({ success: true })
 })
 
 app.listen(PORT, () => {
   console.log(`[indiefa.st] Server running on port ${PORT}`)
-  if (!AIRTABLE_PAT || !AIRTABLE_BASE_ID) {
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
     console.log(
-      "[indiefa.st] WARNING: Airtable credentials not found.\n" +
-      "  Set AIRTABLE_PAT and AIRTABLE_BASE_ID for newsletter signups.\n" +
-      "  Tools are served from public/tools.json (run npm run sync:tools to refresh)."
+      "[indiefa.st] WARNING: Supabase credentials not found.\n" +
+        "  Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY for newsletter signups.\n" +
+        "  Tools are served from public/tools.json (run npm run sync:tools to refresh; needs AIRTABLE_*)."
     )
   }
 })

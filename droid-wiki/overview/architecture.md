@@ -7,8 +7,9 @@ IndieFast follows a standard React SPA architecture with multiple backend option
 ```mermaid
 graph LR
     Browser[React SPA] -->|fetch| Backend
-    Backend -->|query| Airtable[(Airtable)]
-    Backend -->|subscribe| Airtable
+    Backend -->|subscribe| Supabase[(Supabase)]
+    Sync[npm run sync:tools] -->|export| Airtable[(Airtable)]
+    Sync -->|write| Snapshot[public/tools.json]
     
     subgraph Backend Options
         Express[Express Server]
@@ -40,14 +41,13 @@ IndieFast supports two backend configurations:
 1. **Express server** (`server.js`): Local development with rate limiting and caching
 2. **Netlify Functions** (`netlify/functions/`): Serverless deployment on Netlify
 
-Both backends connect to Airtable for tool data and subscriber storage.
+Subscribe endpoints write to Supabase `subscribers`. Tool data is served from the committed `public/tools.json` snapshot (refreshed via Airtable with `npm run sync:tools`).
 
 ## Data flow
 
-1. Frontend calls `/api/tools`
-2. Backend checks cache (1-minute TTL)
-3. If cache miss, fetches from Airtable "Tools" table
-4. Returns JSON array of tools
+1. Frontend loads tools from the bundled/snapshot `tools.json` (prod) or public snapshot (dev)
+2. Newsletter form posts to `/api/subscribe`
+3. Backend validates email and inserts into Supabase `subscribers` (or mocks if env missing)
 5. Frontend caches in sessionStorage (5-minute TTL)
 6. Falls back to mock data if API unavailable
 
