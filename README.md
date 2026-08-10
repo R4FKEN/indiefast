@@ -1,53 +1,126 @@
 # IndieFast (indiefa.st)
 
-A curated toolkit for indie makers — **one vetted tool per stage** of the full founder journey, from idea to scale.
+Curated toolkit for indie makers — **one vetted tool per stage** of the founder journey, from idea to scale.
 
-## Positioning
+**Live site:** [https://indiefa.st](https://indiefa.st)
+
+## What it is
+
+- **Homepage directory** — tools filtered by journey stage (Discover → Grow), with featured picks and optional second categories
+- **Speed Stack** — pick tools into a personal stack and export a PDF cheat sheet
+- **Blog** — stage guides (and Grow subtopics) with SEO frontmatter, FAQ schema, and route metadata
+- **Newsletter** — “Follow the path” email capture stored in **Supabase**
+- **SEO / LLM surfaces** — sitemap, robots, Open Graph image, `llms.txt` + full tool corpus
 
 ### Differentiator
 
-Competitors like Indie Hackers' directory and vibecoding.app are scoped to **coding tools only** (IDEs, AI agents). IndieFast covers the **entire founder journey** — Discover through Grow — not just build. That is a categorically different product, not a better-curated version of the same thing. **Lead with the journey, not speed or discounts alone.**
+Many directories focus on **coding tools only**. IndieFast maps the **full journey** (Discover through Grow), not just build. Lead with the path; speed and discounts are secondary.
 
-### Copy (canonical)
+### Category structure
+
+| Sequence (main path) | Parallel Grow tracks |
+|----------------------|----------------------|
+| 1. Discover → 10. Measure → 11. Grow | Automate, Scale, Community, Support, SEO, Distribution |
+
+Grow sub-filters are **not** ordered steps — they run in parallel once you are growing.
+
+## Canonical copy
 
 | Use | Text |
 |-----|------|
 | **Hero tagline** | Every step from idea to scale. One tool each. |
-| **Supporting line** | Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads. |
-| **Meta / OG / Twitter description (≤160)** | Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. |
+| **Supporting line (UI)** | Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. No more piecing together advice from ten different Twitter threads. |
+| **Meta / OG / Twitter (≤160)** | Discover, validate, build, ship, and grow — a hand-picked tool for every stage of the indie maker journey. |
 | **Page title** | indiefa.st — Every step from idea to scale. One tool each. |
+| **OG image** | `https://indiefa.st/og-image.webp` (`public/og-image.webp`) |
 
-Source of truth in code: `src/constants/site-copy.ts`
+Source of truth: [`src/constants/site-copy.ts`](src/constants/site-copy.ts)
 
-### Category structure
+## Stack
 
-The first 10 categories (Discover → Measure) plus **Grow** read as a **sequence** — one stage leads to the next.
+| Layer | Tech |
+|-------|------|
+| Frontend | React 19, TypeScript, Vite, Chakra UI, React Router, react-helmet-async |
+| Local API | Express (`server.js`) on port 3002 |
+| Production API | Netlify Functions (`netlify/functions/`) |
+| Newsletter | Supabase `subscribers` table via service role ([`shared/subscribe-store.mjs`](shared/subscribe-store.mjs)) |
+| Tools catalog | Committed snapshot [`public/tools.json`](public/tools.json); refresh from **Airtable** with `npm run sync:tools` |
+| Deploy | Netlify (`netlify.toml` → publish `dist`) |
 
-**Grow's subcategories** (Automate, Scale, Community, Support, SEO, Distribution) are **not sequential**. They are parallel functions you run simultaneously once you're growing. The UI should show:
+## Architecture (data flow)
 
-- Main 11 categories as a horizontal path / timeline
-- Grow expands into a **separate cluster** of 6 sub-filters (not a continuation of the same line)
+```text
+Browser
+  ├─ tools     → public/tools.json (prod bundle / static) or snapshot in dev
+  └─ subscribe → POST /api/subscribe
+                   ├─ local:  Express server.js
+                   └─ prod:   Netlify function subscribe.ts
+                              └─ Supabase subscribers (service role)
 
-Rendering them as one flat sequence implies an order (e.g. Community after SEO) that does not exist.
+npm run sync:tools → Airtable → public/tools.json + public/tool-logos/
+```
 
-### SEO content plan
-
-Each of the 11 categories (and the 6 Grow subcategories) can become its own landing page — e.g. "Best tool to validate your MVP idea," "Best tool to monetize your indie SaaS" — each targeting its own keyword cluster, all linking back to the main toolkit. Stronger than one homepage trying to rank for "indie maker tools."
+Airtable is **not** used for newsletter signups. Without Supabase env vars, subscribe returns a mock success (local-friendly).
 
 ## Development
 
 ```bash
 npm install
-npm run dev          # API (port 3002) + hot-reload preview (port 5173)
-npm run sync:tools   # Re-import Airtable → public/tools.json + logos
-npm run build        # Sync + production build
-npm run preview:prod # Build + serve dist on port 4173
+cp .env.example .env   # fill in secrets (see below)
+
+npm run dev            # API :3002 + Vite :5173
+npm run sync:tools     # Airtable → public/tools.json + logos
+npm run build          # sitemap + llms + vite build → dist/
+npm run build:seo      # build + optional Puppeteer prerender (needs puppeteer)
+npm run preview        # serve existing dist
+npm run preview:prod   # build then preview
+npm run lint
 ```
 
-Requires `.env` (see `.env.example`):
-- `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY` for newsletter signup
-- `AIRTABLE_PAT` + `AIRTABLE_BASE_ID` for tools sync (`npm run sync:tools`)
+### Environment variables
 
-## Stack
+See [`.env.example`](.env.example). Never commit `.env` or use `VITE_*` for secrets.
 
-React + TypeScript + Vite, Chakra UI, Express API (local dev), Netlify Functions (production).
+| Variable | Required for | Notes |
+|----------|--------------|--------|
+| `SUPABASE_URL` | Live newsletter | Project URL only (no `/rest/v1/`) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Live newsletter | Server-only; Netlify env + local `.env` |
+| `AIRTABLE_PAT` | Tools sync | `npm run sync:tools` only |
+| `AIRTABLE_BASE_ID` | Tools sync | `npm run sync:tools` only |
+
+Supabase schema: [`supabase/migrations/20260808_subscribers.sql`](supabase/migrations/20260808_subscribers.sql) (run in the SQL editor once).
+
+### Scripts (more detail)
+
+| Script | What it does |
+|--------|----------------|
+| `generate:sitemap` | Writes `public/sitemap.xml` (incl. OG image entries) |
+| `generate:llms` | Writes `public/llms.txt`, `llms-full.txt`, `llms-full.md` |
+| `prerender` | Optional static HTML per sitemap route (Puppeteer; not in default deps) |
+| `export-tools` / `sync:tools` | Airtable → tools snapshot + logos |
+
+SEO / Netlify notes: [`SEO-DEPLOYMENT.md`](SEO-DEPLOYMENT.md)
+
+## Project layout (high level)
+
+```text
+src/                 React app (pages, components, blog content)
+public/              Static assets, tools.json, SEO/LLM files, og-image.webp
+netlify/functions/   subscribe (Supabase), tools (snapshot)
+shared/              subscribe-store, Airtable sync helpers
+scripts/             sitemap, llms, tools export, prerender
+supabase/migrations/ subscribers table SQL
+server.js            Local Express API
+AGENTS.md            Agent rules (no git worktrees; Documents checkout only)
+```
+
+## Deploy (Netlify)
+
+1. Build command: `npm run build` · publish directory: `dist`
+2. Set `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` on the site for production signups
+3. Redirects already map `/api/subscribe` and `/api/tools` to functions
+
+## Contributing / agents
+
+- Product wiki notes live under [`droid-wiki/`](droid-wiki/)
+- **Do not use git worktrees** on this project. Work only in the main local checkout (see [`AGENTS.md`](AGENTS.md))
