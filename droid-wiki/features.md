@@ -36,4 +36,4 @@ Email capture form connected to Supabase `subscribers` table:
 Multi-layer caching strategy:
 - **Server**: 1-minute cache, 30-second error backoff
 - **Client**: sessionStorage with 5-minute TTL
-- **Fallback**: Built-in mock data (`src/mock-data.ts`)
+- **Fallback**: empty list if `/tools.json` fails to load

@@ -11,6 +11,62 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
+  build: {
+    // pdf-vendor (~jspdf) is dynamically imported on export only; keep warning threshold above that chunk
+    chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return
+          // Order matters: @chakra-ui/react paths contain "/react/" and must not hit react-vendor
+          if (
+            id.includes("@chakra-ui") ||
+            id.includes("@emotion") ||
+            id.includes("next-themes")
+          ) {
+            return "chakra-vendor"
+          }
+          if (
+            id.includes("react-markdown") ||
+            id.includes("remark-gfm") ||
+            id.includes("node_modules/remark") ||
+            id.includes("node_modules\\remark") ||
+            id.includes("node_modules/mdast") ||
+            id.includes("node_modules\\mdast") ||
+            id.includes("node_modules/micromark") ||
+            id.includes("node_modules\\micromark") ||
+            id.includes("node_modules/unist") ||
+            id.includes("node_modules\\unist") ||
+            id.includes("node_modules/hast") ||
+            id.includes("node_modules\\hast")
+          ) {
+            return "markdown-vendor"
+          }
+          if (
+            id.includes("jspdf") ||
+            id.includes("html2canvas") ||
+            id.includes("dompurify") ||
+            id.includes("canvg") ||
+            id.includes("fflate")
+          ) {
+            return "pdf-vendor"
+          }
+          if (
+            id.includes("node_modules/react-dom") ||
+            id.includes("node_modules\\react-dom") ||
+            id.includes("node_modules/react-router") ||
+            id.includes("node_modules\\react-router") ||
+            id.includes("node_modules/react/") ||
+            id.includes("node_modules\\react\\") ||
+            id.includes("node_modules/scheduler") ||
+            id.includes("node_modules\\scheduler")
+          ) {
+            return "react-vendor"
+          }
+        },
+      },
+    },
+  },
   server: {
     host: DEV_HOST,
     port: DEV_PORT,

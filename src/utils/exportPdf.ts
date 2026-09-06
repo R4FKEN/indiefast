@@ -1,5 +1,6 @@
-import { jsPDF } from "jspdf"
 import type { Tool } from "../types"
+
+type JsPdfDoc = InstanceType<typeof import("jspdf").jsPDF>
 
 const LOGO_URL = "/indiefast-logo-nobg-500x500.png"
 
@@ -48,7 +49,7 @@ const PILL_BORDER: [number, number, number] = [22, 163, 74]
 const PILL_TEXT: [number, number, number] = [22, 163, 74]
 
 function renderMonthlySavingsPill(
-  doc: jsPDF,
+  doc: JsPdfDoc,
   centerX: number,
   y: number,
   label: string,
@@ -73,6 +74,8 @@ function renderMonthlySavingsPill(
 }
 
 export async function exportStackToPdf(stack: Tool[]): Promise<void> {
+  // Load jspdf only when the user exports (keeps it off the homepage critical path)
+  const { jsPDF } = await import("jspdf")
   const doc = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" })
 
   const pageWidth = doc.internal.pageSize.getWidth()

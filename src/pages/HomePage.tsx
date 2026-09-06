@@ -2,7 +2,6 @@ import { Box, Flex, Grid } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
 import type { Tool, Category, GrowSubtopic } from "@/types"
 import { fetchTools } from "@/api"
-import { FALLBACK_TOOLS } from "@/mock-data"
 import { Header } from "@/components/Header"
 import { ToolCardGuide } from "@/components/ToolCardGuide"
 import { FilterBar } from "@/components/FilterBar"
@@ -11,17 +10,25 @@ import { SpeedStack } from "@/components/SpeedStack"
 import { Newsletter } from "@/components/Newsletter"
 
 export function HomePage() {
-  const [tools, setTools] = useState<Tool[]>(FALLBACK_TOOLS)
-  const [loading, setLoading] = useState(!import.meta.env.PROD)
+  const [tools, setTools] = useState<Tool[]>([])
+  const [loading, setLoading] = useState(true)
   const [activeCategory, setActiveCategory] = useState<Category>("All")
   const [activeSubtopic, setActiveSubtopic] = useState<GrowSubtopic | null>(null)
   const [stack, setStack] = useState<Tool[]>([])
 
   useEffect(() => {
+    let cancelled = false
     fetchTools()
-      .then(setTools)
+      .then((list) => {
+        if (!cancelled) setTools(list)
+      })
       .catch((err) => console.error("[indiefa.st]", err.message))
-      .finally(() => setLoading(false))
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   const toggleStack = useCallback((tool: Tool) => {
@@ -47,7 +54,7 @@ export function HomePage() {
   })
 
   return (
-    <>
+    <Box data-page="home" as="div">
       <Grid
         templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }}
         gap={{ base: "6", lg: "5" }}
@@ -81,7 +88,7 @@ export function HomePage() {
         </Flex>
         <ToolCardGuide />
       </Grid>
-      <Box id="tools">
+      <Box id="tools" data-tools-ready={loading ? "false" : "true"}>
         <FilterBar
           active={activeCategory}
           onChange={setActiveCategory}
@@ -99,6 +106,6 @@ export function HomePage() {
         <Newsletter />
       </Box>
       <SpeedStack stack={stack} onRemove={toggleStack} />
-    </>
+    </Box>
   )
 }

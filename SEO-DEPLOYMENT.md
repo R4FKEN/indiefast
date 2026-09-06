@@ -9,6 +9,8 @@ This repo is now configured for SEO-friendly static deployment:
 - `scripts/generate-llms.mjs` creates `public/llms.txt`, `llms-full.txt`, and `llms-full.md`
 - `scripts/prerender.mjs` prerenders routes from the sitemap into `dist` (optional SEO step)
 - Default `npm run build` is bolt.new / CI safe (no Puppeteer). Use `npm run build:seo` when Chromium is available.
+- Prefer **`npm run build:seo` for production** when Chromium/Puppeteer is available so lazy route chunks and async blog/tools content are baked into static HTML.
+- Code splitting: route-level `React.lazy`, deferred `jspdf`, per-post markdown chunks, `/tools.json` fetched as a static asset (not inlined into JS).
 - Netlify functions remain available for `/api/subscribe` and `/api/tools`
 
 ---

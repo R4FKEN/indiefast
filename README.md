@@ -51,7 +51,9 @@ Source of truth: [`src/constants/site-copy.ts`](src/constants/site-copy.ts)
 
 ```text
 Browser
-  ├─ tools     → public/tools.json (prod bundle / static) or snapshot in dev
+  ├─ tools     → fetch /tools.json (static asset; not inlined into JS)
+  ├─ routes    → lazy Home / Blog / BlogPost chunks (+ per-post markdown)
+  ├─ PDF export→ dynamic import(jspdf) on click only
   └─ subscribe → POST /api/subscribe
                    ├─ local:  Express server.js
                    └─ prod:   Netlify function subscribe.ts
@@ -61,6 +63,10 @@ npm run sync:tools → Airtable → public/tools.json + public/tool-logos/
 ```
 
 Airtable is **not** used for newsletter signups. Without Supabase env vars, subscribe returns a mock success (local-friendly).
+
+### Bundle / code splitting
+
+Vite splits vendor chunks (`react-vendor`, `chakra-vendor`, `markdown-vendor`, `pdf-vendor`) and lazy-loads pages. After `npm run build`, check `dist/assets/` sizes. Prefer `npm run build:seo` in production so prerender waits for lazy content (see `SEO-DEPLOYMENT.md`).
 
 ## Development
 

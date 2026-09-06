@@ -135,6 +135,29 @@ async function prerender() {
       process.stdout.write(`Prerendering ${route} ... `)
       await page.goto(url, { waitUntil: "networkidle2" })
       await page.waitForSelector("#root", { timeout: 10000 })
+
+      // Wait for lazy route chunks + async content (code-split pages)
+      if (route === "/") {
+        await page.waitForSelector('[data-page="home"]', { timeout: 15000 })
+        await page.waitForSelector('#tools[data-tools-ready="true"]', { timeout: 20000 })
+      } else if (route === "/blog") {
+        await page.waitForSelector("[data-blog-grid], [data-blog-loading]", {
+          timeout: 15000,
+        })
+        await page.waitForSelector("[data-blog-grid]", { timeout: 20000 }).catch(() => {})
+      } else if (route.startsWith("/blog/")) {
+        await page.waitForSelector('[data-page="blog-post"]', { timeout: 15000 })
+        await page.waitForSelector(".blog-content", { timeout: 20000 })
+      }
+
+      // Let react-helmet-async flush meta into <head>
+      await page.evaluate(
+        () =>
+          new Promise((resolve) => {
+            requestAnimationFrame(() => requestAnimationFrame(resolve))
+          }),
+      )
+
       const html = await page.content()
       const outputPath = routeToOutputPath(route)
       await ensureDir(outputPath)

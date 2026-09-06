@@ -1,21 +1,25 @@
 import type { Tool } from "./types"
-import { FALLBACK_TOOLS } from "./mock-data"
 
+async function loadToolsFromSnapshot(): Promise<Tool[]> {
+  const res = await fetch("/tools.json", {
+    cache: import.meta.env.PROD ? "force-cache" : "no-store",
+  })
+  if (!res.ok) throw new Error(`Snapshot error ${res.status}`)
+  const data = (await res.json()) as { tools?: Tool[] }
+  if (!Array.isArray(data.tools)) throw new Error("Invalid tools.json shape")
+  return data.tools
+}
+
+/** Tools always come from the static `/tools.json` asset (not inlined into JS). */
 export async function fetchTools(): Promise<Tool[]> {
-  // Production: bundled snapshot from last manual sync + deploy (no network wait)
-  if (import.meta.env.PROD) {
-    return FALLBACK_TOOLS
-  }
-
-  // Dev: read public/tools.json from disk (refresh via `npm run sync:tools`)
   try {
-    const res = await fetch("/tools.json", { cache: "no-store" })
-    if (!res.ok) throw new Error(`Snapshot error ${res.status}`)
-    const data = await res.json()
-    return data.tools as Tool[]
-  } catch {
-    console.log("[indiefa.st] tools.json unavailable. Using bundled fallback.")
-    return FALLBACK_TOOLS
+    return await loadToolsFromSnapshot()
+  } catch (err) {
+    console.log(
+      "[indiefa.st] tools.json unavailable.",
+      err instanceof Error ? err.message : err,
+    )
+    return []
   }
 }
 
