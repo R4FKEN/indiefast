@@ -1,10 +1,11 @@
 import express from "express"
 import cors from "cors"
+import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import "dotenv/config"
-import { loadToolsSnapshot } from "./shared/sync-tools-snapshot.mjs"
 import { insertSubscriber } from "./shared/subscribe-store.mjs"
+import { CatalogError, isLoopback, readCatalog, saveCatalog } from "./shared/admin-catalog.mjs"
 
 const repoRoot = path.dirname(fileURLToPath(import.meta.url))
 
@@ -12,7 +13,10 @@ const app = express()
 const PORT = process.env.PORT || 3002
 
 app.use(cors())
-app.use(express.json({ limit: "10kb" }))
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/admin")) return next()
+  return express.json({ limit: "10kb" })(req, res, next)
+})
 
 const rateLimitMap = new Map()
 const RATE_LIMIT_WINDOW = 60 * 1000
@@ -35,7 +39,45 @@ function rateLimit(req, res, next) {
   return next()
 }
 
-app.use("/api", rateLimit)
+app.use("/api", (req, res, next) => {
+  if (req.originalUrl.startsWith("/api/admin")) return next()
+  return rateLimit(req, res, next)
+})
+
+const adminJson = express.json({ limit: "3mb" })
+
+app.use("/api/admin", (req, res, next) => {
+  const address = req.socket?.remoteAddress || ""
+  if (!isLoopback(address)) {
+    return res.status(403).json({ error: "Affiliate admin is only available on this machine." })
+  }
+  return adminJson(req, res, next)
+})
+
+app.get("/api/admin/tools", async (_req, res) => {
+  try {
+    const catalog = await readCatalog(repoRoot)
+    res.json({ tools: catalog.tools, source: "local" })
+  } catch (error) {
+    console.error("[indiefa.st] Failed to read public/tools.json", error)
+    res.status(500).json({ error: "Could not read the affiliate catalog" })
+  }
+})
+
+app.put("/api/admin/tools", async (req, res) => {
+  try {
+    const saved = await saveCatalog(repoRoot, {
+      tools: req.body?.tools,
+      logo: req.body?.logo,
+    })
+    console.log(`[indiefa.st] Saved ${saved.tools.length} tools to public/tools.json`)
+    res.json(saved)
+  } catch (error) {
+    const status = error instanceof CatalogError ? error.status : 500
+    if (status === 500) console.error("[indiefa.st] Affiliate admin save failed", error)
+    res.status(status).json({ error: error instanceof Error ? error.message : "Save failed" })
+  }
+})
 
 setInterval(() => {
   const now = Date.now()
@@ -47,8 +89,15 @@ setInterval(() => {
 }, 5 * 60 * 1000)
 
 app.get("/api/tools", async (_req, res) => {
-  const tools = await loadToolsSnapshot(repoRoot)
-  res.json({ tools, source: "snapshot" })
+  try {
+    const raw = await readFile(path.join(repoRoot, "public", "tools.json"), "utf8")
+    const snapshot = JSON.parse(raw)
+    const tools = Array.isArray(snapshot.tools) ? snapshot.tools : []
+    res.json({ tools, source: "local" })
+  } catch (error) {
+    console.error("[indiefa.st] Failed to read public/tools.json", error)
+    res.json({ tools: [], source: "local" })
+  }
 })
 
 app.post("/api/subscribe", async (req, res) => {
@@ -84,11 +133,12 @@ app.post("/api/subscribe", async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`[indiefa.st] Server running on port ${PORT}`)
+  console.log("[indiefa.st] Affiliate admin: http://127.0.0.1:5173/admin")
   if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
     console.log(
       "[indiefa.st] WARNING: Supabase credentials not found.\n" +
         "  Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY for newsletter signups.\n" +
-        "  Tools are served from public/tools.json (run npm run sync:tools to refresh; needs AIRTABLE_*)."
+        "  Tools are served from public/tools.json."
     )
   }
 })

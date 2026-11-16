@@ -44,7 +44,7 @@ Source of truth: [`src/constants/site-copy.ts`](src/constants/site-copy.ts)
 | Local API | Express (`server.js`) on port 3002 |
 | Production API | Netlify Functions (`netlify/functions/`) |
 | Newsletter | Supabase `subscribers` table via service role ([`shared/subscribe-store.mjs`](shared/subscribe-store.mjs)) |
-| Tools catalog | Committed snapshot [`public/tools.json`](public/tools.json); refresh from **Airtable** with `npm run sync:tools` |
+| Tools catalog | Committed list [`public/tools.json`](public/tools.json); logos in [`public/tool-logos/`](public/tool-logos/) |
 | Deploy | Netlify (`netlify.toml` → publish `dist`) |
 
 ## Architecture (data flow)
@@ -59,10 +59,18 @@ Browser
                    └─ prod:   Netlify function subscribe.ts
                               └─ Supabase subscribers (service role)
 
-npm run sync:tools → Airtable → public/tools.json + public/tool-logos/
 ```
 
-Airtable is **not** used for newsletter signups. Without Supabase env vars, subscribe returns a mock success (local-friendly).
+Without Supabase env vars, subscribe returns a mock success (local-friendly).
+
+### Editing the tool list
+
+`public/tools.json` is the catalog. To add or change a tool, edit an object in the `tools` array and commit it.
+
+- `AffiliateURL` is the full outbound link, including affiliate and UTM params.
+- `Category` is one of `1. Discover` through `11. Grow`. `Subtopic` is only used for Grow (`Automate`, `Scale`, `Community`, `Support`, `SEO`, `Distribution`).
+- Put the logo at `public/tool-logos/{id}.png` (any image extension is fine) and set `LogoUrl` to that path.
+- Keep existing `rec…` ids. New tools use a short slug as `id` (for example `beehiiv`).
 
 ### Bundle / code splitting
 
@@ -75,7 +83,6 @@ npm install
 cp .env.example .env   # fill in secrets (see below)
 
 npm run dev            # API :3002 + Vite :5173
-npm run sync:tools     # Airtable → public/tools.json + logos
 npm run build          # sitemap + llms + vite build → dist/
 npm run build:seo      # build + optional Puppeteer prerender (needs puppeteer)
 npm run preview        # serve existing dist
@@ -91,8 +98,6 @@ See [`.env.example`](.env.example). Never commit `.env` or use `VITE_*` for secr
 |----------|--------------|--------|
 | `SUPABASE_URL` | Live newsletter | Project URL only (no `/rest/v1/`) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Live newsletter | Server-only; Netlify env + local `.env` |
-| `AIRTABLE_PAT` | Tools sync | `npm run sync:tools` only |
-| `AIRTABLE_BASE_ID` | Tools sync | `npm run sync:tools` only |
 
 Supabase schema: [`supabase/migrations/20260808_subscribers.sql`](supabase/migrations/20260808_subscribers.sql) (run in the SQL editor once).
 
@@ -103,7 +108,6 @@ Supabase schema: [`supabase/migrations/20260808_subscribers.sql`](supabase/migra
 | `generate:sitemap` | Writes `public/sitemap.xml` (incl. OG image entries) |
 | `generate:llms` | Writes `public/llms.txt`, `llms-full.txt`, `llms-full.md` |
 | `prerender` | Optional static HTML per sitemap route (Puppeteer; not in default deps) |
-| `export-tools` / `sync:tools` | Airtable → tools snapshot + logos |
 
 SEO / Netlify notes: [`SEO-DEPLOYMENT.md`](SEO-DEPLOYMENT.md)
 
@@ -113,8 +117,8 @@ SEO / Netlify notes: [`SEO-DEPLOYMENT.md`](SEO-DEPLOYMENT.md)
 src/                 React app (pages, components, blog content)
 public/              Static assets, tools.json, SEO/LLM files, og-image.webp
 netlify/functions/   subscribe (Supabase), tools (snapshot)
-shared/              subscribe-store, Airtable sync helpers
-scripts/             sitemap, llms, tools export, prerender
+shared/              subscribe-store
+scripts/             sitemap, llms, prerender
 supabase/migrations/ subscribers table SQL
 server.js            Local Express API
 AGENTS.md            Agent rules (no git worktrees; Documents checkout only)

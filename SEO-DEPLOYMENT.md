@@ -69,7 +69,7 @@ If you want live newsletter signup support, add Supabase credentials (server-onl
 
 Apply `supabase/migrations/20260808_subscribers.sql` in the Supabase SQL editor first.
 
-Airtable (`AIRTABLE_PAT`, `AIRTABLE_BASE_ID`) is only needed for local tools sync, not for the live site newsletter.
+The tool catalog is the committed `public/tools.json` file. No extra env vars are required for it.
 
 ### 4. Confirm functions
 Netlify will deploy functions from `netlify/functions` automatically.

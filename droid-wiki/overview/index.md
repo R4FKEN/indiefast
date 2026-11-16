@@ -11,13 +11,13 @@ The application displays a filterable grid of tools organized by development lif
 - **Category filtering**: Filter tools by 11 lifecycle categories
 - **Subtopic filtering**: Drill down into specific areas within "Grow" (Retain, Automate, Scale, etc.)
 - **Speed Stack**: Add tools to a personal stack for comparison
-- **Newsletter signup**: Capture leads via Airtable integration
+- **Newsletter signup**: Email capture stored in Supabase
 - **Affiliate links**: Monetization through tool referrals
 
 ## Tech stack
 
 - **Frontend**: React 19 + TypeScript + Vite + Chakra UI
-- **Backend**: Express.js server with Airtable as the database
+- **Backend**: Express.js for local API; tool catalog is `public/tools.json`
 - **Deployment**: Netlify with serverless functions
 
 ## Quick links

@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react"
-import { Routes, Route } from "react-router-dom"
+import { lazy, Suspense, useMemo } from "react"
+import { useRoutes, type RouteObject } from "react-router-dom"
 import { Box, Text } from "@chakra-ui/react"
 import { AppLayout } from "@/components/AppLayout"
 
@@ -31,17 +31,24 @@ function RouteFallback() {
 }
 
 function App() {
-  return (
-    <Suspense fallback={<RouteFallback />}>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="blog/*" element={<BlogPostPage />} />
-        </Route>
-      </Routes>
-    </Suspense>
-  )
+  const routes = useMemo<RouteObject[]>(() => {
+    const children: RouteObject[] = [
+      { index: true, element: <HomePage /> },
+      { path: "blog", element: <BlogPage /> },
+      { path: "blog/*", element: <BlogPostPage /> },
+    ]
+    // Inside the dev check so production builds drop this import. An object
+    // route, not a JSX <Route> child: Vite's JSX transform strips those.
+    if (import.meta.env.DEV) {
+      const AdminPage = lazy(() =>
+        import("@/pages/AdminPage").then((m) => ({ default: m.AdminPage })),
+      )
+      children.push({ path: "admin", element: <AdminPage /> })
+    }
+    return [{ element: <AppLayout />, children }]
+  }, [])
+
+  return <Suspense fallback={<RouteFallback />}>{useRoutes(routes)}</Suspense>
 }
 
 export default App

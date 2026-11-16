@@ -5,7 +5,7 @@
 1. Create a feature branch from `main`
 2. Make changes following the coding conventions
 3. Run `npm run lint` to check for issues
-4. Test locally with both mock data and Airtable
+4. Test locally against `public/tools.json`
 5. Submit a pull request
 
 ## Code style
@@ -24,8 +24,7 @@
 
 ## Testing changes
 
-The app gracefully degrades when Airtable is unavailable:
-- Remove env vars to test with mock data
+The tool list is `public/tools.json`. Newsletter signup mocks a success when Supabase env vars are missing.
 - Check both filtered and unfiltered views
 - Test Speed Stack add/remove functionality
 - Verify newsletter form validation

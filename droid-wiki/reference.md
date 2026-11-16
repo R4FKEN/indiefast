@@ -4,13 +4,13 @@
 
 ### GET /api/tools
 
-Returns all tools from Airtable.
+Returns all tools from `public/tools.json`.
 
 **Response:**
 ```json
 {
   "tools": [...],
-  "source": "airtable" | "cache" | "mock"
+  "source": "local"
 }
 ```
 
@@ -55,7 +55,6 @@ interface Tool {
 | vite | Build tool |
 | express | API server |
 | @supabase/supabase-js | Newsletter subscriber storage |
-| airtable | Airtable client (tools sync) |
 | @netlify/functions | Serverless functions |
 | concurrently | Run multiple scripts |
 
@@ -65,5 +64,3 @@ interface Tool {
 |----------|----------|-------------|
 | SUPABASE_URL | No | Supabase project URL (newsletter) |
 | SUPABASE_SERVICE_ROLE_KEY | No | Supabase service role key (newsletter inserts) |
-| AIRTABLE_PAT | No | Airtable personal access token (tools sync) |
-| AIRTABLE_BASE_ID | No | Airtable base identifier (tools sync) |

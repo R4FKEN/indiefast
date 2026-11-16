@@ -1,6 +1,6 @@
 {
-  "source": "airtable-snapshot",
-  "generatedAt": "2026-07-11T18:20:52.330Z",
+  "source": "local",
+  "generatedAt": "2026-11-16T21:02:34.698Z",
   "tools": [
     {
       "id": "recxMBaG5U24QrN9f",
@@ -14,7 +14,7 @@
       "AffiliateURL": "https://www.alliai.com/?red=couponcode&utm_source=indiefast&utm_medium=website&utm_campaign=frontpage",
       "Discount": "10 days free, 17% OFF annual plan!",
       "Featured": false,
-      "Subtopic": "SEO",
+      "Subtopic": "Automate",
       "LogoUrl": "/tool-logos/recxMBaG5U24QrN9f.png"
     },
     {

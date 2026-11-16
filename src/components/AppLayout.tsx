@@ -1,6 +1,7 @@
 import { Box, Link as ChakraLink } from "@chakra-ui/react"
 import { Outlet } from "react-router-dom"
 import { Footer } from "@/components/Footer"
+import { GoogleAnalytics } from "@/components/GoogleAnalytics"
 
 export function AppLayout() {
   return (
@@ -45,6 +46,7 @@ export function AppLayout() {
         <Outlet />
       </Box>
 
+      <GoogleAnalytics />
       <Footer />
     </Box>
   )

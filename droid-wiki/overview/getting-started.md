@@ -5,7 +5,6 @@
 - Node.js 18+
 - npm or yarn
 - Supabase project (optional for newsletter; mock signup works without it)
-- Airtable account (optional; only for refreshing tools via `npm run sync:tools`)
 
 ## Installation
 
@@ -22,11 +21,9 @@ Create a `.env` file in the project root (see `.env.example`):
 ```
 SUPABASE_URL=https://YOUR_PROJECT.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-AIRTABLE_PAT=your_personal_access_token
-AIRTABLE_BASE_ID=your_base_id
 ```
 
-Without Supabase credentials, newsletter signups return a mock success. Without Airtable credentials, tools still load from `public/tools.json`.
+Without Supabase credentials, newsletter signups return a mock success. Tools always load from `public/tools.json`.
 
 ## Running locally
 
