@@ -67,9 +67,11 @@ On that note: if you want a direct path to validated ideas with proven demand, l
 
 IndieFast lists two tools in the Discover stage — each aimed at a different kind of demand signal.
 
-**Mangools** bundles keyword research, SERP analysis, rank tracking, and backlink analysis in one affordable suite. It's built for founders who need to see search demand, trend direction, and competitive gaps before committing to an idea — without paying for an enterprise SEO stack.
+**There's An AI For That** is a searchable directory of AI tools, organized by task, with new launches every day. Treat it as a landscape tool: it shows what already exists. It is not proof that a gap is open.
 
-**Chrome Goldmine** is a database of expired Chrome extensions with revenue estimates, rebuild difficulty, competitor gaps, and launch plans. It surfaces proven markets where demand still exists but the product is gone — a different class of signal than browsing what already launched on Product Hunt.
+**Chrome Goldmine** is a database of 9,656 expired Chrome extensions with revenue estimates, rebuild difficulty, competitor gaps, and launch plans. It surfaces proven markets where demand still exists but the product is gone — a different class of signal than browsing what already launched on Product Hunt. It also sits in Research.
+
+**Uneed.best** and **Subscribr** appear in Discover as a second category. Uneed.best is a daily launch platform and lives in Ship. Subscribr finds outlier YouTube ideas and then writes and edits the video, and it lives in Grow.
 
 Together they cover search-demand discovery and validated niche opportunities. That's the full Discover category on indiefa.st.
 
@@ -105,7 +107,7 @@ Paste this inside a `<script type="application/ld+json">` tag in your page `<hea
       "name": "What are the best product discovery tools for indie hackers in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Discover category lists Mangools for keyword research, SERP analysis, rank tracking, and competitive gaps, plus Chrome Goldmine for expired Chrome extensions with revenue estimates and rebuild plans. Both are signal tools — they surface real search demand and validated niches rather than curated lists of what already launched. IndieFast picks one tool per stage for surfacing actual demand gaps."
+        "text": "On indiefa.st, Discover lists There's An AI For That, a directory of existing AI tools, and Chrome Goldmine, a database of expired Chrome extensions with revenue estimates and rebuild plans. Chrome Goldmine is the signal tool: it shows demand that still exists after the product disappeared. There's An AI For That shows what is already built. Uneed.best and Subscribr also appear here from Ship and Grow."
       }
     },
     {
@@ -113,7 +115,7 @@ Paste this inside a `<script type="application/ld+json">` tag in your page `<hea
       "name": "How do solo founders find startup ideas with real demand?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use Mangools to check whether search demand is rising, flat, or dying for a problem before you commit. Use Chrome Goldmine to find proven markets where a Chrome extension had real installs but lost its developer — demand that still exists with no active product. Together they cover search-demand discovery and validated niche opportunities on indiefa.st."
+        "text": "Use Chrome Goldmine to find proven markets where a Chrome extension had real installs but lost its developer. Use Mangools, in the Research stage, to check whether search demand is rising, flat, or dying before you commit. There's An AI For That shows the AI products that already exist so you do not rebuild one by accident."
       }
     },
     {

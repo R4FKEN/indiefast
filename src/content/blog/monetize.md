@@ -15,29 +15,21 @@ Most indie makers spend months building their product before asking a simple que
 
 ---
 
-## Stripe vs Paddle vs Lemon Squeezy: Which One Should You Choose?
+## Which Monetize Tool Matches How You Sell
 
-This is the question almost every founder searches for.
+Founders often start this stage by comparing payment processors. On indiefa.st the choice is earlier than that: how the sale happens.
 
-**Stripe vs Paddle vs Lemon Squeezy.**
+If the sale is a membership with billing, email, and the customer record in one place, start with **Outseta**. It combines CRM, email marketing, payments, authentication, and customer management. It also sits in Backend.
 
-Here's the short answer.
+If the sale is a funnel — a page, a checkout, and the follow-up — start with **ClickFunnels** or **Systeme.io**. ClickFunnels is landing pages, checkout flows, and marketing automation. Systeme.io adds unlimited email, courses, websites, and an affiliate program, and it also sits in Grow under Distribution.
 
-If you're a US-based founder selling primarily to US customers, **Stripe** is usually the best choice.
+If the product is the audience, start with **Beehiiv** or **Kit (ConvertKit)**. Both cover email, landing pages, and creator monetization. Beehiiv also includes memberships and digital sales.
 
-It offers the most flexibility, the strongest developer ecosystem, excellent documentation, and integrations with almost every framework or AI builder. If you want complete control over your checkout and billing flow, Stripe is difficult to beat.
+If people need to see the product before they pay, **Guideflow** builds the interactive demo. Its home stage is Grow, and it also appears in this filter.
 
-If you're selling globally from day one, the recommendation changes.
+**MailerLite** and **ZeroBounce** send and clean email. They live in Grow under Distribution, not in this filter.
 
-Choose **Paddle** or **Lemon Squeezy**.
-
-Both act as a **merchant of record**, meaning they collect VAT, calculate sales tax, handle invoicing requirements, and manage much of the international compliance on your behalf.
-
-That saves countless hours once customers begin arriving from different countries.
-
-For many solo founders, avoiding tax headaches is worth far more than having complete payment flexibility.
-
-The right answer depends on where your customers are—not just where your code lives.
+A payment processor still runs underneath. It is not what the Monetize filter lists.
 
 ---
 
@@ -107,15 +99,17 @@ The Monetize category on indiefa.st covers email, billing, newsletters, and reve
 
 **Kit (ConvertKit)** is an email marketing and newsletter platform with automation sequences, landing pages, and creator monetization tools — formerly known as ConvertKit.
 
-**MailerLite** handles email marketing with transactional emails, automation, newsletters, landing pages, websites, and forms for growing audience engagement.
+**MailerLite** handles email marketing with transactional emails, automation, newsletters, landing pages, websites, and forms. It lives in Grow under Distribution, not in the Monetize filter.
 
 **Outseta** combines CRM, email marketing, payments, authentication, and customer management in one membership platform — useful when billing and customer ops should live in the same system.
 
-**Tolt-io** is affiliate marketing software for SaaS startups to launch and run affiliate and referral programs with Stripe, Paddle, and Chargebee integration.
+**Systeme.io** is an all-in-one platform for funnels, unlimited email, courses, websites, marketing automation, and an affiliate program. It also sits in Grow under Distribution.
 
-**ZeroBounce** is an email verification service with 99.6% accuracy for cleaning lists and boosting inbox placement — protecting deliverability as your paid user base grows.
+**ClickFunnels** is a sales funnel builder with landing pages, checkout flows, and marketing automation.
 
-Stripe, Paddle, and Lemon Squeezy handle payment processing. These six tools are what indiefa.st lists for the Monetize stage itself.
+**ZeroBounce** cleans email lists so paid messages land in the inbox. It is not in the Monetize filter. It lives in Grow under Distribution, next to **MailerLite**.
+
+The Monetize filter itself is Beehiiv, Kit, Outseta, Systeme.io, and ClickFunnels, plus Guideflow from Grow.
 
 ---
 
@@ -160,10 +154,10 @@ One stage. One tool. One direction.
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Should I choose Stripe, Paddle, or Lemon Squeezy for my SaaS?",
+      "name": "Which monetization tools does indiefa.st list?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Monetize category lists Beehiiv and Kit (ConvertKit) for newsletter growth and creator monetization, MailerLite for email automation and landing pages, Outseta for all-in-one membership billing and CRM, Tolt-io for affiliate and referral programs, and ZeroBounce for email list verification. IndieFast picks one tool that fits how you charge and communicate with customers."
+        "text": "On indiefa.st, Monetize lists ClickFunnels and Systeme.io for funnels and affiliate programs, Outseta for membership billing and CRM, and Beehiiv plus Kit (ConvertKit) for newsletter monetization. Guideflow also appears here from Grow. MailerLite and ZeroBounce live in Grow under Distribution."
       }
     },
     {
@@ -171,7 +165,7 @@ One stage. One tool. One direction.
       "name": "What's the best way to monetize an indie SaaS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start with a simple pricing model customers understand, then use Outseta if you want billing, auth, and CRM in one stack, or pair Beehiiv, Kit, or MailerLite for audience growth with Tolt-io if referrals should drive acquisition. ZeroBounce protects deliverability as your paid list grows."
+        "text": "Start with a simple pricing model customers understand, then use Outseta if you want billing, auth, and CRM in one stack, or ClickFunnels and Systeme.io if the sale happens in a funnel. Pair Beehiiv or Kit for audience monetization. Reditus, in Grow under Distribution, is the affiliate network if other people's audiences should bring the customers."
       }
     },
     {

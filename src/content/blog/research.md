@@ -62,11 +62,13 @@ Scope your research to the smallest version of your market that still has real, 
 
 The Research category on indiefa.st covers tools that surface real customer language and structured market data — not just competitor feature lists.
 
-**Apify** is a full-stack web scraping and data extraction platform with 35,000+ ready-made Actors. Indie makers use it to pull Reddit threads, review pages, directory listings, and competitor data without writing and maintaining custom scrapers.
+**Mangools** is an affordable SEO suite for keyword research, SERP analysis, rank tracking, and competitor gaps, including across LLMs. It is the Research tool for the question "are people already searching for this?" It also sits in Grow under SEO.
 
-**Powerdrill AI** is an AI agents platform for faster insights from your data — analysis, prediction, and multi-agent collaboration. It helps solo founders turn raw research exports into answers without building dashboards or writing SQL first.
+**Firecrawl** searches, scrapes, or crawls a site into clean Markdown or JSON, including pages that need JavaScript. Use it to pull reviews, docs, and competitor pages without maintaining your own scrapers. It also sits in Backend.
 
-**Chrome Goldmine** also appears in Research as a secondary category tool. Its database of expired Chrome extensions includes revenue estimates and competitor gaps — useful when your research question is "where is proven demand with no active maintainer?"
+**Chrome Goldmine** also appears in Research from Discover. Its database of expired Chrome extensions includes revenue estimates and competitor gaps — useful when the question is "where is proven demand with no active maintainer?"
+
+**RedShip** also appears in Research from Grow. It watches Reddit for conversations where people are already looking for a solution like yours.
 
 Those three tools are the Research lineup on indiefa.st.
 
@@ -100,7 +102,7 @@ Paste this inside a `<script type="application/ld+json">` tag in your page `<hea
       "name": "What are the best market research tools for indie makers in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Research category lists Apify for web scraping and ready-made Actors that pull Reddit threads, reviews, and competitor data, Powerdrill AI for turning research exports into insights without building dashboards, and Chrome Goldmine for expired extensions with revenue estimates and competitor gaps. IndieFast picks one tool that surfaces real customer language and demand signals."
+        "text": "On indiefa.st, Research lists Mangools for keyword and competitor research, Firecrawl for turning websites into clean text an agent can read, and Chrome Goldmine for expired extensions with revenue estimates and competitor gaps. RedShip also appears here from Grow, for Reddit conversations where people are already asking for a solution."
       }
     },
     {

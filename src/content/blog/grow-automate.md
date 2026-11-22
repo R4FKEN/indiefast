@@ -31,17 +31,19 @@ Start with whichever of these is currently costing you the most time or silently
 
 ---
 
-## Make vs Zapier — The Decision Most Indie Makers Actually Face
+## n8n vs Marblism vs Viktor — The Decision on This Track
 
-Both Make and Zapier do no-code workflow automation through trigger-action logic. The choice between them is real and has a practical answer.
+The Automate track is three different jobs, and they are not interchangeable.
 
-**Zapier** is faster to set up for simple linear flows — if X happens, do Y. It has the broadest app integration library, the cleanest UI for non-technical founders, and a free tier that covers basic use. The price scales quickly when you hit higher task volumes, which tends to happen sooner than most founders expect once a few automations are running in parallel.
+Use **n8n** when you can draw the steps: a trigger, then actions, including multi-step agents, with drag-and-drop or with code. It also sits in Backend.
 
-**Make** (formerly Integromat) is more capable for complex flows with branches, filters, and multi-step logic. It's significantly cheaper at scale — the per-operation pricing model is more forgiving than Zapier's task-based pricing once you're running meaningful volume. The visual workflow builder has a steeper learning curve than Zapier's linear interface, but it rewards that investment when your flows get complex.
+Use **Marblism** when the work is a role you would otherwise do by hand. It is a set of named AI employees for the inbox and calendar, social posts, leads, SEO, calls, websites, and contracts. They act on their own, with approvals.
 
-**n8n** and **Pipedream** are worth knowing about if you're technical and want self-hosted or code-first options. They're not the right starting point for most founders, but they're relevant if data leaving a third-party platform is a concern or if you need more control than a hosted tool allows.
+Use **Viktor** when the work already starts as a message in Slack or Teams. It runs tasks across 3,200+ integrations — marketing, research, reporting, CRM, and coding — and returns the finished work.
 
-The practical decision rule: match the tool to your first automation's complexity, not to where you imagine your automation needs will be in six months. A tool that's too complex for your first workflow means you spend a week learning it and don't ship the automation. Start simple. Migrate when you outgrow it.
+**MindStudio** and **Teable** are tagged Automate from other stages. MindStudio, in Build, is a visual builder for AI agents. Teable, in Backend, is the database and the automations on those records.
+
+Match the tool to the first task, not to the stack you imagine in six months. A setup that is larger than that first task is how a week disappears before anything runs.
 
 ---
 
@@ -51,7 +53,7 @@ Automation tool comparisons almost always skip the more important question: when
 
 The answer is cleaner than most guides make it:
 
-**Use no-code automation for operational overhead** — Slack notifications, email sequences, data syncs between tools, internal reports, webhook-triggered alerts for key events. These sit at the edges of your product. They're repetitive tasks that don't touch your core logic, and they're exactly what Make, Zapier, and n8n are built for. Building these in custom code wastes engineering time on something a workflow handles in an afternoon.
+**Use no-code automation for operational overhead** — Slack notifications, email sequences, data syncs between tools, internal reports, webhook-triggered alerts for key events. These sit at the edges of your product. They're repetitive tasks that don't touch your core logic, and they're exactly what **n8n** is for. **Marblism** and **Viktor** cover the same overhead when the work is a role or a Slack task rather than a drawn workflow. Building these in custom code wastes engineering time on something a workflow handles in an afternoon.
 
 **Build in code when the automation is part of your product's core loop.** If a failed automation means your product breaks for a user — if the workflow is how your product delivers its core value — it belongs in your codebase under your control, not in a third-party no-code tool with its own uptime and pricing risks.
 
@@ -63,19 +65,19 @@ Mixing these up is where engineering time disappears. Automate belongs to the [G
 
 The Automate subcategory on indiefa.st lists three tools — each removing a different kind of repetitive growth and ops work.
 
-**PostSyncer** schedules and publishes to Instagram, Facebook, LinkedIn, TikTok, Pinterest, YouTube, Telegram, Bluesky, Threads, X, and Mastodon from one calendar, with AI-generated captions and video creation.
+**n8n** is the workflow tool. It connects the apps you already run, with drag-and-drop or code, including multi-step agents. Its home stage is Grow, and it also sits in Backend.
 
-**RedShip** monitors Reddit 24/7 for conversations where people are looking for solutions like yours — surfacing high-intent leads without manual subreddit scanning.
+**Marblism** is a set of named AI employees for the inbox, social posts, leads, SEO, calls, websites, and contracts. They act on their own, with approvals.
 
-**Taplio** analyzes viral LinkedIn posts to generate AI-powered post suggestions that match your voice, with auto-engage and auto-reply features for consistent distribution.
+**Viktor** is an AI employee inside Slack and Teams. It runs tasks across 3,200+ integrations — marketing, research, reporting, CRM, and coding — and returns the finished work.
 
-Make, Zapier, and n8n are common starting points for general workflow automation. These three are the Grow → Automate lineup on indiefa.st.
+**MindStudio**, in Build, and **Teable**, in Backend, are also tagged Automate. Scheduling posts is a different track: PostSyncer, Taplio, and SocialRails are tagged Distribution. RedShip is tagged Community.
 
 ---
 
 ## Why IndieFast Picks One Automation Tool Instead of Ten
 
-Automation roundups for indie founders usually list eight to ten tools — Make, Zapier, n8n, Pipedream, Activepieces, and four others — followed by a comparison table and a "it depends on your use case" conclusion. That's accurate and useless. You still have to make a decision before you can build anything.
+Automation roundups for indie founders usually list eight to ten tools, then a comparison table and a "it depends on your use case" conclusion. That's accurate and useless. You still have to make a decision before you can build anything.
 
 IndieFast picks one automation tool for this stage. The one that hits the right balance of setup speed, pricing at indie scale, and capability for the flows a solo SaaS founder actually needs to run — without requiring a week of configuration before your first trigger fires.
 
@@ -99,7 +101,7 @@ One subcategory. One tool. One direction.
       "name": "What are the best automation tools for indie hackers and solo SaaS founders in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Automate subcategory lists PostSyncer for multi-platform social scheduling with AI captions and video, RedShip for 24/7 Reddit monitoring that surfaces high-intent conversations, and Taplio for LinkedIn post generation and engagement automation. IndieFast picks one tool from this lineup — each removes a different kind of repetitive growth work for solo SaaS founders."
+        "text": "On indiefa.st, the Automate track lists n8n for multi-step workflows, Marblism for named AI employees across inbox, social, leads, and SEO, and Viktor for an AI employee inside Slack and Teams. MindStudio and Teable are also tagged Automate from Build and Backend. Social scheduling tools such as PostSyncer and Taplio are tagged Distribution."
       }
     },
     {
@@ -115,7 +117,7 @@ One subcategory. One tool. One direction.
       "name": "When should I use no-code automation vs building a custom workflow in code?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use PostSyncer, RedShip, or Taplio for growth and distribution automation — scheduling content, finding Reddit leads, and maintaining LinkedIn presence. Build in code when the automation is central to your product's core loop — if a failed workflow means your product breaks for a user, it should live in your codebase under your control. The three Automate tools on indiefa.st are for operational growth overhead, not product-critical logic."
+        "text": "Use n8n, Marblism, or Viktor for operational work that repeats: workflows between tools, inbox and lead chores, and tasks you would otherwise run by hand inside Slack. Build in code when the automation is central to your product's core loop — if a failed workflow means your product breaks for a user, it should live in your codebase under your control."
       }
     }
   ]

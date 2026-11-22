@@ -19,11 +19,11 @@ Building software has changed faster in the last two years than it did in the pr
 
 The biggest mistake founders make isn't choosing the wrong product—it's choosing the wrong type of product.
 
-If you're a non-technical founder, start with **Lovable** or **Bolt.new**. These platforms make architectural decisions for you. You describe what you want, the AI creates the application, and you can focus on solving customer problems instead of configuring frameworks. They're among the best **AI coding tools solo founders** can use because they remove much of the complexity involved in shipping an MVP.
+If you're a non-technical founder, start with **Lovable.dev** or **Runable**. Lovable.dev creates full applications and websites from a conversation, with production-ready code. Runable creates websites, including a database and payments, plus slides, videos, images, and reports, and deploys them. You describe what you want and focus on the customer problem. They're among the best **AI coding tools solo founders** can use because they remove much of the setup involved in shipping an MVP.
 
-If you're technical, you'll usually move faster with **Cursor** or **Claude Code**. Rather than hiding the implementation, they let you guide it. You decide the architecture, review generated code, and stay in control of every part of the project. They act as an **AI-native IDE**, helping experienced developers move significantly faster without sacrificing flexibility.
+If you want to stay in a coding environment, use **Replit**. It builds and deploys apps, websites, and software through a conversational interface, with instant hosting and collaboration. **CodeRabbit** then reviews that code: it finds bugs, suggests fixes, and speeds up pull requests. **Wispr Flow**, also in Build, turns speech into polished writing in the apps you already use.
 
-Other builders deserve a mention too. **Replit** offers a complete cloud-based development environment, while **v0 by Vercel** excels at generating polished interfaces from prompts. Each has strengths, but they're aimed at slightly different workflows.
+When the job is a SaaS, a directory, or an app on more than one platform, start from a kit in this same stage: **MkSaaS**, **Supastarter**, **TurboStarter**, or **DirStarter**. **MindStudio** is the no-code agent builder. **ElevenLabs** is the voice tool. Each is aimed at a different workflow, and all of them are in the Build category on indiefa.st.
 
 The key decision comes first: **Do you want the AI making architectural decisions, or do you want to make them yourself?**
 
@@ -57,7 +57,7 @@ When that happens, continue with the [Backend stage](https://indiefa.st/blog/bac
 
 ## What to Look for in a Build Tool
 
-The debate around **Cursor vs Lovable vs Bolt** often focuses on flashy demos.
+The debate around **Lovable.dev vs Replit vs Runable** often focuses on flashy demos.
 
 Those aren't the questions that matter.
 
@@ -88,17 +88,13 @@ The Build category on indiefa.st is where vibe coding meets production-ready fou
 
 **CodeRabbit** is an AI-powered, codebase-aware code review tool that finds bugs, suggests fixes, and speeds up pull requests across your existing dev workflow.
 
-**DirStarter** is a Next.js directory website template with built-in Stripe, auth, SEO, and admin — for shipping directory products without wiring infrastructure from scratch.
+**DirStarter** is a Next.js directory website template for launching an online directory on a modern stack.
 
-**Launchfast** offers SaaS and Chrome extension starter kits with pre-built auth, payments, storage, and email integrations across Astro, Next.js, and SvelteKit.
+**MkSaaS** is a complete Next.js SaaS boilerplate with AI, authentication, payments, i18n, newsletter, dashboard, blog, docs, and SEO — built for weekend launches. It also sits in Backend.
 
-**MkSaaS** is a complete Next.js SaaS boilerplate with AI, authentication, payments, i18n, newsletter, dashboard, blog, docs, and SEO — built for weekend launches.
+**Replit** is an AI-powered coding platform to build and deploy apps through a conversational interface with instant hosting and collaboration. It also sits in Ship.
 
-**Replit** is an AI-powered coding platform to build and deploy apps through a conversational interface with instant hosting and collaboration.
-
-**ShipAhead** is a Nuxt boilerplate for shipping AI SaaS products in hours with authentication, payments, and deployment pre-configured.
-
-**Shipped** is a Next.js SaaS boilerplate with auth, payments, email, SEO, and landing pages out of the box — for busy developers who need to launch in days, not months.
+**Runable** is a general AI agent for building. You describe what you need and it creates websites, including a database and payments, plus slides, videos, images, and reports, then deploys them. It also sits in Ship.
 
 **Supastarter** is a production-ready Next.js, Nuxt, and TanStack Start SaaS starter kit with authentication, payments, API, and multi-tenancy trusted by 1,350+ developers.
 
@@ -152,7 +148,7 @@ One stage. One tool. One direction.
       "name": "What are the best vibe coding tools for indie makers in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Build category includes Replit for conversational AI coding and deployment, production SaaS boilerplates like DirStarter, Launchfast, MkSaaS, ShipAhead, Shipped, Supastarter, and TurboStarter, plus CodeRabbit for AI code review. IndieFast picks one tool that ships a production-ready MVP fastest for solo founders — whether you need a starter kit with auth and payments baked in or an AI builder you can deploy immediately."
+        "text": "On indiefa.st, Build includes Replit and Runable for building from a description, production boilerplates such as DirStarter, MkSaaS, Supastarter, and TurboStarter, plus CodeRabbit for AI code review. Lovable.dev, ElevenLabs, MindStudio, and Wispr Flow are in this stage too. IndieFast picks one tool that ships a production-ready MVP fastest for solo founders."
       }
     },
     {
@@ -160,7 +156,7 @@ One stage. One tool. One direction.
       "name": "Can AI coding tools build a production-ready MVP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — especially when you start from a SaaS boilerplate like Supastarter, Shipped, or MkSaaS that already includes authentication, payments, and deployment, or use Replit to build and host through a conversational interface. CodeRabbit then helps close the gap by catching bugs and review issues before launch. Production readiness still depends on error handling and testing, but the right build tool removes most boilerplate work."
+        "text": "Yes — especially when you start from a SaaS boilerplate like Supastarter or MkSaaS that already includes authentication, payments, and deployment, or use Replit or Runable to build and host from a description. CodeRabbit then helps close the gap by catching bugs and review issues before launch. Production readiness still depends on error handling and testing, but the right build tool removes most boilerplate work."
       }
     },
     {
@@ -168,7 +164,7 @@ One stage. One tool. One direction.
       "name": "Should I use a SaaS boilerplate or an AI coding platform to build my MVP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Choose a boilerplate like DirStarter, Launchfast, ShipAhead, Shipped, Supastarter, or TurboStarter when you want auth, payments, and deployment pre-wired on day one. Choose Replit when you prefer describing features in natural language and iterating in a hosted environment. Add CodeRabbit if you want AI-assisted review on pull requests as the codebase grows."
+        "text": "Choose a boilerplate like DirStarter, MkSaaS, Supastarter, or TurboStarter when you want auth, payments, and deployment pre-wired on day one. Choose Replit or Runable when you prefer describing what you need and getting a deployed result. Add CodeRabbit if you want AI-assisted review on pull requests as the codebase grows."
       }
     }
   ]

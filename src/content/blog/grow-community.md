@@ -87,11 +87,13 @@ The fastest-growing indie products spend more time reaching existing conversatio
 
 That's where dedicated community growth tools make a difference.
 
-**Postel.app** helps founders consistently publish thoughtful content and stay visible across social platforms without spending hours every day writing posts. If you're building in public, consistency matters far more than chasing the occasional viral post.
+**Testimonial.to** collects text and video testimonials and embeds them on your site without a developer or hosting setup. Social proof from real customers is the community asset you can ship without running a forum.
 
-**ReplyGuy** focuses on joining conversations that are already happening. Instead of waiting for people to discover your product, it helps you find relevant discussions where your expertise—and your product—naturally fit. Done well, this becomes one of the most effective forms of **community-led growth solo founder** strategies.
+**RedShip** watches Reddit for conversations where people are already looking for a solution like yours, so you join the thread instead of waiting to be discovered. It also sits in Research.
 
-**SocialRails** is built for founders who want a repeatable content engine. It makes it easy to plan, generate, and publish content across multiple channels, helping your product stay visible long after launch without turning social media into a full-time job.
+**PeerPush**, whose home stage is Ship, is also tagged Community. It is a product discovery platform for people and AI assistants, with a builder community around the listing.
+
+**SocialRails** is the repeatable content engine, but it is tagged Distribution, not Community. Use it when the job is scheduling posts across nine platforms, not collecting proof or joining a thread.
 
 If your goal is to **build community around product indie hackers** style, start where your future users already spend their time instead of asking them to join another platform.
 
@@ -145,7 +147,7 @@ One subcategory. One tool. One direction.
       "name": "What are the best community building tools for indie makers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Community subcategory lists Postel.app for consistent social publishing, ReplyGuy for finding relevant Twitter and Reddit conversations to join, and SocialRails for planning and publishing content across multiple channels. Each supports a different community-led growth motion — visibility, conversation discovery, or a repeatable content engine. IndieFast picks one tool based on where your bottleneck is today."
+        "text": "On indiefa.st, the Community track lists Testimonial.to for text and video proof you can embed, RedShip for Reddit conversations where people are already looking for a solution, and PeerPush for a builder community around a product listing. SocialRails, tagged Distribution, is the multi-platform posting tool. IndieFast picks one tool based on where your bottleneck is today."
       }
     },
     {

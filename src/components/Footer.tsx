@@ -132,6 +132,22 @@ export function Footer() {
                 : Database of Expired Chrome Extensions for Developers
               </ExternalFooterLink>
             </FooterListItem>
+            <FooterListItem>
+              <ExternalFooterLink href="https://rankfa.st">
+                <Box as="span" fontWeight="bold" color="#d1d5db">
+                  RankFast
+                </Box>
+                : Compare AI SEO tools with evidence, not promises.
+              </ExternalFooterLink>
+            </FooterListItem>
+            <FooterListItem>
+              <ExternalFooterLink href="https://feedbackfa.st">
+                <Box as="span" fontWeight="bold" color="#d1d5db">
+                  FeedbackFast
+                </Box>
+                : Customer love is a growth channel. Make it visible.
+              </ExternalFooterLink>
+            </FooterListItem>
           </FooterSection>
         </Grid>
 

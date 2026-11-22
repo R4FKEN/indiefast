@@ -34,7 +34,7 @@ Together, these three tools cover most of what an early-stage founder needs:
 - Monitor technical SEO issues.
 - Understand which pages deserve more attention.
 
-Don't pay $100+ per month for features you won't use yet.
+Use Search Console, Ahrefs Webmaster Tools, and Keyword Planner to see what you already rank for. When the job is publishing, links, or a managed campaign, the SEO track on indiefa.st is **Feather.so**, **Outrank.so**, and **Ranked AI**. **Mangools**, in Research, is the keyword and rank suite, and it also sits in this track. **Turbo0**, in Ship, is the launch backlink.
 
 Build the habit first.
 
@@ -89,13 +89,15 @@ A good paid SEO tool should provide:
 - Internal linking suggestions.
 - A clean interface that doesn't require a dedicated SEO manager.
 
-It's also worth looking beyond traditional SEO suites.
+**Mangools**, in Research, is the SEO suite in the catalog: keyword research, SERP analysis, rank tracking, backlinks, and competitor gaps, including across LLMs. It also sits in this track.
 
-**Feather.so** helps founders publish SEO-friendly blogs directly from Notion, making content publishing dramatically easier.
+The other tools here publish or run the campaign.
 
-**Super.so** turns Notion into a fast website with cleaner SEO controls than a standard workspace, making it a practical option for documentation and content sites.
+**Feather.so** publishes an SEO-friendly blog from Notion, and it can collect emails and send the newsletter from the same place.
 
-**AlliAI** focuses on technical optimization and on-page improvements, helping founders implement SEO recommendations without constantly editing templates or source code.
+**Outrank.so** generates posts, backlinks, and optimization recommendations so organic traffic does not depend on you writing every page by hand.
+
+**Ranked AI** is a managed SEO and PPC service. A human team writes, builds links, and fixes issues, and the software tracks visibility in Google and in AI search.
 
 The right tool depends on where your bottleneck is.
 
@@ -147,7 +149,7 @@ One subcategory. One tool. One direction.
       "name": "What are the best SEO tools for indie SaaS founders?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most indie founders can begin with Google Search Console, Ahrefs Webmaster Tools, and Google Keyword Planner. On indiefa.st, the SEO subcategory then lists Outrank-so for programmatic SEO automation, Feather-so for SEO-friendly blogs from Notion, Super-so for fast Notion-powered websites, and Alli AI for bulk on-page SEO deployments across a site."
+        "text": "Most indie founders can begin with Google Search Console, Ahrefs Webmaster Tools, and Google Keyword Planner. On indiefa.st, the SEO track then lists Outrank.so for programmatic posts and backlinks, Feather.so for an SEO blog from Notion, and Ranked AI for a managed team plus Google and AI-search tracking. Mangools, in Research, covers keyword and rank tracking."
       }
     },
     {
@@ -163,7 +165,7 @@ One subcategory. One tool. One direction.
       "name": "When should a solo founder pay for SEO software?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start with free tools first. Once you publish consistently and need automation, invest in one of the SEO tools on indiefa.st: Outrank-so for programmatic content and backlinks, Feather-so or Super-so if Notion is your publishing stack, or Alli AI when bulk on-page technical changes are the bottleneck."
+        "text": "Start with free tools first. Once you publish consistently and need automation, invest in one of the SEO tools on indiefa.st: Outrank.so for programmatic content and backlinks, Feather.so if Notion is your publishing stack, or Ranked AI when you want a human team plus tracking in Google and AI search."
       }
     }
   ]

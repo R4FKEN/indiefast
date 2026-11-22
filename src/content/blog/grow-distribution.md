@@ -86,7 +86,7 @@ That's also why **IndieFast** exists.
 
 Instead of becoming another giant directory with thousands of random products, it highlights carefully selected tools that founders actually use throughout the indie maker journey.
 
-Launch-directory tools like **Uneed-best** and **Linkto** live in the [Ship stage](https://indiefa.st/blog/ship) on indiefa.st. The Distribution subcategory here is about content that reaches new audiences repeatedly — not one-time submission lists.
+Launch-directory tools like **Uneed.best** and **Linkto** live in the [Ship stage](https://indiefa.st/blog/ship) on indiefa.st. The Distribution subcategory here is about content that reaches new audiences repeatedly — not one-time submission lists.
 
 The founders who consistently acquire users don't rely on one launch spike.
 
@@ -121,11 +121,13 @@ Whether you're wondering **how to distribute indie product** launches or searchi
 
 The Distribution subcategory on indiefa.st lists three tools — each helping founders put compelling content in front of new audiences without a production team.
 
-**ElevenLabs** is an AI voice generation platform for creating realistic text-to-speech audio in multiple languages — useful for demos, tutorials, and marketing clips without recording sessions.
+**Revid.ai** turns a text idea into a TikTok, Instagram Reel, or YouTube Short in minutes — replacing the scripting, recording, and editing loop that blocks most solo founders from short-form video.
 
-**Revid-ai** turns a text idea into a complete TikTok, Instagram Reel, or YouTube Short in minutes — replacing the scripting, recording, and editing loop that blocks most solo founders from short-form video.
+**Subscribr** is a YouTube production platform. It finds outlier ideas, writes the script in your voice, designs thumbnails, and edits the finished video. It also sits in Discover.
 
-**Synthesia** creates studio-quality business videos with AI avatars and voiceovers in 160+ languages — what used to take hours of recording and editing compressed into a repeatable workflow.
+**Postiz** uses agents to plan, generate, and schedule posts to 30+ networks, with a human review step in one calendar. **SocialRails** does the same job for nine platforms and can generate the images and video from templates.
+
+Voice generation lives in Build with **ElevenLabs**, not in this filter.
 
 Those three tools are the full Grow → Distribution lineup on indiefa.st.
 
@@ -177,7 +179,7 @@ One subcategory. One tool. One direction.
       "name": "Where should I promote my indie SaaS after launch?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pair one-time launch channels with repeatable content distribution. On indiefa.st, the Distribution subcategory focuses on content that reaches new audiences repeatedly: ElevenLabs for AI voiceovers in demos and marketing, Revid-ai for short-form video from text ideas, and Synthesia for studio-quality AI avatar videos in 160+ languages. One-time launch-directory submissions are covered in the Ship stage instead."
+        "text": "Pair one-time launch channels with repeatable content distribution. On indiefa.st, Distribution includes Revid.ai for short-form video, Subscribr for a finished YouTube video, and Postiz or SocialRails for scheduling across many networks. ElevenLabs, for AI voice, lives in Build. One-time launch-directory submissions are covered in the Ship stage instead."
       }
     },
     {
@@ -185,7 +187,7 @@ One subcategory. One tool. One direction.
       "name": "What is the difference between launch directories and distribution tools?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Launch directories give you a one-time visibility spike on submission day. Distribution tools like ElevenLabs, Revid-ai, and Synthesia help you produce compelling content — voice, short-form video, and avatar explainers — that keeps reaching new audiences after launch. Both matter, but they solve different problems on the indie maker journey."
+        "text": "Launch directories give you a one-time visibility spike on submission day. Distribution tools like Revid.ai, Subscribr, and Postiz help you produce and publish content that keeps reaching new audiences after launch. Both matter, but they solve different problems on the indie maker journey."
       }
     },
     {
@@ -193,7 +195,7 @@ One subcategory. One tool. One direction.
       "name": "What makes a good distribution tool for solo founders?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A good distribution tool lets a solo founder produce professional marketing content without a production team. ElevenLabs handles voice generation, Revid-ai turns a text brief into TikTok, Reels, and Shorts, and Synthesia creates multilingual avatar videos from a script — each compressing hours of recording and editing into a repeatable workflow."
+        "text": "A good distribution tool lets a solo founder produce professional marketing content without a production team. Revid.ai turns a text brief into TikTok, Reels, and Shorts. Subscribr takes a YouTube video from idea to edit. Postiz and SocialRails schedule the posts. ElevenLabs, in Build, covers voice."
       }
     }
   ]

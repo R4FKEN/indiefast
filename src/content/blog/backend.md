@@ -39,31 +39,19 @@ If you're still choosing your development environment, start with the [Build sta
 
 ---
 
-## Why Supabase Became the Default for AI-Built Apps
+## The Backend Job Comes Before the Database Brand
 
-If you've spent any time around indie makers or AI coding tools lately, you've probably noticed one name appearing everywhere:
+A tutorial stack and the tool you actually keep are often different things. On indiefa.st, Backend is the system that holds the records, moves data between apps, or runs the membership.
 
-**Supabase.**
+Use **Teable** when the product is structured data and the automations on those records. It is a database workspace in the style of Airtable, including AI and workflows, and it also sits in Grow under Automate.
 
-That's not an accident.
+Use **n8n** when the job is connecting apps you already run, with drag-and-drop or code, including multi-step agents. Its home stage is Grow, and it also sits here.
 
-By 2026, Supabase has become the default backend for many AI-generated applications. Builders like Lovable commonly generate projects that use it out of the box, and countless tutorials, templates, and starter kits assume you're using it.
+Use **Outseta** when billing, authentication, CRM, and email should be one membership stack. Its home stage is Monetize.
 
-But what actually is Supabase?
+Use **Firecrawl** when agents need a site as clean Markdown or JSON. Use **pCloud EU-LTD** for files stored in the EU, and **pCloudPass** for the passwords around that stack.
 
-Think of it as several backend services bundled into one platform.
-
-You get a managed **PostgreSQL** database, built-in **auth**, file storage, realtime subscriptions, REST and GraphQL **API** support, row-level security, scheduled functions, and a clean developer experience—all without provisioning infrastructure yourself.
-
-That combination explains why it's become the default recommendation for many **indie SaaS backend stack** guides.
-
-Of course, it's not your only option.
-
-Some founders compare **Supabase alternatives 2026** like **PlanetScale**, **Firebase**, **Railway**, **Render**, or other managed database platforms depending on their workload and preferences.
-
-The important thing isn't following the crowd.
-
-It's understanding why the crowd chose Supabase in the first place.
+A custom app can still sit on a managed database. These are the Backend tools on indiefa.st. The full list, including which stage each tool calls home, is below.
 
 ---
 
@@ -95,17 +83,17 @@ A backend should remove friction, not introduce it.
 
 The Backend category on indiefa.st lists tools for automation, AI infrastructure, and all-in-one SaaS backends — not just databases.
 
-**Dynamiq** is an operating platform for building, deploying, and monitoring on-premise agentic AI applications with a low-code builder, RAG pipelines, multi-agent orchestration, and observability.
+**Teable** is a database and automation workspace in the style of Airtable, including AI and workflows. Use it when the backend is structured data and the automations around it, not a custom server. It also sits in Grow under Automate.
 
-**Latenode** is an AI workflow automation platform for building agents and integrating apps and APIs with a low-code visual builder and JavaScript extensibility — 5,500+ integrations for glue-code a solo founder shouldn't maintain manually.
+**Firecrawl** turns websites into clean Markdown or JSON for agents and RAG, including pages that need JavaScript. It also sits in Research.
 
-**n8n** is a flexible AI workflow automation platform for technical teams — drag-and-drop or code-level precision for multi-step agents and data-moving tasks that would otherwise eat 40 hours a month.
+**n8n** is a flexible AI workflow automation platform for technical teams — drag-and-drop or code-level precision for multi-step agents and data-moving tasks. It also sits in Grow under Automate. Its home stage is Grow.
 
-**Outseta** is an all-in-one membership and SaaS platform combining CRM, email marketing, payments, authentication, and customer management — replacing four or five separate backend integrations with one stack.
+**Outseta** is an all-in-one membership and SaaS platform combining CRM, email marketing, payments, authentication, and customer management — replacing four or five separate backend integrations with one stack. Its home stage is Monetize.
 
-**MindStudio** also appears here as a secondary-category tool. It lets you design, build, and deploy AI agents with no coding required — useful when your backend needs custom LLM workflows without writing integration code from scratch.
+**pCloud EU-LTD** and **pCloudPass** are also in Backend: European cloud file storage, and a password manager for the credentials around that stack.
 
-Managed databases like Supabase remain a common choice underneath these tools. The indiefa.st Backend category is about the platforms that wire your product together.
+The indiefa.st Backend category is the platforms that wire your product together.
 
 ---
 
@@ -155,7 +143,7 @@ One stage. One tool. One direction.
       "name": "What are the best backend tools for indie hackers in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Backend category lists Dynamiq for agentic AI infrastructure, Latenode and n8n for workflow automation and integrations, Outseta as an all-in-one membership and SaaS backend, and MindStudio for no-code AI agents. IndieFast picks one tool from this lineup for the stage — the one that best wires your MVP together without a DevOps team."
+        "text": "On indiefa.st, Backend lists Teable for databases and automations, Firecrawl for turning websites into text agents can use, and pCloud EU-LTD plus pCloudPass for files and passwords. n8n, from Grow, covers workflow automation. Outseta, from Monetize, covers billing, auth, CRM, and email in one membership stack."
       }
     },
     {
@@ -163,7 +151,7 @@ One stage. One tool. One direction.
       "name": "When should a solo founder use workflow automation vs an all-in-one SaaS backend?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use Latenode or n8n when you need to connect apps, APIs, and data flows across tools you already run. Use Outseta when billing, auth, CRM, and email should live in one membership stack. Use Dynamiq or MindStudio when your backend centers on deploying and monitoring AI agents rather than traditional CRUD infrastructure."
+        "text": "Use n8n or Teable when you need to connect apps, APIs, and data flows across tools you already run. Use Outseta when billing, auth, CRM, and email should live in one membership stack. Use Firecrawl when the backend needs clean text from the web for an agent, rather than a traditional CRUD database."
       }
     },
     {

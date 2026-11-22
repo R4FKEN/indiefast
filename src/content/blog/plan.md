@@ -31,7 +31,7 @@ Feature prioritization at this stage isn't about ranking things. It's about cutt
 
 There's a specific reason the Plan stage matters more now than it did a few years ago: AI coding tools.
 
-If you're building with Cursor, Lovable, Bolt, or any AI-assisted environment, the output quality is directly proportional to the quality of your brief. A vague plan produces vague code. An underspecified prompt produces an underspecified product. The tool builds exactly what you describe — which means if your description is a loosely connected list of features with no clear user stories or flow logic, that's what you get: a loosely connected product.
+If you're building with Lovable.dev, Replit, Runable, or any AI-assisted environment in the Build stage, the output quality is directly proportional to the quality of your brief. A vague plan produces vague code. An underspecified prompt produces an underspecified product. The tool builds exactly what you describe — which means if your description is a loosely connected list of features with no clear user stories or flow logic, that's what you get: a loosely connected product.
 
 Traditional developers push back when a brief is unclear. They ask questions. They flag contradictions. AI coding tools don't do that. They execute. A weak product requirements document doesn't get caught during development — it gets shipped.
 
@@ -57,13 +57,9 @@ The output of the Plan stage should be something you can hand directly to an AI 
 
 The Plan category on indiefa.st lists four tools — each helping you turn a validated idea into a buildable scope.
 
-**Guideflow** is an AI demo automation suite for creating interactive product demos and step-by-step guides in seconds. It's useful when your plan needs to show the core user flow before anyone writes code.
+**Miro** is the Plan tool on indiefa.st. It is a collaborative workspace for brainstorming and planning with visual boards. Solo founders use it to map MVP scope, user journeys, and what is in or out before anyone writes code. It also sits in Design.
 
-**Miro** is an AI-powered collaborative workspace for brainstorming, planning, and building with visual boards and workflow automation. Solo founders use it to map MVP scope, user journeys, and feature in/out decisions in one place.
-
-**Wispr Flow** turns speech into clear, polished writing 4× faster than typing across every app. It's built for founders who plan by talking through ideas — turning voice notes into briefs, user stories, and scope docs without slowing down to type.
-
-**MiroMiro** is a Chrome extension that turns any website into copy-paste code, colors, fonts, and assets — useful when your planning stage needs to reference real UI patterns and ship a scoped brief faster.
+**Guideflow** and **Wispr Flow** are useful next to a plan, but they are not in the Plan filter. Guideflow, in Grow, turns a flow into an interactive demo. Wispr Flow, in Build, turns speech into a written brief.
 
 Those four tools are the full Plan lineup on indiefa.st.
 
@@ -97,7 +93,7 @@ Paste this inside a `<script type="application/ld+json">` tag in your page `<hea
       "name": "What are the best product planning tools for solo founders and indie hackers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Plan category lists Guideflow for interactive demos and step-by-step product guides, Miro for visual MVP scope and user-journey mapping, Wispr Flow for turning voice notes into polished briefs and user stories, and MiroMiro for extracting code, colors, fonts, and assets from live sites. Each helps solo founders produce a buildable scope without enterprise roadmap overhead. IndieFast picks one tool for this stage."
+        "text": "On indiefa.st, the Plan category lists Miro for visual MVP scope and user-journey mapping. Guideflow, in Grow, covers interactive demos, and Wispr Flow, in Build, turns voice notes into briefs. IndieFast picks one tool for this stage."
       }
     },
     {

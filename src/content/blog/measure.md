@@ -15,38 +15,29 @@ Installing analytics is easy. Looking at the dashboard every week is much harder
 
 ---
 
-## Web Analytics and Product Analytics Aren't the Same Thing
+## Revenue, the Link, and Uptime Are Different Jobs
 
-Many founders treat analytics as one category.
+Many founders treat measurement as one category.
 
 It isn't.
 
-There are two completely different jobs.
+This stage on indiefa.st answers three questions:
 
-**Web analytics** tells you how people found your product.
+- Which marketing channel produced a paying customer?
+- Which link brought them?
+- Is the site or API still up?
 
-It answers questions like:
+On indiefa.st, **DataFast** is the tool for that path. It connects payment providers such as Stripe and Shopify and shows which marketing channels drive revenue, not only pageviews.
 
-- Where did visitors come from?
-- Which pages do they visit?
-- Which blog posts attract the most traffic?
-- Which marketing channel converts best?
+The next question is narrower: **which link** brought the customer.
 
-Tools such as **Plausible** or Google Analytics focus on this side of the business.
+**Dub** is branded short links, conversion tracking, and affiliate programs. The link on indiefa.st signs you up for Dub's partner network. It also sits in Grow under Distribution.
 
-**Product analytics** answers a different question:
+A third question is easy to skip until it hurts: **is the product up?**
 
-**What happened after someone signed up?**
+**UptimeRobot** checks websites, APIs, and other endpoints and alerts you when something goes down, degrades, or changes. It also sits in Ship.
 
-That's where platforms like **PostHog** and **Mixpanel** shine.
-
-They let you track **event tracking**, build **funnels**, measure **retention**, analyze **conversion rate**, monitor **DAU**, understand **churn**, and even watch **session replay** to see exactly where users struggle.
-
-After launch, product analytics usually matters more than web analytics.
-
-Traffic is useful.
-
-User behavior is what helps you improve the product.
+Traffic is useful. Revenue, the link that produced it, and uptime are what this stage measures.
 
 If you haven't deployed your product yet, start with the [Ship stage](https://indiefa.st/blog/ship) before worrying about analytics.
 
@@ -58,13 +49,9 @@ If you're based in Europe—or you expect customers from the EU—privacy isn't 
 
 GDPR affects how you collect data, whether cookies are required, and what information you store.
 
-That's why privacy-first analytics has become increasingly popular among indie makers.
+The Measure tools here stay on the numbers a solo founder acts on: which channel produced revenue, which link converted, and whether the site stayed up.
 
-Tools like **Plausible** focus on lightweight, cookie-free website analytics that respect user privacy while still giving founders meaningful traffic insights.
-
-For many SaaS products, that means simpler compliance and fewer cookie banner headaches.
-
-Product analytics platforms like **PostHog** can also be configured with privacy in mind, but you'll want to understand exactly what data you're collecting and why.
+**DataFast** ties channels to payments. **Dub** tracks the links you publish. **UptimeRobot** watches the endpoints. That is a smaller surface than recording every click inside the app.
 
 Privacy shouldn't prevent you from learning.
 
@@ -78,11 +65,13 @@ The Measure category on indiefa.st lists three tools — each answering a differ
 
 **DataFast** is revenue-first analytics that tracks marketing channels from first click to customer, connecting Stripe and Shopify to show which traffic sources drive actual revenue — not just pageviews.
 
-**FaceUp** is an EU anonymous whistleblowing and ethics compliance platform for employee feedback and internal reporting — useful when measurement includes organizational trust and structured internal signals, not just product funnels.
+**Dub** is a link attribution platform for branded short links, conversion tracking, and affiliate programs. The link on indiefa.st signs you up for Dub's partner network. It also sits in Grow under Distribution.
 
-**Mangools** also appears here as a secondary-category tool. Its SEO suite covers keyword research, SERP analysis, rank tracking, and backlink monitoring — bridging product analytics with the acquisition channels that brought users in.
+**UptimeRobot** checks websites, APIs, and other endpoints and alerts you when something goes down, degrades, or changes. It also sits in Ship.
 
-Plausible, PostHog, and Mixpanel are common choices too. These three are the Measure lineup on indiefa.st.
+Keyword and rank tracking lives in Research with **Mangools**, not in this filter.
+
+Those three tools are the Measure lineup on indiefa.st.
 
 ---
 
@@ -94,19 +83,17 @@ They highlight the numbers that matter.
 
 When comparing the **best analytics indie hackers** rely on, ask yourself:
 
-- Can I install it in under 30 minutes?
-- Is there a generous free tier?
-- Does it tell me what happened instead of just showing raw numbers?
-- Can I track funnels and feature adoption?
-- Is event tracking simple enough that I won't avoid using it?
+- Can I see which channel produced a paying customer?
+- Can I tell which link converted?
+- Will I know if the site or API goes down?
 - Will one person be able to maintain everything?
-- Can I answer product questions without becoming a data analyst?
+- Can I answer the question without becoming a data analyst?
 
 The right analytics tool should help you decide what to build next.
 
 Not create another dashboard you ignore.
 
-Whether you're comparing **PostHog vs Plausible vs Mixpanel indie** workflows or simply looking for **lightweight analytics MVP** founders can maintain, choose the tool you'll actually check every week.
+Whether you are comparing **DataFast** for revenue, **Dub** for the link, or **UptimeRobot** for uptime, choose the check you'll actually look at every week.
 
 Consistency beats complexity.
 
@@ -164,7 +151,7 @@ One stage. One tool. One direction.
       "name": "What are the best analytics tools for indie makers in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Measure category lists DataFast for revenue-first analytics that connects Stripe and Shopify to marketing channels, FaceUp for structured internal feedback and ethics reporting, and Mangools for SEO and acquisition-channel tracking. IndieFast picks one tool based on whether you need revenue attribution, internal signals, or search performance data."
+        "text": "On indiefa.st, Measure lists DataFast for revenue-first analytics that connects Stripe and Shopify to marketing channels, Dub for link attribution and conversion tracking, and UptimeRobot for alerts when a site or API goes down. Keyword and rank tracking lives in Research with Mangools."
       }
     },
     {

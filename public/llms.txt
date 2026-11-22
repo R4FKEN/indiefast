@@ -6,7 +6,7 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 
 ## Full documentation
 
-- [Complete LLM reference (text)](https://indiefa.st/llms-full.txt): All 58 tools with pricing, reasoning, affiliate URLs, blog posts, navigation, and site metadata
+- [Complete LLM reference (text)](https://indiefa.st/llms-full.txt): All 52 tools with pricing, reasoning, affiliate URLs, blog posts, navigation, and site metadata
 - [Complete LLM reference (markdown)](https://indiefa.st/llms-full.md): Identical content to llms-full.txt
 
 ## Key pages
@@ -42,27 +42,30 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 
 ## Featured tool picks
 
-- Apify (2. Research): Full-stack web scraping and data extraction platform with ecosystem for building deploying and publishing web scrapers AI agents and automation tools.
-- ClickFunnels (3. Validate): Sales funnel builder platform to convert online visitors into paying customers with optimized landing pages checkout flows and marketing automation.
-- DirStarter (6. Build): Next.js directory website template boilerplate for quickly building and launching online directory listing websites with modern tech stack.
-- FaceUp (10. Measure): EU anonymous whistleblowing & ethics compliance platform. Lets employees report misconduct, fraud & HR issues safely. Used by 3,600+ orgs in 70+ countries.
-- Feather-so (11. Grow): Platform to publish SEO-friendly blogs from Notion collect emails and send high-deliverability newsletters with no coding or design skills required.
-- MailerLite (9. Monetize): Email marketing platform with transactional emails automation newsletters landing pages websites and forms for growing audience engagement.
-- Mangools (1. Discover): Affordable all-in-one SEO tool suite for keyword research SERP analysis rank tracking backlink checking and competitor analysis across LLMs.
-- Outrank-so (11. Grow): Programmatic SEO automation that generates blog posts backlinks and optimization recommendations on autopilot to grow organic traffic while you sleep.
+- Marblism (11. Grow): YC-backed platform of 7 named AI Employees for SMBs. Eva (inbox/calendar), Sonny (social), Stan (leads), Penny (SEO), Rachel (calls), Walter (websites), Linda (contracts). Autonomous with approvals; from $24/mo. 60k+ businesses.
+- Systeme.io (9. Monetize): All-in-one platform for entrepreneurs: build sales funnels, send unlimited emails, host courses, run affiliate programs, create websites, and automate marketing.
+- SocialRails (11. Grow): Post to 9 platforms from one dashboard. AI writes captions, generates images, and builds videos from 350+ templates. Scheduling, analytics, team collab.
+- Outrank.so (11. Grow): Programmatic SEO automation that generates blog posts backlinks and optimization recommendations on autopilot to grow organic traffic while you sleep.
+- Turbo0 (8. Ship): Directory of popular content creation products where startups list their tool for discovery and a DR 81 backlink; ~5k products listed and ~75k monthly pageviews.
+- ClickFunnels (9. Monetize): Sales funnel builder platform to convert online visitors into paying customers with optimized landing pages checkout flows and marketing automation.
+- Mangools (2. Research): Affordable all-in-one SEO tool suite for keyword research SERP analysis rank tracking backlink checking and competitor analysis across LLMs.
+- Feather.so (11. Grow): Platform to publish SEO-friendly blogs from Notion collect emails and send high-deliverability newsletters with no coding or design skills required.
 - Outseta (9. Monetize): All-in-one membership and SaaS platform combining CRM email marketing payments authentication and customer management for scaling businesses.
+- pCloud EU-LTD (7. Backend): Secure European cloud storage: files stored in the EU under strict privacy laws, accessible anytime from any device, with 20 GB free to start.
+- pCloudPass (7. Backend): pCloud's password manager: store and access your passwords and personal data from one secure place, on the web and across your devices.
 - PostSyncer (11. Grow): Social media scheduling tool managing Instagram Facebook LinkedIn TikTok Pinterest YouTube Telegram BlueSky Threads, X and now Mastodon with AI video creation.
-- Revid-ai (11. Grow): Create viral videos in Minutes! Turn your creative ideas into attention-grabbing TikTok, Instagram, and YouTube stories with just a few clicks. All you need is a story to tell - revid.ai handles the rest.
-- ShipAhead (6. Build): Nuxt boilerplate for shipping AI SaaS products in hours with authentication payments and all features needed to launch and stay ahead.
-- Supastarter (6. Build): Scalable production-ready Next.js, Nuxt and TanStack Start SaaS starter kit with authentication payments API and features trusted by 1350+ developers.
-- Super-so (11. Grow): Tool for turning Notion documents into fully customized professional websites with SEO optimization high performance and instant page loads.
-- Synthesia (11. Grow): AI video platform for business creating studio-quality videos with AI avatars and voiceovers in 160+ languages saving 90% time and cost.
-- Turbo0 (8. Ship): Launch Site (high potential!)
-- Uneed-best (8. Ship): Launch Site (high potential!)
-- Wispr Flow (4. Plan): Voice-to-text AI turning speech into clear polished writing 4x faster than typing in every app on Mac Windows and iPhone with auto-edits.
+- Testimonial.to (11. Grow): Platform to collect text and video testimonials from customers with ease and embed them on websites without developer or hosting needs.
+- MailerLite (11. Grow): Email marketing platform with transactional emails automation newsletters landing pages websites and forms for growing audience engagement.
+- Revid.ai (11. Grow): Create viral videos in Minutes! Turn your creative ideas into attention-grabbing TikTok, Instagram, and YouTube stories with just a few clicks. All you need is a story to tell - revid.ai handles the rest.
+- UptimeRobot (10. Measure): An uptime monitoring service that continuously checks websites, APIs, and other endpoints. It alerts you in real-time when anything goes down, degrades, or changes.
+- RedShip (11. Grow): Turn Reddit users into customers. Monitor conversations where people are looking for solutions like yours. Turn Reddit into your best acquisition channel.
+- Uneed.best (8. Ship): Daily launch platform where makers launch products every day and users discover, upvote and review the best new tools, apps and startups.
+- Ranked AI (11. Grow): Managed SEO + PPC service with software. Human team writes content, builds links, and fixes issues; tracks Google + AI search visibility (ChatGPT etc.). From $99/mo per site.
+- Postiz (11. Grow): Agentic social media scheduler. AI agents plan, generate, and schedule posts to 30+ networks; human reviews in one calendar. Open-source option; starts ~$29/mo.
+- Firecrawl (7. Backend): Web data API for AI agents. Search, scrape, or crawl any site into clean Markdown/JSON. Handles JS rendering, anti-bot, and dynamic content for RAG and agents.
+- Subscribr (11. Grow): All-in-one YouTube production platform. Finds outlier ideas, writes scripts in your voice, designs thumbnails, and edits/renders finished videos. Agent-friendly; free tier available.
 - Linkto (8. Ship): Unlock Explosive Growth with this FREE List of 800+ SaaS Directories and 75+ Launch Sites
 - Chrome Goldmine (1. Discover): A complete database of 9,656 expired Chrome extensions - each with revenue estimates, rebuild difficulty, competitor gaps, and a step-by-step launch plan.
-- MiroMiro (4. Plan): A Chrome extension for designers, developers, and no-code builders that turns any website into copy-paste code, colors, fonts, and assets - so you can ship faster and save hours.
 
 ## Blog posts
 
@@ -76,7 +79,7 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 - [Distribution Tools for Indie Makers (2026) | IndieFast](https://indiefa.st/blog/grow/distribution): Distribution tools for indie makers 2026. Find the right channels, submit your product everywhere that matters, and grow beyond launch day.
 - [Scaling Tools for Indie SaaS Founders | IndieFast](https://indiefa.st/blog/grow/scale): The right scaling tools for indie SaaS founders — what to fix first, when infrastructure actually matters, and IndieFast's one recommended pick.
 - [SEO Tools for Indie SaaS Founders | IndieFast](https://indiefa.st/blog/grow/seo): SEO tools for indie SaaS founders. Grow organic traffic with practical tools that help solo founders rank faster without wasting money.
-- [Customer Support Tools for Indie Hackers | IndieFast](https://indiefa.st/blog/grow/support): Customer support tools for indie hackers. Reduce support workload, prevent churn, and help customers faster with the right AI support tool.
+- [Customer Support Tools for Indie Hackers | IndieFast](https://indiefa.st/blog/grow/support): Customer support tools for indie hackers. Reduce repeat replies with saved answers and interactive product guides, without a support team.
 - [Analytics Tools for Indie Makers (2026) | IndieFast](https://indiefa.st/blog/measure): Analytics tools for indie makers 2026. Track user behavior, improve retention, and make better product decisions with less guesswork.
 - [Monetization Tools for Indie SaaS Founders | IndieFast](https://indiefa.st/blog/monetize): Monetization tools for indie SaaS founders. Choose the right payment platform, test pricing, and start earning revenue faster.
 - [Product Planning Tools for Solo Founders | IndieFast](https://indiefa.st/blog/plan): The best product planning tools for solo founders in 2026. Define your MVP scope, cut scope creep, and ship a brief your AI tools can actually use.

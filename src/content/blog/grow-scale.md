@@ -57,9 +57,13 @@ When you're evaluating infrastructure scaling tools as a solo founder in 2026, t
 
 The Scale subcategory on indiefa.st is about growing revenue and reach once your product handles current load — not premature infrastructure rewrites.
 
-**Lemlist** automates multichannel prospecting across LinkedIn, email, phone, and WhatsApp with personalization, sequencing, and follow-ups — replacing hours of manual outreach every week.
+No tool is tagged Scale on indiefa.st right now.
 
-**Tolt-io** is affiliate marketing software for SaaS startups to launch and run affiliate and referral programs with Stripe, Paddle, and Chargebee integration — scaling acquisition through partners instead of only paid ads.
+**Reditus**, in Grow under Distribution, is a B2B affiliate network for recruiting SaaS affiliates and growing MRR through other people's audiences.
+
+**Systeme.io**, in Monetize, includes an affiliate program alongside funnels, email, and courses. It also sits in Distribution.
+
+Those are the current catalog tools for growing through partners. They do not appear when you filter Grow to Scale.
 
 Code-level scaling (indexes, caching, CDN) still matters. These two tools are what indiefa.st lists for the Grow → Scale function specifically.
 
@@ -99,7 +103,7 @@ One subcategory. One tool. One direction.
       "name": "How do I scale a SaaS without a DevOps team?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For solo founders, scaling without a DevOps team means fixing code-level bottlenecks first, then growing reach through partners. On indiefa.st, the Scale subcategory lists Lemlist for multichannel outreach across email, LinkedIn, phone, and WhatsApp, and Tolt-io for affiliate and referral programs integrated with Stripe and Paddle. Both scale acquisition and revenue without hiring a sales or ops team."
+        "text": "For solo founders, scaling without a DevOps team means fixing code-level bottlenecks first, then growing reach through partners. The Scale track on indiefa.st has no tool tagged yet. Reditus, under Distribution, is the affiliate network. Systeme.io, under Monetize, includes an affiliate program with funnels and email."
       }
     },
     {
@@ -107,7 +111,7 @@ One subcategory. One tool. One direction.
       "name": "What's the cheapest way to scale a small SaaS app?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The cheapest scaling levers are often software fixes — indexes, caching, background jobs — plus partner-driven growth. Lemlist automates personalized outreach at scale without manual prospecting, and Tolt-io lets customers and affiliates bring you new users through referral programs. Both are lower cost than hiring sales staff and faster than a premature infrastructure rewrite."
+        "text": "The cheapest scaling levers are often software fixes — indexes, caching, background jobs — plus partner-driven growth. Reditus lets other people's audiences sell your product, and Systeme.io runs the affiliate program next to the funnel. Both are lower cost than hiring sales staff and faster than a premature infrastructure rewrite."
       }
     }
   ]

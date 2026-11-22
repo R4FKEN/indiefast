@@ -25,13 +25,11 @@ They're not.
 
 **Launching** means convincing people to actually visit it.
 
-Those require different tools.
+Those require different tools, and both kinds are on indiefa.st.
 
-Platforms like **Vercel**, **Netlify**, and **Railway** handle deployment. They take your code, build it, and publish it with almost no manual configuration. Many also include automatic **CI/CD**, preview environments, and custom domain support.
+**Replit**, **Runable**, **TurboStarter**, and **Framer** also sit in Ship, and each of them publishes something. Replit hosts the app from the conversation. Runable deploys the site it builds, including a database and payments. TurboStarter is one-click deployment for web apps, mobile apps, and browser extensions. Framer publishes the marketing site. **UptimeRobot** alerts you when that URL goes down. **CodeRabbit** reviews the code first.
 
-Your launch strategy comes afterward.
-
-That's when you think about your **Product Hunt launch**, **BetaList**, Reddit communities, email subscribers, X posts, or direct outreach to early users.
+Being found is the other job. The home tools in this stage are **Turbo0**, **Uneed.best**, **PeerPush**, **There's An AI For That**, and **Linkto**. Channels such as Product Hunt, BetaList, Reddit, email, and X still matter. They are not a substitute for a page that is already live.
 
 Confusing these two stages often causes founders to delay shipping because they're trying to perfect their launch before they've even deployed the product.
 
@@ -39,29 +37,19 @@ If your backend isn't finished yet, head back to the [Backend stage](https://ind
 
 ---
 
-## What Makes a Great Deployment Tool?
+## What to Look for When You Ship
 
-The best **MVP deployment tools** disappear into the background.
+The home tools in this stage are for being found. The tools that also sit here from Build and Measure are for publishing a URL and knowing it stayed up.
 
-Once they're connected, you barely think about them again.
+When you pick among them, ask:
 
-When comparing deployment platforms, look for:
+- Does this tool publish the product, or only list a product that is already live?
+- If it builds the product, does hosting come with it? **Replit**, **Runable**, **TurboStarter**, and **Framer** do.
+- Will you hear about it if the URL goes down? That is **UptimeRobot**.
+- Does the launch page match the product? **Turbo0**, **Uneed.best**, **PeerPush**, **There's An AI For That**, and **Linkto** are the directories in this stage.
+- Has **CodeRabbit** already reviewed the code you are about to publish?
 
-- Zero-configuration deployments from GitHub.
-- Automatic deployments every time you push new code.
-- Preview URLs so you can test changes before they go live.
-- Easy custom **domain** setup.
-- A generous free tier while you're validating your MVP.
-- Fast global hosting with minimal configuration.
-- Rollbacks if a deployment introduces a bug.
-
-Modern deployment platforms have made going live dramatically easier than it used to be.
-
-A few years ago you'd spend hours configuring servers.
-
-Today, you often connect a Git repository, click Deploy, and receive a public URL a minute later.
-
-That's exactly how deployment should feel.
+A public URL you can send today beats a launch plan for a product that is not online yet.
 
 ---
 
@@ -105,19 +93,17 @@ Improve continuously.
 
 On indiefa.st, the Ship stage is about **launch visibility** — getting your product in front of the right audiences and earning backlinks — not just pushing code to a server. Deployment platforms handle going live; these tools handle being found.
 
-**Peerlist-io** offers homepage exposure and a quality backlink when you submit your product.
-
-**PeerPush** is another launch platform built for indie makers who want directory-style visibility without cold outreach to every site individually.
+**PeerPush** is a product discovery platform for people and AI assistants. Structured product data makes the product findable, and the builder community is part of the listing. It also sits in Grow under Community.
 
 **There's An AI For That** lists AI products with strong homepage traffic — a natural fit when your MVP is AI-native and you want qualified visitors from day one.
 
 **Turbo0** provides guaranteed homepage visibility and a DR75 backlink on submission, with a free tier for early launches.
 
-**Uneed-best** is a launch site with free and paid submission options — built for founders who want exposure during and after launch day.
+**Uneed.best** is a launch site with free and paid submission options — built for founders who want exposure during and after launch day.
 
 **Linkto** centralizes 800+ SaaS directories and 75+ launch sites in one place — so you're not hunting submission targets manually for sixteen hours a month.
 
-Those six tools are the full Ship category on indiefa.st. Pair them with your deployment platform of choice, then move to [Monetize](https://indiefa.st/blog/monetize) once users start converting.
+Those five are the home tools in Ship. Replit, Runable, TurboStarter, Framer, UptimeRobot, and CodeRabbit also appear in this filter from other stages. Move to [Monetize](https://indiefa.st/blog/monetize) once users start converting.
 
 ---
 
@@ -165,7 +151,7 @@ One stage. One tool. One direction.
       "name": "What are the best tools to ship an MVP fast?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Ship stage focuses on launch visibility — not just going live. The category lists Peerlist-io, PeerPush, There's An AI For That, Turbo0, and Uneed-best for homepage exposure and quality backlinks on submission, plus Linkto for 800+ SaaS directories and 75+ launch sites in one place. Pair these with your deployment platform of choice."
+        "text": "On indiefa.st, Ship lists PeerPush, There's An AI For That, Turbo0, and Uneed.best for launch visibility, plus Linkto for 800+ SaaS directories and 75+ launch sites. Replit, Runable, TurboStarter, and Framer also appear here and publish the app or the site. UptimeRobot watches the URL. CodeRabbit reviews the code first."
       }
     },
     {
@@ -173,7 +159,7 @@ One stage. One tool. One direction.
       "name": "What's the difference between deploying and launching an MVP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Deploying means making your application available at a live URL. Launching is getting discovered — submitting to launch sites like Turbo0, Uneed-best, or Peerlist-io for backlinks and visibility, or using Linkto to hit dozens of directories without manual outreach. The Ship tools on indiefa.st handle the second problem."
+        "text": "Deploying means making your application available at a live URL. Launching is getting discovered — submitting to launch sites like Turbo0, Uneed.best, or PeerPush for backlinks and visibility, or using Linkto to hit dozens of directories without manual outreach. The Ship tools on indiefa.st handle the second problem."
       }
     },
     {

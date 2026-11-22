@@ -38,7 +38,7 @@ Hit those four and you can ship. Everything else is iteration. The mistake is tr
 
 The design stage for vibe coders looks different now than it did two years ago, and most design tool recommendations haven't caught up to that.
 
-Tools like v0 by Vercel, Lovable, and Bolt generate production-ready UI from a text prompt. You describe the component or screen, and the tool outputs Tailwind and shadcn components you can drop directly into your build environment. You're not hand-crafting every wireframe or mockup in Figma. You're writing a brief and directing output — which means the skill that matters is prompt precision, not pixel manipulation.
+On indiefa.st, **Lovable.dev** and **Framer** cover this shift. Lovable.dev creates full applications and websites from a conversation, so the interface and the prototype are the same job. Framer is a no-code website builder for the marketing site, with a CMS, SEO, and analytics. You're not hand-crafting every wireframe or mockup in Figma. You're writing a brief and directing output — which means the skill that matters is prompt precision, not pixel manipulation.
 
 A vague description produces generic output. A specific one — "a three-tier pricing card with a highlighted recommended option, monthly/annual toggle, and a short feature list per tier" — produces something close to shippable on the first pass.
 
@@ -66,15 +66,13 @@ The intersection of those three bars is smaller than most design tool lists sugg
 
 The Design category on indiefa.st lists five tools — each helping solo founders reach credible, shippable UI faster.
 
-**Bolt-new** is an AI-powered builder that creates full-stack web applications and prototypes through conversational prompts — useful when you need a complete interface direction, not just isolated components.
+**Framer** is a no-code website builder with a CMS, SEO, and analytics. Designers use it for the marketing site and the product page. It also sits in Ship, because that site can be the thing you launch.
 
-**getimg-ai** is an all-in-one AI platform for generating and editing images and videos from text prompts, with upscaling, background removal, and resizing — built for marketing assets and product visuals without stock-photo hunts.
+**Lottie** is a library of lightweight animations for websites, apps, presentations, and social posts. It replaces custom micro-animation work.
 
-**Lottie** provides 500k+ lightweight animations that integrate with a single line of code — replacing custom micro-animation work across websites, apps, and landing pages.
+**Lovable.dev** also appears in Design from Build. It creates full applications and websites from a conversation, which is the right pick when the interface and the prototype are the same job.
 
-**Testimonial-to** collects text and video testimonials from customers and embeds them on your site without developer or hosting setup — social proof that ships fast.
-
-**v0-app** is Vercel's AI tool for building agents, apps, and websites by generating React and Next.js components from text prompts — one of the fastest paths to production-ready UI on a modern stack.
+**Miro** also appears in Design from Plan. Use it to lay out screens and the flow before you build them.
 
 Those five tools are the full Design lineup on indiefa.st.
 
@@ -108,7 +106,7 @@ Paste this inside a `<script type="application/ld+json">` tag in your page `<hea
       "name": "What are the best UI design tools for indie makers and solo founders in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, the Design category lists v0-app for React and Next.js UI from prompts, Bolt-new for full-stack prototypes, getimg-ai for marketing visuals, Lottie for lightweight animations, and Testimonial-to for social proof embeds. The best pick produces shippable output connected to your build stack — not mockups you rebuild from scratch. IndieFast selects one design tool for solo founders on a time budget."
+        "text": "On indiefa.st, Design lists Framer for no-code marketing sites, Lottie for lightweight animations, Lovable.dev for an app built from a conversation, and Miro for laying out the screens first. The best pick produces shippable output connected to your build stack — not mockups you rebuild from scratch."
       }
     },
     {
@@ -116,7 +114,7 @@ Paste this inside a `<script type="application/ld+json">` tag in your page `<hea
       "name": "Do I need a traditional design tool to ship a credible MVP?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not necessarily. v0-app generates production-ready React and Next.js components from a text brief, and Bolt-new can produce full-stack prototypes conversationally — both faster paths to credible UI than hand-drawing every screen. getimg-ai, Lottie, and Testimonial-to cover assets, motion, and social proof without a separate design toolchain. The right tool is whichever connects to your build environment without a rebuild step."
+        "text": "Not necessarily. Lovable.dev builds an application from a text brief, and Framer ships a marketing site without a frontend rewrite. Lottie covers motion, and Miro covers the layout before you build. The right tool is whichever connects to your build environment without a rebuild step."
       }
     },
     {
