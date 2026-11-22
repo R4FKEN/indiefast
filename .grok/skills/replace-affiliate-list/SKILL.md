@@ -36,7 +36,7 @@ Match an incoming row to an existing tool by `id` if one was given, otherwise by
 - Category and subtopic strings must match `affiliate-list-instructions.md` exactly, including the number and period. Map loose labels (`Grow`, `SEO`) onto those strings. If a row does not fit one stage, ask instead of picking one.
 - `SecondCategory` is `""` or a different stage from `Category`.
 - Set `Subtopic` only from the six Grow tracks, and only when the tool is in Grow as category or second category. Otherwise `""`.
-- Keep the affiliate code already on a URL. Add `utm_source=indiefast`, `utm_medium=website`, and `utm_campaign=frontpage` when they are missing. Do not invent a URL or a discount. List any row that has no affiliate URL and stop before writing.
+- Keep the affiliate code already on a URL. Do not add UTM params (`utm_source`, `utm_medium`, `utm_campaign`, or any other `utm_*`). If a URL already has them, leave that URL as the user supplied it. Do not invent a URL or a discount. List any row that has no affiliate URL and stop before writing.
 - `TimeSaved` should include an hour number plus `h` or `hr` when the user means hours (`15hr / month`). The PDF total ignores phrases with no hour number.
 
 ## Logos

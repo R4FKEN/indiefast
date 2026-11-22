@@ -165,7 +165,7 @@ One stage. One tool. One direction.
       "name": "What's the best way to monetize an indie SaaS?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start with a simple pricing model customers understand, then use Outseta if you want billing, auth, and CRM in one stack, or ClickFunnels and Systeme.io if the sale happens in a funnel. Pair Beehiiv or Kit for audience monetization. Reditus, in Grow under Distribution, is the affiliate network if other people's audiences should bring the customers."
+        "text": "Start with a simple pricing model customers understand, then use Outseta if you want billing, auth, and CRM in one stack, or ClickFunnels and Systeme.io if the sale happens in a funnel. Pair Beehiiv or Kit for audience monetization. Reditus, in Grow under Scale, is the affiliate network if other people's audiences should bring the customers."
       }
     },
     {

@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
 
-# Social share image (Open Graph / Twitter)
-# https://indiefa.st/og-image.webp
+# Agent indexes
+# https://indiefa.st/llms.txt
+# https://indiefa.st/llms-full.txt
+# https://indiefa.st/llms-full.md
+# https://indiefa.st/ai.txt
 
 Sitemap: https://indiefa.st/sitemap.xml

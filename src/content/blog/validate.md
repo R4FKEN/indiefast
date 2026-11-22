@@ -64,17 +64,11 @@ Once validation holds, the [Plan stage](https://indiefa.st/blog/plan) is where t
 
 Every tool in the Validate category on indiefa.st helps you test willingness to pay before you build — through landing pages, funnels, or rapid prototypes.
 
-The Validate filter on indiefa.st is empty right now. These are the current tools founders use to run a real test, and each one lives in another stage.
+**ClickFunnels** is the Validate tool on indiefa.st. It is a sales funnel builder for landing pages, checkout flows, and marketing automation, and it also sits in Monetize. Use it to run a real conversion test — a page and a checkout — instead of collecting "I'd use that" reactions.
 
-**ClickFunnels**, in Monetize, is a sales funnel builder for converting visitors into paying customers with optimized landing pages, checkout flows, and marketing automation. It's built for running real conversion tests — not just collecting "I'd use that" reactions.
+**Framer**, **Lovable.dev**, and **MindStudio** can put a page or a prototype in front of people, but they are not in the Validate filter. Framer is in Design and Ship. Lovable.dev is in Build and Design. MindStudio is in Build, and in Grow under Automate.
 
-**Framer**, in Design, is a no-code website builder with integrated CMS, SEO, and analytics. Founders use it to ship validation landing pages and smoke tests fast, without writing code or hiring a developer. It also sits in Ship.
-
-**Lovable.dev** is an AI no-code app builder that creates full applications and websites from conversational prompts. It's useful when your validation test needs a working prototype — not just a static page. It lives in Build, and also in Design.
-
-**MindStudio**, in Build, lets you design, build, and deploy AI agents with a visual builder and templates. It fits validation when your hypothesis involves an AI-powered workflow you need to demo before committing to a full backend build. It also sits in Grow under Automate.
-
-Those four tools are the Validate category on indiefa.st.
+ClickFunnels is the Validate category on indiefa.st.
 
 ---
 
@@ -106,7 +100,7 @@ Paste this inside a `<script type="application/ld+json">` tag in your page `<hea
       "name": "What are the best MVP validation tools for indie hackers in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Validate filter on indiefa.st has no tools of its own. The current catalog tools for a real test live in other stages: ClickFunnels in Monetize for sales funnels and checkout tests, Framer in Design for a validation landing page, Lovable.dev in Build for an AI-built prototype, and MindStudio in Build for demoing an AI-agent workflow. Each tests willingness to pay through signups, checkouts, or a working demo."
+        "text": "ClickFunnels is the Validate tool on indiefa.st, and it also sits in Monetize. It runs a real test with a landing page, a checkout, and marketing automation. Framer, Lovable.dev, and MindStudio can produce a page or a prototype, but they live in Design, Build, and Ship rather than in the Validate filter."
       }
     },
     {

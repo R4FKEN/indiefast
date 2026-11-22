@@ -94,6 +94,7 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 
 ## Optional
 
+- [AI usage](https://indiefa.st/ai.txt): How agents may use this site, and where the full catalog lives
 - [Robots.txt](https://indiefa.st/robots.txt)
 - [Open Graph image](https://indiefa.st/og-image.webp)
 - [Tools JSON data](https://indiefa.st/tools.json)

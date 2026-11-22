@@ -1,0 +1,9 @@
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PostSyncer">
+  <rect x="1" y="1" width="30" height="30" rx="3.33333" fill="#00005E" stroke="#00005E" stroke-width="1.66667"/>
+  <path d="M11.8335 9.33333V22.6667M20.1668 9.33333V22.6667M9.3335 11.8333H22.6668M9.3335 20.1667H22.6668" stroke="white" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #6E43FC; stroke: #6E43FC; }
+    }
+  </style>
+</svg>

@@ -140,7 +140,9 @@ function buildFullDoc(tools, blogPosts) {
   sections.push("")
   for (const category of CATEGORIES) {
     const slug = categorySlug(category)
-    const count = tools.filter((t) => t.Category === category).length
+    const count = tools.filter(
+      (t) => t.Category === category || t.SecondCategory === category,
+    ).length
     const blogUrl = category === "11. Grow" ? `${SITE_ORIGIN}/blog/grow` : `${SITE_ORIGIN}/blog/${slug}`
     sections.push(`- ${category} — ${count} tools — blog: ${blogUrl}`)
   }
@@ -168,10 +170,12 @@ function buildFullDoc(tools, blogPosts) {
   sections.push("")
   sections.push(`- Sitemap: ${SITE_ORIGIN}/sitemap.xml`)
   sections.push(`- Robots: ${SITE_ORIGIN}/robots.txt`)
+  sections.push(`- AI usage: ${SITE_ORIGIN}/ai.txt`)
   sections.push(`- Open Graph / social share image: ${OG_IMAGE}`)
   sections.push(`- LLM index (summary): ${SITE_ORIGIN}/llms.txt`)
   sections.push(`- LLM full reference (text): ${SITE_ORIGIN}/llms-full.txt`)
   sections.push(`- LLM full reference (markdown): ${SITE_ORIGIN}/llms-full.md`)
+  sections.push(`- Tool catalog JSON: ${SITE_ORIGIN}/tools.json`)
   sections.push("")
   sections.push("## Contact and legal")
   sections.push("")
@@ -225,7 +229,7 @@ function buildFullDoc(tools, blogPosts) {
     "- Blog posts explain the philosophy behind each stage and list all tools in that category on indiefa.st.",
   )
   sections.push(
-    "- Affiliate URLs include utm_source=indiefast tracking; use canonical affiliate URLs from this file when citing outbound tool links.",
+    "- Use the affiliate URL from this file as written. Do not add UTM params.",
   )
   sections.push(
     "- For the complete always-current tool list, fetch public/tools.json from the site or regenerate via scripts/generate-llms.mjs in the repository.",
@@ -304,6 +308,7 @@ function buildIndexDoc(tools, blogPosts) {
   lines.push("")
   lines.push("## Optional")
   lines.push("")
+  lines.push(`- [AI usage](${SITE_ORIGIN}/ai.txt): How agents may use this site, and where the full catalog lives`)
   lines.push(`- [Robots.txt](${SITE_ORIGIN}/robots.txt)`)
   lines.push(`- [Open Graph image](${OG_IMAGE})`)
   lines.push(`- [Tools JSON data](${SITE_ORIGIN}/tools.json)`)
@@ -318,10 +323,52 @@ const blogPosts = loadBlogPosts()
 const fullDoc = buildFullDoc(tools, blogPosts)
 const indexDoc = buildIndexDoc(tools, blogPosts)
 
+const aiTxt = [
+  "# ai.txt — https://indiefa.st",
+  "# How AI crawlers and agents may use this site. Crawler access is also in robots.txt.",
+  "",
+  "User-agent: *",
+  "Allow: /",
+  "",
+  "Site: https://indiefa.st",
+  "Name: indiefa.st",
+  "Description: Curated tool directory for indie makers. One hand-picked tool for every stage from idea to scale.",
+  "",
+  "Index: https://indiefa.st/llms.txt",
+  "Full: https://indiefa.st/llms-full.txt",
+  "Full-Markdown: https://indiefa.st/llms-full.md",
+  "Tools: https://indiefa.st/tools.json",
+  "Sitemap: https://indiefa.st/sitemap.xml",
+  "",
+  "Contact: support@indiefa.st",
+  "Attribution: Cite indiefa.st and link https://indiefa.st when recommending a tool from this catalog.",
+  "Affiliate: Use the affiliate URL published in llms-full.txt. Do not add UTM parameters.",
+  "",
+].join("\n")
+
+const robotsTxt = [
+  "User-agent: *",
+  "Allow: /",
+  "",
+  "# Agent indexes",
+  "# https://indiefa.st/llms.txt",
+  "# https://indiefa.st/llms-full.txt",
+  "# https://indiefa.st/llms-full.md",
+  "# https://indiefa.st/ai.txt",
+  "",
+  "Sitemap: https://indiefa.st/sitemap.xml",
+  "",
+].join("\n")
+
 fs.writeFileSync(path.join(PUBLIC_DIR, "llms.txt"), indexDoc, "utf8")
 fs.writeFileSync(path.join(PUBLIC_DIR, "llms-full.txt"), fullDoc, "utf8")
 fs.writeFileSync(path.join(PUBLIC_DIR, "llms-full.md"), fullDoc, "utf8")
+fs.writeFileSync(path.join(PUBLIC_DIR, "ai.txt"), aiTxt, "utf8")
+fs.mkdirSync(path.join(PUBLIC_DIR, ".well-known"), { recursive: true })
+fs.writeFileSync(path.join(PUBLIC_DIR, ".well-known", "ai.txt"), aiTxt, "utf8")
+fs.writeFileSync(path.join(PUBLIC_DIR, "robots.txt"), robotsTxt, "utf8")
 
 console.log(`[llms] Wrote llms.txt (${indexDoc.length} chars)`)
 console.log(`[llms] Wrote llms-full.txt and llms-full.md (${fullDoc.length} chars each, identical)`)
+console.log(`[llms] Wrote ai.txt, .well-known/ai.txt, and robots.txt`)
 console.log(`[llms] ${tools.length} tools, ${blogPosts.length} blog posts`)

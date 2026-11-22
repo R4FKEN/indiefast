@@ -55,13 +55,13 @@ The output of the Plan stage should be something you can hand directly to an AI 
 
 ## Planning Tools on indiefa.st
 
-The Plan category on indiefa.st lists four tools — each helping you turn a validated idea into a buildable scope.
+The Plan category on indiefa.st has one tool. It turns a validated idea into a buildable scope.
 
 **Miro** is the Plan tool on indiefa.st. It is a collaborative workspace for brainstorming and planning with visual boards. Solo founders use it to map MVP scope, user journeys, and what is in or out before anyone writes code. It also sits in Design.
 
 **Guideflow** and **Wispr Flow** are useful next to a plan, but they are not in the Plan filter. Guideflow, in Grow, turns a flow into an interactive demo. Wispr Flow, in Build, turns speech into a written brief.
 
-Those four tools are the full Plan lineup on indiefa.st.
+Miro is the Plan lineup on indiefa.st.
 
 ---
 

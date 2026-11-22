@@ -129,11 +129,11 @@ It's a collection of systems working together.
 
 ## Growth Tools on indiefa.st
 
-IndieFast lists fifteen tools across six Grow subcategories. Here's the full map — one pick per function, all on the homepage when you filter by **11. Grow**.
+IndieFast splits Grow into six tracks. Here's the map, on the homepage when you filter by **11. Grow**.
 
 **Automate:** **n8n** builds multi-step workflows and agents. **Marblism** runs named AI employees for inbox, social, leads, SEO, calls, sites, and contracts. **Viktor** is an AI employee inside Slack and Teams across 3,200+ integrations. **MindStudio** and **Teable** are also tagged Automate from Build and Backend.
 
-**Scale:** no tool is tagged Scale. Partner-led growth lives elsewhere: **Reditus** is an affiliate network under Distribution, and **Systeme.io** includes an affiliate program under Monetize.
+**Scale:** **Reditus** recruits SaaS affiliates and tracks the MRR they send. **Systeme.io** includes an affiliate program, but it sits in Monetize and Distribution, not in this track.
 
 **Community:** **Testimonial.to** collects text and video testimonials and embeds them. **RedShip** watches Reddit for people already looking for a solution like yours. **PeerPush**, from Ship, is also tagged Community.
 
@@ -141,7 +141,7 @@ IndieFast lists fifteen tools across six Grow subcategories. Here's the full map
 
 **SEO:** **Outrank.so** generates posts, backlinks, and optimization recommendations. **Feather.so** publishes an SEO blog from Notion. **Ranked AI** is a managed SEO and PPC service that also tracks AI-search visibility. **Mangools** and **Turbo0** are also tagged SEO from Research and Ship.
 
-**Distribution:** **Revid.ai** turns a text idea into a TikTok, Reel, or Short. **Subscribr** finds YouTube ideas and edits the finished video. **Postiz** and **SocialRails** schedule posts across many networks. Beehiiv, Kit, MailerLite, Dub, ZeroBounce, and Reditus are in this track too.
+**Distribution:** **Revid.ai** turns a text idea into a TikTok, Reel, or Short. **Subscribr** finds YouTube ideas and edits the finished video. **Postiz** and **SocialRails** schedule posts across many networks. Beehiiv, Kit, MailerLite, Dub, and ZeroBounce are in this track too.
 
 Each subcategory has its own guide linked above. This hub is the overview; the subcategory pages go deeper on one function at a time.
 
@@ -197,7 +197,7 @@ One stage. Six tools. Six directions.
       "name": "What are the best growth tools for indie makers in 2026?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On indiefa.st, Grow is split into six tracks. Automate includes n8n, Marblism, and Viktor. Scale has no tool tagged yet; Reditus and Systeme.io cover partner programs from Distribution and Monetize. Community includes Testimonial.to, RedShip, and PeerPush. Support includes TextExpander and Guideflow. SEO includes Outrank.so, Feather.so, and Ranked AI. Distribution includes Revid.ai, Subscribr, Postiz, and SocialRails, among others. IndieFast recommends one pick per track so founders compare tools that solve the same job."
+        "text": "On indiefa.st, Grow is split into six tracks. Automate includes n8n, Marblism, and Viktor. Scale is Reditus, the affiliate network. Community includes Testimonial.to, RedShip, and PeerPush. Support includes TextExpander and Guideflow. SEO includes Outrank.so, Feather.so, and Ranked AI. Distribution includes Revid.ai, Subscribr, Postiz, and SocialRails, among others. IndieFast recommends one pick per track so founders compare tools that solve the same job."
       }
     },
     {

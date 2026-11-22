@@ -35,6 +35,14 @@ function toSitemapDate(isoDate) {
   return isoDate.slice(0, 10)
 }
 
+function fileDate(filePath) {
+  return fs.statSync(filePath).mtime.toISOString().slice(0, 10)
+}
+
+function laterDate(a, b) {
+  return a > b ? a : b
+}
+
 function urlEntry({ loc, lastmod, changefreq, priority, image }) {
   const lines = [
     "  <url>",
@@ -62,9 +70,10 @@ const blogEntries = fs
       throw new Error(`Missing canonical in ${file}`)
     }
 
+    const published = toSitemapDate(PUBLISHED_AT[file] ?? "2026-06-29")
     return {
       loc: canonical,
-      lastmod: toSitemapDate(PUBLISHED_AT[file] ?? "2026-06-29"),
+      lastmod: laterDate(published, fileDate(path.join(BLOG_DIR, file))),
       changefreq: "monthly",
       priority: "0.7",
     }
@@ -72,14 +81,29 @@ const blogEntries = fs
   .sort((a, b) => a.loc.localeCompare(b.loc))
 
 const latestBlogDate = blogEntries.reduce(
-  (latest, entry) => (entry.lastmod > latest ? entry.lastmod : latest),
+  (latest, entry) => laterDate(latest, entry.lastmod),
   "2026-06-29",
 )
+const catalogDate = fileDate(path.resolve("public/tools.json"))
+const homeDate = laterDate(latestBlogDate, catalogDate)
+
+const discoveryEntries = [
+  ["llms.txt", "weekly", "0.5"],
+  ["llms-full.txt", "weekly", "0.4"],
+  ["llms-full.md", "weekly", "0.4"],
+  ["ai.txt", "monthly", "0.3"],
+  ["tools.json", "weekly", "0.5"],
+].map(([file, changefreq, priority]) => ({
+  loc: `${SITE_ORIGIN}/${file}`,
+  lastmod: catalogDate,
+  changefreq,
+  priority,
+}))
 
 const entries = [
   {
     loc: `${SITE_ORIGIN}/`,
-    lastmod: latestBlogDate,
+    lastmod: homeDate,
     changefreq: "weekly",
     priority: "1.0",
     image: OG_IMAGE,
@@ -92,6 +116,7 @@ const entries = [
     image: OG_IMAGE,
   },
   ...blogEntries.map((entry) => ({ ...entry, image: OG_IMAGE })),
+  ...discoveryEntries,
 ]
 
 const xml = [

@@ -113,11 +113,14 @@ export function Footer() {
             <FooterListItem>
               <ExternalFooterLink href="https://indiefa.st/llms.txt">LLMs.txt</ExternalFooterLink>
             </FooterListItem>
+            <FooterListItem>
+              <ExternalFooterLink href="https://indiefa.st/ai.txt">AI.txt</ExternalFooterLink>
+            </FooterListItem>
           </FooterSection>
 
           <FooterSection title="By The Maker Of indiefa.st">
             <FooterListItem>
-              <ExternalFooterLink href="https://lin-k.to/?utm_source=indiefast&utm_medium=website&utm_campaign=footer">
+              <ExternalFooterLink href="https://lin-k.to/">
                 <Box as="span" fontWeight="semibold" color="#d1d5db">
                   Linkto
                 </Box>
@@ -125,7 +128,7 @@ export function Footer() {
               </ExternalFooterLink>
             </FooterListItem>
             <FooterListItem>
-              <ExternalFooterLink href="https://chromegoldmine.com/?utm_source=indiefast&utm_medium=website&utm_campaign=footer">
+              <ExternalFooterLink href="https://chromegoldmine.com/">
                 <Box as="span" fontWeight="semibold" color="#d1d5db">
                   The Chrome Goldmine
                 </Box>
