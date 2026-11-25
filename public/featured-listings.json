@@ -1,0 +1,14 @@
+{
+  "featuredListings": [
+    {
+      "id": "rankfast",
+      "name": "RankFast",
+      "description": "Compare AI SEO tools with evidence, not promises.",
+      "url": "https://rankfa.st",
+      "logoUrl": "/tool-logos/rankfast.png",
+      "category": "11. Grow",
+      "subtopic": "SEO",
+      "placement": "featured"
+    }
+  ]
+}

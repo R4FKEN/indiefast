@@ -7,9 +7,10 @@ interface ToolCardProps {
   tool: Tool
   inStack: boolean
   onToggleStack: (tool: Tool) => void
+  badgeLabel?: string
 }
 
-export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
+export function ToolCard({ tool, inStack, onToggleStack, badgeLabel }: ToolCardProps) {
   const catColor = CATEGORY_COLORS[tool.Category as Category] || "#e5e5e5"
 
   return (
@@ -31,7 +32,7 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
       flexDirection="column"
       gap="3"
     >
-      {tool.Featured && (
+      {(tool.Featured || badgeLabel) && (
         <Badge
           position="absolute"
           top="-1px"
@@ -50,8 +51,8 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
           alignItems="center"
           gap="1"
         >
-          POPULAR
-          <Image src="/fire.gif" alt="" boxSize="3.5" objectFit="contain" />
+          {badgeLabel ?? "POPULAR"}
+          {!badgeLabel && <Image src="/fire.gif" alt="" boxSize="3.5" objectFit="contain" />}
         </Badge>
       )}
 
@@ -131,40 +132,44 @@ export function ToolCard({ tool, inStack, onToggleStack }: ToolCardProps) {
       </Text>
 
       <Box mt="auto">
-        <Flex alignItems="center" justifyContent="space-between" gap="2" minH="28px" mb="3">
-          <Flex
-            alignItems="center"
-            gap="1"
-            bg="#f0fdf4"
-            border="1.5px solid"
-            borderColor="#16a34a"
-            borderRadius="sm"
-            px="2"
-            py="0.5"
-          >
-            <Icon color="#16a34a" boxSize="3">
-              <LuClock />
-            </Icon>
-            <Text fontSize="2xs" fontWeight="bold" color="#16a34a">
-              Saves {tool.TimeSaved}
-            </Text>
+        {(tool.TimeSaved || tool.Discount) && (
+          <Flex alignItems="center" justifyContent="space-between" gap="2" minH="28px" mb="3">
+            {tool.TimeSaved && (
+              <Flex
+                alignItems="center"
+                gap="1"
+                bg="#f0fdf4"
+                border="1.5px solid"
+                borderColor="#16a34a"
+                borderRadius="sm"
+                px="2"
+                py="0.5"
+              >
+                <Icon color="#16a34a" boxSize="3">
+                  <LuClock />
+                </Icon>
+                <Text fontSize="2xs" fontWeight="bold" color="#16a34a">
+                  Saves {tool.TimeSaved}
+                </Text>
+              </Flex>
+            )}
+            {tool.Discount && (
+              <Flex
+                alignItems="center"
+                bg="#FF6B6B"
+                border="1.5px solid"
+                borderColor="#1a1a1a"
+                borderRadius="sm"
+                px="2"
+                py="0.5"
+              >
+                <Text fontSize="2xs" fontWeight="bold" color="white">
+                  {tool.Discount}
+                </Text>
+              </Flex>
+            )}
           </Flex>
-          {tool.Discount && (
-            <Flex
-              alignItems="center"
-              bg="#FF6B6B"
-              border="1.5px solid"
-              borderColor="#1a1a1a"
-              borderRadius="sm"
-              px="2"
-              py="0.5"
-            >
-              <Text fontSize="2xs" fontWeight="bold" color="white">
-                {tool.Discount}
-              </Text>
-            </Flex>
-          )}
-        </Flex>
+        )}
 
         <Flex gap="2">
           <Button

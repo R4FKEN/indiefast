@@ -51,8 +51,50 @@ async function readRoutes() {
     .filter((loc) => loc.startsWith(ORIGIN))
     .map((loc) => loc.slice(ORIGIN.length) || "/")
     .map((route) => (route.endsWith("/") && route !== "/" ? route.slice(0, -1) : route))
+    .filter((route) => !/\.[a-z0-9]+$/i.test(route))
 
   return [...new Set(routes)]
+}
+
+async function getStructuredDataTypes(page) {
+  const documents = await page.$$eval(
+    'script[type="application/ld+json"]',
+    (scripts) =>
+      scripts.map((script) => {
+        try {
+          return JSON.parse(script.textContent ?? "")
+        } catch {
+          return { parseError: true }
+        }
+      }),
+  )
+
+  if (documents.some((document) => document.parseError)) {
+    throw new Error("Page contains invalid JSON-LD")
+  }
+
+  const types = new Set()
+  for (const document of documents) {
+    const nodes = [document, ...(Array.isArray(document["@graph"]) ? document["@graph"] : [])]
+    for (const node of nodes) {
+      if (typeof node["@type"] === "string") types.add(node["@type"])
+    }
+  }
+  return types
+}
+
+function assertStructuredDataTypes(route, types) {
+  const required = ["Organization", "WebSite"]
+  if (route === "/") required.push("ItemList")
+  if (route === "/blog") required.push("BreadcrumbList", "ItemList")
+  if (route.startsWith("/blog/")) {
+    required.push("BlogPosting", "BreadcrumbList", "FAQPage")
+  }
+
+  const missing = required.filter((type) => !types.has(type))
+  if (missing.length > 0) {
+    throw new Error(`${route}: missing JSON-LD types: ${missing.join(", ")}`)
+  }
 }
 
 function createServer() {
@@ -157,6 +199,9 @@ async function prerender() {
             requestAnimationFrame(() => requestAnimationFrame(resolve))
           }),
       )
+
+      const schemaTypes = await getStructuredDataTypes(page)
+      assertStructuredDataTypes(route, schemaTypes)
 
       const html = await page.content()
       const outputPath = routeToOutputPath(route)

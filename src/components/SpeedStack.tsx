@@ -8,10 +8,11 @@ import { exportStackToPdf } from "../utils/exportPdf"
 interface SpeedStackProps {
   stack: Tool[]
   onRemove: (tool: Tool) => void
+  onClear: () => void
   onClose?: () => void
 }
 
-export function SpeedStack({ stack, onRemove, onClose }: SpeedStackProps) {
+export function SpeedStack({ stack, onRemove, onClear, onClose }: SpeedStackProps) {
   const [exported, setExported] = useState(false)
   const [exporting, setExporting] = useState(false)
   const [closed, setClosed] = useState(false)
@@ -114,6 +115,19 @@ export function SpeedStack({ stack, onRemove, onClose }: SpeedStackProps) {
         <Flex alignItems="center" gap="2" flexShrink={0}>
           <Button
             size="xs"
+            bg="white"
+            color="#1a1a1a"
+            border="2px solid"
+            borderColor="#1a1a1a"
+            borderRadius="sm"
+            fontWeight="bold"
+            _hover={{ bg: "#FF6B6B", color: "white" }}
+            onClick={onClear}
+          >
+            Clear all
+          </Button>
+          <Button
+            size="xs"
             bg={exported ? "#4ECDC4" : "#1a1a1a"}
             color="white"
             border="2px solid"
@@ -127,7 +141,7 @@ export function SpeedStack({ stack, onRemove, onClose }: SpeedStackProps) {
             <Icon boxSize="3.5">
               {exported ? <LuCheck /> : <LuDownload />}
             </Icon>
-            {exported ? "Downloaded!" : exporting ? "Exporting..." : "Export"}
+            {exported ? "Downloaded!" : exporting ? "Exporting..." : "Download"}
           </Button>
           <Tooltip content="Close" openDelay={200} closeDelay={100}>
             <Box

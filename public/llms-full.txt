@@ -1,6 +1,6 @@
 # indiefa.st — Full LLM Reference
 
-> Machine-readable corpus for AI agents and LLMs. Generated 2026-11-22.
+> Machine-readable corpus for AI agents and LLMs. Generated 2026-11-25.
 > Canonical site: https://indiefa.st
 
 ## Site overview
@@ -57,6 +57,7 @@ Footer sections: Resources, By The Maker Of indiefa.st. No sticky site header.
 - LLM full reference (text): https://indiefa.st/llms-full.txt
 - LLM full reference (markdown): https://indiefa.st/llms-full.md
 - Tool catalog JSON: https://indiefa.st/tools.json
+- Featured listings JSON: https://indiefa.st/featured-listings.json
 
 ## Contact and legal
 
@@ -157,6 +158,15 @@ Affiliate disclaimer: Some links on this site may be affiliate links. The site o
 - URL: https://indiefa.st/blog/validate
 - Published: 2026-06-30
 - Description: The best MVP validation tools for indie hackers in 2026. Run a real test before you build — smoke tests, landing pages, and pre-sales in hours.
+
+## Featured listings (1; promotional placements, separate from curated picks)
+
+### RankFast
+- Placement: featured promotional listing, not an editorial tool recommendation
+- Category: 11. Grow — SEO
+- Description: Compare AI SEO tools with evidence, not promises.
+- Website: https://rankfa.st
+- Logo: https://indiefa.st/tool-logos/rankfast.png
 
 ## Tools directory (52 tools, 24 featured)
 

@@ -1,6 +1,6 @@
 import { Box, Flex, Grid } from "@chakra-ui/react"
 import { useState, useEffect, useCallback } from "react"
-import type { Tool, Category, GrowSubtopic } from "@/types"
+import type { Tool, Category, GrowSubtopic, FeaturedListing } from "@/types"
 import { fetchTools } from "@/api"
 import { Header } from "@/components/Header"
 import { ToolCardGuide } from "@/components/ToolCardGuide"
@@ -8,6 +8,9 @@ import { FilterBar } from "@/components/FilterBar"
 import { ToolGrid } from "@/components/ToolGrid"
 import { SpeedStack } from "@/components/SpeedStack"
 import { Newsletter } from "@/components/Newsletter"
+import { JsonLd } from "@/components/JsonLd"
+import featuredListingSource from "@/data/featured-listings.json"
+import { itemListSchema } from "@/utils/structuredData"
 
 export function HomePage() {
   const [tools, setTools] = useState<Tool[]>([])
@@ -39,6 +42,8 @@ export function HomePage() {
     })
   }, [])
 
+  const clearStack = useCallback(() => setStack([]), [])
+
   const filteredTools = (activeCategory === "All"
     ? tools
     : tools.filter((t) => t.Category === activeCategory || t.SecondCategory === activeCategory)
@@ -53,59 +58,89 @@ export function HomePage() {
     return 0
   })
 
+  const featuredListings: FeaturedListing[] = featuredListingSource.featuredListings
+
   return (
-    <Box data-page="home" as="div">
-      <Grid
-        templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }}
-        gap={{ base: "6", lg: "5" }}
-        mb="4"
-        alignItems="stretch"
-      >
-        {/* Intro + phase arrows sit in the left 2/3, beside the tool-card guide */}
-        <Flex
-          gridColumn={{ lg: "span 2" }}
-          direction="column"
-          justify="space-between"
-          gap={{ base: "5", lg: "6" }}
-          minW="0"
-        >
-          <Header />
-          <Box w="full" flexShrink={0} maxW="100%">
-            <img
-              src="/arrows.png?v=3"
-              alt="Click the different phases"
-              width={2494}
-              height={432}
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-                objectFit: "contain",
-                objectPosition: "left bottom",
-              }}
+    <>
+      {!loading && tools.length > 0 && (
+        <>
+          <JsonLd
+            data={itemListSchema(
+              "Curated tools on IndieFast",
+              tools.map((tool) => ({
+                name: tool.Name,
+                description: tool.Reasoning || tool.OneLiner,
+                url: tool.AffiliateURL,
+              })),
+            )}
+          />
+          {featuredListings.length > 0 && (
+            <JsonLd
+              data={itemListSchema(
+                "Featured listings on IndieFast",
+                featuredListings.map((listing) => ({
+                  name: listing.name,
+                  description: listing.description,
+                  url: listing.url,
+                })),
+              )}
             />
-          </Box>
-        </Flex>
-        <ToolCardGuide />
-      </Grid>
-      <Box id="tools" data-tools-ready={loading ? "false" : "true"}>
-        <FilterBar
-          active={activeCategory}
-          onChange={setActiveCategory}
-          activeSubtopic={activeSubtopic}
-          onSubtopicChange={setActiveSubtopic}
+          )}
+        </>
+      )}
+      <Box data-page="home" as="div">
+        <Grid
+          templateColumns={{ base: "1fr", lg: "repeat(3, 1fr)" }}
+          gap={{ base: "6", lg: "5" }}
+          mb="4"
+          alignItems="stretch"
+        >
+          {/* Intro + phase arrows sit in the left 2/3, beside the tool-card guide */}
+          <Flex
+            gridColumn={{ lg: "span 2" }}
+            direction="column"
+            justify="space-between"
+            gap={{ base: "5", lg: "6" }}
+            minW="0"
+          >
+            <Header />
+            <Box w="full" flexShrink={0} maxW="100%">
+              <img
+                src="/arrows.png?v=3"
+                alt="Click the different phases"
+                width={2494}
+                height={432}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                  objectFit: "contain",
+                  objectPosition: "left bottom",
+                }}
+              />
+            </Box>
+          </Flex>
+          <ToolCardGuide />
+        </Grid>
+        <Box id="tools" data-tools-ready={loading ? "false" : "true"}>
+          <FilterBar
+            active={activeCategory}
+            onChange={setActiveCategory}
+            activeSubtopic={activeSubtopic}
+            onSubtopicChange={setActiveSubtopic}
+          />
+        </Box>
+        <ToolGrid
+          tools={sortedTools}
+          loading={loading}
+          stack={stack}
+          onToggleStack={toggleStack}
         />
+        <Box id="newsletter">
+          <Newsletter />
+        </Box>
+        <SpeedStack stack={stack} onRemove={toggleStack} onClear={clearStack} />
       </Box>
-      <ToolGrid
-        tools={sortedTools}
-        loading={loading}
-        stack={stack}
-        onToggleStack={toggleStack}
-      />
-      <Box id="newsletter">
-        <Newsletter />
-      </Box>
-      <SpeedStack stack={stack} onRemove={toggleStack} />
-    </Box>
+    </>
   )
 }

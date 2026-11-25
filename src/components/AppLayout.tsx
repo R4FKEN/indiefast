@@ -2,10 +2,13 @@ import { Box, Link as ChakraLink } from "@chakra-ui/react"
 import { Outlet } from "react-router-dom"
 import { Footer } from "@/components/Footer"
 import { GoogleAnalytics } from "@/components/GoogleAnalytics"
+import { JsonLd } from "@/components/JsonLd"
+import { siteIdentitySchema } from "@/utils/structuredData"
 
 export function AppLayout() {
   return (
     <Box bg="#FFFDF7" minH="100dvh" display="flex" flexDirection="column">
+      <JsonLd data={siteIdentitySchema()} />
       <ChakraLink
         href="#main-content"
         position="absolute"

@@ -15,6 +15,17 @@ export interface Tool {
   LogoUrl?: string
 }
 
+export interface FeaturedListing {
+  id: string
+  name: string
+  description: string
+  url: string
+  logoUrl: string
+  category: string
+  subtopic: string
+  placement: string
+}
+
 export type Category =
   | "All"
   | "1. Discover"

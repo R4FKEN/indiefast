@@ -6,6 +6,7 @@ const OG_IMAGE = `${SITE_ORIGIN}/og-image.webp`
 const PUBLIC_DIR = path.resolve("public")
 const BLOG_DIR = path.resolve("src/content/blog")
 const TOOLS_PATH = path.resolve("public/tools.json")
+const FEATURED_LISTINGS_PATH = path.resolve("src/data/featured-listings.json")
 
 const CATEGORIES = [
   "1. Discover",
@@ -86,6 +87,11 @@ function loadTools() {
   return data.tools
 }
 
+function loadFeaturedListings() {
+  const data = JSON.parse(fs.readFileSync(FEATURED_LISTINGS_PATH, "utf8"))
+  return data.featuredListings
+}
+
 function categorySlug(category) {
   return category.replace(/^\d+\.\s*/, "").toLowerCase()
 }
@@ -109,7 +115,7 @@ function formatToolEntry(tool) {
   return lines.join("\n")
 }
 
-function buildFullDoc(tools, blogPosts) {
+function buildFullDoc(tools, blogPosts, featuredListings) {
   const featuredCount = tools.filter((t) => t.Featured).length
   const generatedAt = new Date().toISOString().slice(0, 10)
 
@@ -176,6 +182,7 @@ function buildFullDoc(tools, blogPosts) {
   sections.push(`- LLM full reference (text): ${SITE_ORIGIN}/llms-full.txt`)
   sections.push(`- LLM full reference (markdown): ${SITE_ORIGIN}/llms-full.md`)
   sections.push(`- Tool catalog JSON: ${SITE_ORIGIN}/tools.json`)
+  sections.push(`- Featured listings JSON: ${SITE_ORIGIN}/featured-listings.json`)
   sections.push("")
   sections.push("## Contact and legal")
   sections.push("")
@@ -201,6 +208,19 @@ function buildFullDoc(tools, blogPosts) {
     sections.push(`- URL: ${post.canonical}`)
     sections.push(`- Published: ${post.publishedAt}`)
     sections.push(`- Description: ${post.description}`)
+    sections.push("")
+  }
+  sections.push(
+    `## Featured listings (${featuredListings.length}; promotional placements, separate from curated picks)`,
+  )
+  sections.push("")
+  for (const listing of featuredListings) {
+    sections.push(`### ${listing.name}`)
+    sections.push("- Placement: featured promotional listing, not an editorial tool recommendation")
+    sections.push(`- Category: ${listing.category} — ${listing.subtopic}`)
+    sections.push(`- Description: ${listing.description}`)
+    sections.push(`- Website: ${listing.url}`)
+    sections.push(`- Logo: ${SITE_ORIGIN}${listing.logoUrl}`)
     sections.push("")
   }
   sections.push(`## Tools directory (${tools.length} tools, ${featuredCount} featured)`)
@@ -239,7 +259,7 @@ function buildFullDoc(tools, blogPosts) {
   return sections.join("\n")
 }
 
-function buildIndexDoc(tools, blogPosts) {
+function buildIndexDoc(tools, blogPosts, featuredListings) {
   const featuredTools = tools.filter((t) => t.Featured)
   const lines = []
 
@@ -267,6 +287,9 @@ function buildIndexDoc(tools, blogPosts) {
   lines.push(`- [Homepage](${SITE_ORIGIN}/): Tool directory and newsletter`)
   lines.push(`- [Blog](${SITE_ORIGIN}/blog): Stage-by-stage guides for indie makers`)
   lines.push(`- [Tools section](${SITE_ORIGIN}/#tools): Browse all curated picks`)
+  lines.push(
+    `- [Featured listings](${SITE_ORIGIN}/featured-listings.json): Promotional placements, separate from curated picks`,
+  )
   lines.push(`- [Sitemap](${SITE_ORIGIN}/sitemap.xml): All public URLs`)
   lines.push(`- [Open Graph image](${OG_IMAGE}): Social share preview image`)
   lines.push("")
@@ -295,6 +318,17 @@ function buildIndexDoc(tools, blogPosts) {
     lines.push(`- ${tool.Name} (${tool.Category}): ${tool.OneLiner}`)
   }
   lines.push("")
+  lines.push("## Featured listings")
+  lines.push("")
+  lines.push(
+    "Promotional placements shown separately from the editorially curated tool directory:",
+  )
+  for (const listing of featuredListings) {
+    lines.push(
+      `- ${listing.name}: ${listing.description} (${listing.url})`,
+    )
+  }
+  lines.push("")
   lines.push("## Blog posts")
   lines.push("")
   for (const post of blogPosts) {
@@ -312,16 +346,18 @@ function buildIndexDoc(tools, blogPosts) {
   lines.push(`- [Robots.txt](${SITE_ORIGIN}/robots.txt)`)
   lines.push(`- [Open Graph image](${OG_IMAGE})`)
   lines.push(`- [Tools JSON data](${SITE_ORIGIN}/tools.json)`)
+  lines.push(`- [Featured listings JSON](${SITE_ORIGIN}/featured-listings.json)`)
   lines.push("")
 
   return lines.join("\n")
 }
 
 const tools = loadTools()
+const featuredListings = loadFeaturedListings()
 const blogPosts = loadBlogPosts()
 
-const fullDoc = buildFullDoc(tools, blogPosts)
-const indexDoc = buildIndexDoc(tools, blogPosts)
+const fullDoc = buildFullDoc(tools, blogPosts, featuredListings)
+const indexDoc = buildIndexDoc(tools, blogPosts, featuredListings)
 
 const aiTxt = [
   "# ai.txt — https://indiefa.st",
@@ -338,6 +374,7 @@ const aiTxt = [
   "Full: https://indiefa.st/llms-full.txt",
   "Full-Markdown: https://indiefa.st/llms-full.md",
   "Tools: https://indiefa.st/tools.json",
+  "Featured: https://indiefa.st/featured-listings.json",
   "Sitemap: https://indiefa.st/sitemap.xml",
   "",
   "Contact: support@indiefa.st",
@@ -355,6 +392,7 @@ const robotsTxt = [
   "# https://indiefa.st/llms-full.txt",
   "# https://indiefa.st/llms-full.md",
   "# https://indiefa.st/ai.txt",
+  "# https://indiefa.st/featured-listings.json",
   "",
   "Sitemap: https://indiefa.st/sitemap.xml",
   "",
@@ -363,6 +401,11 @@ const robotsTxt = [
 fs.writeFileSync(path.join(PUBLIC_DIR, "llms.txt"), indexDoc, "utf8")
 fs.writeFileSync(path.join(PUBLIC_DIR, "llms-full.txt"), fullDoc, "utf8")
 fs.writeFileSync(path.join(PUBLIC_DIR, "llms-full.md"), fullDoc, "utf8")
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, "featured-listings.json"),
+  `${JSON.stringify({ featuredListings }, null, 2)}\n`,
+  "utf8",
+)
 fs.writeFileSync(path.join(PUBLIC_DIR, "ai.txt"), aiTxt, "utf8")
 fs.mkdirSync(path.join(PUBLIC_DIR, ".well-known"), { recursive: true })
 fs.writeFileSync(path.join(PUBLIC_DIR, ".well-known", "ai.txt"), aiTxt, "utf8")
@@ -371,4 +414,6 @@ fs.writeFileSync(path.join(PUBLIC_DIR, "robots.txt"), robotsTxt, "utf8")
 console.log(`[llms] Wrote llms.txt (${indexDoc.length} chars)`)
 console.log(`[llms] Wrote llms-full.txt and llms-full.md (${fullDoc.length} chars each, identical)`)
 console.log(`[llms] Wrote ai.txt, .well-known/ai.txt, and robots.txt`)
-console.log(`[llms] ${tools.length} tools, ${blogPosts.length} blog posts`)
+console.log(
+  `[llms] ${tools.length} tools, ${featuredListings.length} featured listings, ${blogPosts.length} blog posts`,
+)

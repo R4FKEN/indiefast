@@ -7,9 +7,13 @@ This repo is now configured for SEO-friendly static deployment:
 - Blog routes use `react-helmet-async` for route-specific metadata (including the same OG image)
 - `scripts/generate-sitemap.mjs` creates `public/sitemap.xml` (includes image sitemap entries for the OG image)
 - `scripts/generate-llms.mjs` creates `public/llms.txt`, `llms-full.txt`, and `llms-full.md`
+- JSON-LD covers the site organization and website, the curated and featured homepage lists, blog articles and breadcrumbs, and each post's visible FAQ.
+- `src/data/featured-listings.json` is the source for featured UI cards and their generated public/LLM listing; these are kept separate from curated recommendations.
+- `scripts/validate-seo-data.mjs` checks catalog/listing data and FAQ JSON-LD before and after asset generation.
 - `scripts/prerender.mjs` prerenders routes from the sitemap into `dist` (optional SEO step)
 - Default `npm run build` is bolt.new / CI safe (no Puppeteer). Use `npm run build:seo` when Chromium is available.
 - Prefer **`npm run build:seo` for production** when Chromium/Puppeteer is available so lazy route chunks and async blog/tools content are baked into static HTML.
+- The prerender step also checks that route HTML contains valid JSON-LD for its page type. Without prerendering, route schemas are added client-side.
 - Code splitting: route-level `React.lazy`, deferred `jspdf`, per-post markdown chunks, `/tools.json` fetched as a static asset (not inlined into JS).
 - Netlify functions remain available for `/api/subscribe` and `/api/tools`
 
@@ -20,18 +24,22 @@ This repo is now configured for SEO-friendly static deployment:
 ### New scripts
 - `npm run generate:sitemap`
 - `npm run generate:llms`
+- `npm run validate:seo`
+- `npm run validate:seo:generated`
 - `npm run prerender` (requires `npm i -D puppeteer` first — not in default deps so bolt.new/CI stay light)
 - `npm run build` runs:
-  1. `npm run generate:sitemap`
-  2. `npm run generate:llms`
-  3. `vite build`
+  1. `npm run validate:seo`
+  2. `npm run generate:sitemap`
+  3. `npm run generate:llms`
+  4. `npm run validate:seo:generated`
+  5. `vite build`
 - `npm run build:seo` runs `build` then `prerender`
 
 ### What prerendering does
 - Launches a local server serving `dist`
-- Uses Puppeteer to render each route from `public/sitemap.xml`
+- Uses Puppeteer to render each page route from `public/sitemap.xml` (static files are excluded)
 - Writes static HTML for each route into `dist`
-- Ensures blog pages have prerendered content and metadata for crawlers
+- Ensures blog pages have prerendered content and metadata for crawlers, and verifies JSON-LD output
 
 ---
 

@@ -5,9 +5,20 @@ import { useEffect, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { BlogPostFaq } from "@/components/BlogPostFaq"
+import { JsonLd } from "@/components/JsonLd"
+import {
+  BreadcrumbCurrentLink,
+  BreadcrumbLink,
+  BreadcrumbRoot,
+} from "@/components/ui/breadcrumb"
 import { SITE_COPY } from "@/constants/site-copy"
 import { loadBlogPostBySlug } from "@/data/blog-posts"
 import type { BlogPost } from "@/types"
+import {
+  blogPostingSchema,
+  breadcrumbListSchema,
+  type BreadcrumbItem,
+} from "@/utils/structuredData"
 
 type LoadState =
   | { status: "loading" }
@@ -58,6 +69,21 @@ export function BlogPostPage() {
 
   const { post } = state
   const displayTitle = post.title.split(" | ")[0]
+  const slugSegments = post.slug.split("/")
+  const parentBreadcrumbs: BreadcrumbItem[] = slugSegments.slice(0, -1).map((segment, index) => {
+    const path = slugSegments.slice(0, index + 1).join("/")
+    const name = segment
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
+    return { name, url: `https://indiefa.st/blog/${path}` }
+  })
+  const breadcrumbs: BreadcrumbItem[] = [
+    { name: "Home", url: "https://indiefa.st/" },
+    { name: "Blog", url: "https://indiefa.st/blog" },
+    ...parentBreadcrumbs,
+    { name: displayTitle, url: post.canonical },
+  ]
 
   return (
     <>
@@ -74,25 +100,19 @@ export function BlogPostPage() {
         <meta name="twitter:description" content={post.ogDescription} />
         <meta name="twitter:image" content={SITE_COPY.ogImage} />
         <link rel="canonical" href={post.canonical} />
-        {post.faqSchema ? (
-          <script type="application/ld+json">
-            {JSON.stringify(post.faqSchema)}
-          </script>
-        ) : null}
       </Helmet>
+      <JsonLd data={blogPostingSchema(post)} />
+      <JsonLd data={breadcrumbListSchema(breadcrumbs)} />
+      {post.faqSchema && <JsonLd data={post.faqSchema} />}
       <Box maxW="3xl" data-page="blog-post">
-        <Link to="/blog">
-          <Text
-            fontSize="sm"
-            color="#666"
-            fontWeight="bold"
-            mb="6"
-            display="inline-block"
-            _hover={{ color: "#1a1a1a", textDecoration: "underline" }}
-          >
-            ← Back to Blog
-          </Text>
-        </Link>
+        <BreadcrumbRoot mb="6" aria-label="Breadcrumb">
+          {breadcrumbs.slice(0, -1).map((item) => (
+            <BreadcrumbLink key={item.url} asChild>
+              <Link to={item.url.replace("https://indiefa.st", "")}>{item.name}</Link>
+            </BreadcrumbLink>
+          ))}
+          <BreadcrumbCurrentLink>{displayTitle}</BreadcrumbCurrentLink>
+        </BreadcrumbRoot>
 
         <Box
           border="2px solid"

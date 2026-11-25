@@ -12,6 +12,7 @@ Index: https://indiefa.st/llms.txt
 Full: https://indiefa.st/llms-full.txt
 Full-Markdown: https://indiefa.st/llms-full.md
 Tools: https://indiefa.st/tools.json
+Featured: https://indiefa.st/featured-listings.json
 Sitemap: https://indiefa.st/sitemap.xml
 
 Contact: support@indiefa.st

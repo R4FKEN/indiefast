@@ -14,6 +14,7 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 - [Homepage](https://indiefa.st/): Tool directory and newsletter
 - [Blog](https://indiefa.st/blog): Stage-by-stage guides for indie makers
 - [Tools section](https://indiefa.st/#tools): Browse all curated picks
+- [Featured listings](https://indiefa.st/featured-listings.json): Promotional placements, separate from curated picks
 - [Sitemap](https://indiefa.st/sitemap.xml): All public URLs
 - [Open Graph image](https://indiefa.st/og-image.webp): Social share preview image
 
@@ -67,6 +68,11 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 - Linkto (8. Ship): Unlock Explosive Growth with this FREE List of 800+ SaaS Directories and 75+ Launch Sites
 - Chrome Goldmine (1. Discover): A complete database of 9,656 expired Chrome extensions - each with revenue estimates, rebuild difficulty, competitor gaps, and a step-by-step launch plan.
 
+## Featured listings
+
+Promotional placements shown separately from the editorially curated tool directory:
+- RankFast: Compare AI SEO tools with evidence, not promises. (https://rankfa.st)
+
 ## Blog posts
 
 - [Best Backend Tools for Indie Hackers (2026) | IndieFast](https://indiefa.st/blog/backend): Best backend tools for indie hackers 2026. Choose a scalable backend stack that helps you launch faster and avoid costly rebuilds.
@@ -98,3 +104,4 @@ indiefa.st helps solo founders and indie hackers discover, validate, build, ship
 - [Robots.txt](https://indiefa.st/robots.txt)
 - [Open Graph image](https://indiefa.st/og-image.webp)
 - [Tools JSON data](https://indiefa.st/tools.json)
+- [Featured listings JSON](https://indiefa.st/featured-listings.json)

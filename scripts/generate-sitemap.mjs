@@ -4,6 +4,7 @@ import path from "node:path"
 const SITE_ORIGIN = "https://indiefa.st"
 const OG_IMAGE = `${SITE_ORIGIN}/og-image.webp`
 const BLOG_DIR = path.resolve("src/content/blog")
+const FEATURED_LISTINGS_SOURCE = path.resolve("src/data/featured-listings.json")
 const OUTPUT = path.resolve("public/sitemap.xml")
 
 const PUBLISHED_AT = {
@@ -85,6 +86,7 @@ const latestBlogDate = blogEntries.reduce(
   "2026-06-29",
 )
 const catalogDate = fileDate(path.resolve("public/tools.json"))
+const featuredListingsDate = fileDate(FEATURED_LISTINGS_SOURCE)
 const homeDate = laterDate(latestBlogDate, catalogDate)
 
 const discoveryEntries = [
@@ -93,9 +95,10 @@ const discoveryEntries = [
   ["llms-full.md", "weekly", "0.4"],
   ["ai.txt", "monthly", "0.3"],
   ["tools.json", "weekly", "0.5"],
+  ["featured-listings.json", "weekly", "0.5"],
 ].map(([file, changefreq, priority]) => ({
   loc: `${SITE_ORIGIN}/${file}`,
-  lastmod: catalogDate,
+  lastmod: file === "featured-listings.json" ? featuredListingsDate : catalogDate,
   changefreq,
   priority,
 }))

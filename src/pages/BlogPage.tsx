@@ -1,13 +1,14 @@
-import { Box, Flex, Grid, Heading, Icon, Image, Text } from "@chakra-ui/react"
+import { Box, Flex, Grid, Heading, Image, Text } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet-async"
 import { useEffect, useState } from "react"
-import { LuArrowLeft } from "react-icons/lu"
 import { loadAllBlogPosts } from "@/data/blog-posts"
 import { BlogPostCard } from "@/components/BlogPostCard"
-import { BreadcrumbLink, BreadcrumbRoot } from "@/components/ui/breadcrumb"
+import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from "@/components/ui/breadcrumb"
+import { JsonLd } from "@/components/JsonLd"
 import { SITE_COPY } from "@/constants/site-copy"
 import type { BlogPost } from "@/types"
+import { breadcrumbListSchema, itemListSchema } from "@/utils/structuredData"
 
 export function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[] | null>(null)
@@ -48,26 +49,30 @@ export function BlogPage() {
         <meta name="twitter:image" content={SITE_COPY.ogImage} />
         <link rel="canonical" href="https://indiefa.st/blog" />
       </Helmet>
+      <JsonLd
+        data={breadcrumbListSchema([
+          { name: "Home", url: "https://indiefa.st/" },
+          { name: "Blog", url: "https://indiefa.st/blog" },
+        ])}
+      />
+      {indexPosts && indexPosts.length > 0 && (
+        <JsonLd
+          data={itemListSchema(
+            "IndieFast blog",
+            indexPosts.map((post) => ({
+              name: post.title,
+              description: post.description,
+              url: post.canonical,
+            })),
+          )}
+        />
+      )}
       <Box data-page="blog-index">
         <BreadcrumbRoot mb="6" aria-label="Breadcrumb">
           <BreadcrumbLink asChild>
-            <Link to="/">
-              <Flex
-                as="span"
-                align="center"
-                gap="1.5"
-                fontSize="sm"
-                color="#666"
-                fontWeight="bold"
-                _hover={{ color: "#1a1a1a", textDecoration: "underline" }}
-              >
-                <Icon boxSize="3.5" aria-hidden>
-                  <LuArrowLeft />
-                </Icon>
-                Back to homepage
-              </Flex>
-            </Link>
+            <Link to="/">Home</Link>
           </BreadcrumbLink>
+          <BreadcrumbCurrentLink>Blog</BreadcrumbCurrentLink>
         </BreadcrumbRoot>
 
         <Box mb="10">

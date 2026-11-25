@@ -4,15 +4,34 @@ type JsPdfDoc = InstanceType<typeof import("jspdf").jsPDF>
 
 const LOGO_URL = "/indiefast-logo-nobg-500x500.png"
 
-async function loadImageAsDataUrl(url: string): Promise<string> {
+async function loadImageAsDataUrl(url: string): Promise<{
+  dataUrl: string
+  format: "PNG"
+}> {
   const res = await fetch(url)
+  if (!res.ok) throw new Error(`Could not load ${url}`)
   const blob = await res.blob()
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => resolve(reader.result as string)
-    reader.onerror = reject
-    reader.readAsDataURL(blob)
-  })
+  const objectUrl = URL.createObjectURL(blob)
+
+  try {
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = new Image()
+      element.onload = () => resolve(element)
+      element.onerror = () => reject(new Error(`Could not decode image ${url}`))
+      element.src = objectUrl
+    })
+    const canvas = document.createElement("canvas")
+    canvas.width = image.naturalWidth
+    canvas.height = image.naturalHeight
+
+    const context = canvas.getContext("2d")
+    if (!context) throw new Error("Could not create image canvas")
+    context.drawImage(image, 0, 0)
+
+    return { dataUrl: canvas.toDataURL("image/png"), format: "PNG" }
+  } finally {
+    URL.revokeObjectURL(objectUrl)
+  }
 }
 
 function categoryOrder(category: string): number {
@@ -55,20 +74,24 @@ function renderMonthlySavingsPill(
   label: string,
 ): number {
   doc.setFont("helvetica", "bold")
-  doc.setFontSize(8)
+  doc.setFontSize(16)
   const textWidth = doc.getTextWidth(label)
-  const padX = 3
+  const padX = 6
   const pillWidth = textWidth + padX * 2
-  const pillHeight = 6
+  const pillHeight = 10
   const pillX = centerX - pillWidth / 2
+  const pillY = y - pillHeight + 2
 
   doc.setFillColor(...PILL_FILL)
   doc.setDrawColor(...PILL_BORDER)
   doc.setLineWidth(0.5)
-  doc.roundedRect(pillX, y - pillHeight + 2, pillWidth, pillHeight, 1.2, 1.2, "FD")
+  doc.roundedRect(pillX, pillY, pillWidth, pillHeight, 1.2, 1.2, "FD")
 
   doc.setTextColor(...PILL_TEXT)
-  doc.text(label, centerX, y, { align: "center" })
+  doc.text(label, centerX, pillY + pillHeight / 2, {
+    align: "center",
+    baseline: "middle",
+  })
 
   return pillHeight + 6
 }
@@ -90,7 +113,7 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
   const logoData = await loadImageAsDataUrl(LOGO_URL).catch(() => null)
   const logoSize = 18
   if (logoData) {
-    doc.addImage(logoData, "PNG", marginX, y, logoSize, logoSize)
+    doc.addImage(logoData.dataUrl, logoData.format, marginX, y, logoSize, logoSize)
   }
 
   doc.setFont("helvetica", "bold")
@@ -143,26 +166,69 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
     ensureSpace(14)
     doc.setFont("helvetica", "bold")
     doc.setFontSize(11)
-    doc.setTextColor(120, 120, 120)
+    doc.setTextColor(80, 80, 80)
     doc.text(category.toUpperCase(), marginX, y)
-    y += 6
+    y += 9
 
     for (const tool of tools) {
+      const titleLogoSize = 6
+      const titleLogo = tool.LogoUrl
+        ? await loadImageAsDataUrl(tool.LogoUrl).catch(() => null)
+        : null
+
+      let discountWidth = 0
+      if (tool.Discount) {
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(8)
+        discountWidth = doc.getTextWidth(tool.Discount) + 4
+      }
+
+      const titleStartX = marginX + titleLogoSize + 4
+      const titleAvailableWidth =
+        contentWidth - titleLogoSize - 4 - (discountWidth ? discountWidth + 4 : 0)
+
       doc.setFont("helvetica", "bold")
       doc.setFontSize(13)
       doc.setTextColor(30, 110, 220)
-      const titleLines = doc.splitTextToSize(tool.Name, contentWidth) as string[]
+      const titleLines = doc.splitTextToSize(tool.Name, titleAvailableWidth) as string[]
       ensureSpace(titleLines.length * 6 + 10)
+
+      if (titleLogo) {
+        doc.addImage(
+          titleLogo.dataUrl,
+          titleLogo.format,
+          marginX,
+          y + (titleLines.length - 1) * 6 + 0.8 - titleLogoSize,
+          titleLogoSize,
+          titleLogoSize,
+        )
+      }
 
       titleLines.forEach((line, idx) => {
         const textWidth = doc.getTextWidth(line)
-        doc.textWithLink(line, marginX, y, { url: tool.AffiliateURL })
+        const titleY = y + idx * 6
+        doc.textWithLink(line, titleStartX, titleY, { url: tool.AffiliateURL })
         doc.setDrawColor(30, 110, 220)
         doc.setLineWidth(0.3)
-        doc.line(marginX, y + 0.8, marginX + textWidth, y + 0.8)
-        if (idx < titleLines.length - 1) y += 6
+        doc.line(titleStartX, titleY + 0.8, titleStartX + textWidth, titleY + 0.8)
       })
-      y += 6
+
+      if (tool.Discount) {
+        const badgeHeight = 6
+        const badgeX = pageWidth - marginX - discountWidth
+        const badgeY = y - 4.5
+
+        doc.setFillColor(255, 107, 107)
+        doc.setDrawColor(26, 26, 26)
+        doc.setLineWidth(0.4)
+        doc.roundedRect(badgeX, badgeY, discountWidth, badgeHeight, 1.2, 1.2, "FD")
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(8)
+        doc.setTextColor(255, 255, 255)
+        doc.text(tool.Discount, badgeX + 2, badgeY + 4)
+      }
+
+      y += Math.max(titleLines.length * 6, titleLogo ? titleLogoSize : 0)
 
       renderParagraph(tool.Reasoning || "")
 
@@ -174,7 +240,7 @@ export async function exportStackToPdf(stack: Tool[]): Promise<void> {
 
   const monthlyHours = sumMonthlyHoursSaved(stack)
   const pillLabel = formatStackHoursLabel(monthlyHours)
-  const pillBlockHeight = 14
+  const pillBlockHeight = 18
   const footerHeight = 18
 
   ensureSpace(pillBlockHeight + footerHeight)
